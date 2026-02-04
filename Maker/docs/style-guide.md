@@ -1,0 +1,804 @@
+# スライドスタイルガイド
+
+## デザイン哲学
+- 美麗でシンプル：情報過多を避け、視覚的にクリーン
+- 色数制限：グレースケール基調に限定的なアクセントカラー
+- 可読性重視：フォントサイズと余白を適切に
+- 一貫性：パターンの繰り返しで理解しやすく
+
+## カラーパレット
+
+### プライマリグラデーション
+```css
+background: linear-gradient(to right, #1B4565, #3E9BA4);
+```
+- タイトルスライド、セクション開始、強調スライドに使用
+
+### グレースケール
+- `gray-50`: #F9FAFB - パネル背景（淡い）
+- `gray-100`: #F3F4F6 - パネル背景（やや濃い）
+- `gray-600`: #4B5563 - サブテキスト
+- `gray-700`: #374151 - 見出しテキスト
+- `gray-800`: #1F2937 - メインテキスト
+
+### アクセントカラー
+- プライマリ: #3E9BA4（グラデーションの終点）
+- セカンダリ: #1B4565（グラデーションの始点）
+
+## タイポグラフィ
+
+### フォントサイズ（スライド用・後列視認性重視）
+- タイトル: 64-80px（スライドタイプにより調整）
+- 見出し: 42-52px
+- 本文: 24-32px
+- サブテキスト: 18-22px
+
+**注意**: スライドはWEBページよりも大きなフォントサイズが必要です。後列の聴衆にも見えるよう、十分なサイズを確保してください。
+
+### フォントウェイト
+- タイトル・見出し: 700 (Bold)
+- 本文: 400 (Regular)
+- 強調: 600 (SemiBold)
+
+## アクセシビリティ規則
+
+### コントラスト比（WCAG 2.1 AA基準）
+- **通常のテキスト**: 4.5:1以上（18px未満、または14pt未満）
+- **大きなテキスト**: 3:1以上（18px以上、または14pt以上の太字）
+- **UIコンポーネント**: 3:1以上（ボタン、フォーム要素など）
+
+### カラーコントラストの推奨値
+- **背景色が濃い場合（#3E9BA4など）**:
+  - テキスト色: `#FFFFFF`（white）を明示的に指定
+  - h1, h2, h3などの見出しも同様に`color: white`を指定
+- **背景色が薄い場合（#F9FAFB, #F3F4F6など）**:
+  - テキスト色: `#1F2937`（gray-800）以上
+  - 見出し: `#374151`（gray-700）以上
+
+### アクセシビリティチェックリスト
+- [ ] すべてのテキストが十分なコントラスト比を満たしている
+- [ ] 色だけで情報を伝えていない（アイコンやテキストも併用）
+- [ ] フォントサイズが適切（最小14px以上推奨）
+- [ ] インタラクティブ要素にフォーカス表示がある
+- [ ] 画像に代替テキストがある
+
+### カラーコントラスト計算ツール
+- オンラインツール: WebAIM Contrast Checker
+- 推奨コントラスト比計算式: (L1 + 0.05) / (L2 + 0.05)
+  - L1: 明るい色の相対輝度
+  - L2: 暗い色の相対輝度
+
+## 余白・スペーシング
+
+### 基本単位
+- 基本単位: 8px
+- 小余白: 16px
+- 中余白: 24px
+- 大余白: 32px
+- 特大余白: 48px
+
+### パネル内余白
+- パディング: 24-32px
+- 要素間隔: 24-32px（スライド用に大きめに設定）
+
+### 見出しとコンテンツ間の余白（重要）
+スライドでは、見出しと本文の間に十分な余白が必要です。
+
+- **h1の下**: 32px（本文との間隔）
+- **h2の下**: 32px（本文との間隔）
+- **h3の下**: 20px（本文との間隔）
+- **段落間**: 24px（読みやすさを確保）
+- **div要素間**: 24px（要素間の適切な間隔）
+
+**注意**: 見出し直後の要素（p, divなど）の上マージンは0に設定し、見出しの下マージンで間隔を確保します。これにより、一貫性のある余白が保たれます。
+
+### リスト内の段落の余白
+リスト内の段落（`<p>`要素）のmarginは、通常の段落よりも小さく設定します。
+
+- **リスト内の段落**: `margin-bottom: 8px`
+- **リスト内の最後の段落**: `margin-bottom: 0`
+
+これにより、リストの0インデントのテキストの下のmarginが適切に調整され、セーフエリア内に収まります。
+
+### セーフエリア（重要）
+スライドの要素がページをはみ出さないよう、セーフエリアを定義します。
+
+#### セーフエリアの定義
+- **上部**: タイトルは上部20%以内に配置
+- **本文エリア**: 画面の80%以内に収める（上部20% + 本文60%）
+- **下部**: 下部10%は空けておく（フッターや装飾用）
+- **左右**: 左右5%ずつ余白を確保（合計10%の左右余白）
+
+#### 実装方法
+```css
+/* セーフエリアの実装例 */
+.safe-area {
+  max-width: 90%; /* 左右5%ずつ余白 */
+  max-height: 80vh; /* 上部20% + 本文60% */
+  margin: 0 auto;
+  padding: 0 5%;
+}
+```
+
+#### 画像のサイズ指定
+画像がスライドを破壊しないよう、必ずサイズを明示的に指定してください。
+
+```markdown
+<!-- ❌ ダメな例 -->
+![](huge-image.png)
+<!-- 巨大画像がスライドを破壊 -->
+
+<!-- ✅ 良い例 -->
+![width:600px](huge-image.png)
+<!-- サイズを明示的に指定 -->
+```
+
+#### 表のレスポンシブ対応
+表は自動的に幅調整されますが、内容が多い場合は改行を入れるか、列数を減らしてください。
+
+```markdown
+| 項目 | Before | After |
+|:-----|-------:|------:|
+| 作成時間 | 30分 | 5分 |
+| 見切れ修正 | 15分 | 0分 |
+| 合計 | 45分 | 5分 |
+```
+
+**注意**: 表の内容が多すぎる場合は、複数のスライドに分割することを検討してください。
+
+#### 表のスタイル定義
+表がスライドをはみ出さないよう、以下のスタイルを適用します。
+
+```css
+/* 表のレスポンシブスタイル */
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  font-size: 20px;
+  margin: 24px 0;
+  table-layout: auto;
+  word-break: break-word;
+}
+
+table th,
+table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #E5E7EB;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+table th {
+  font-weight: 600;
+  color: var(--color-heading);
+  background-color: #F9FAFB;
+  white-space: nowrap;
+}
+
+table td {
+  color: var(--color-foreground);
+}
+
+/* 最初の列（項目）を狭く、後ろの列を広く */
+table th:first-child,
+table td:first-child {
+  width: 20%;
+  min-width: 100px;
+}
+
+table th:nth-child(2),
+table td:nth-child(2),
+table th:nth-child(3),
+table td:nth-child(3) {
+  width: 40%;
+}
+```
+
+**実装のポイント**:
+- `width: 100%`で表の幅をスライド幅に合わせる
+- `max-width: 100%`で最大幅を制限
+- `table-layout: fixed`で列幅を均等に分配
+- フォントサイズは22px程度（スライド用に大きめ）
+
+## スライドパターン分類
+
+### A. タイトル・セクション系（5種）
+1. タイトルスライド - グラデーション背景、中央配置
+2. セクション開始 - セクション番号付き、グラデーション
+3. セクション終了・まとめ - 要点を箇条書き
+4. 目次スライド - ナビゲーション用
+5. クロージングスライド - 連絡先・QRコード
+
+### B. カラムレイアウト系（8種）
+6. 2カラム比較（Before/After）
+7. 2カラム対比
+8. 3カラムレイアウト（等幅）
+9. 3カラム（アクセントカラー）
+10. 4カラムレイアウト
+11. 5カラム（成熟度レベル）
+12. 2x2グリッド
+13. 2x3グリッド
+
+### C. 縦並びリスト系（4種）
+14. ステップリスト - 番号付き、順序性を強調
+15. タイムライン - 時系列の流れ
+16. アイコン付きリスト - 視覚的区別
+17. チェックリスト - 完了状態の表示
+
+#### チェックリストの実装
+チェックリストは完了状態を視覚的に表示するパターンです。HTML形式で実装し、チェックマークとテキストを適切にスタイリングします。
+
+```css
+/* チェックリストのスタイル */
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: start;
+  gap: 12px;
+  margin: 0;
+}
+
+.checklist-checkbox {
+  color: #10B981;
+  font-size: 24px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.checklist-text {
+  font-size: 24px;
+  color: var(--color-foreground);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.checklist-item.unchecked .checklist-checkbox {
+  color: #9CA3AF;
+}
+```
+
+**実装例**:
+```html
+<div class="checklist">
+  <div class="checklist-item">
+    <div class="checklist-checkbox">☑</div>
+    <div class="checklist-text">主語（ユーザー/システム）が明記されている</div>
+  </div>
+  <div class="checklist-item unchecked">
+    <div class="checklist-checkbox">☐</div>
+    <div class="checklist-text">エラーケースが考慮されている（オプション）</div>
+  </div>
+</div>
+```
+
+**チェックマークの使い分け**:
+- **完了項目**: `☑`（四角の中にチェックマーク、緑色）
+- **未完了項目**: `☐`（空の四角、グレー）
+
+### D. パネルデザイン系（5種）
+18. 基本パネル - グレー背景、シンプル
+19. 強調パネル - アクセントカラー使用
+20. ガラス風パネル - 半透明、ぼかし効果
+21. グラデーションパネル - グラデーション背景
+22. ボーダーパネル - 枠線で区別
+
+#### 基本パネルの実装
+パネルは情報を視覚的に区別するためのコンテナです。`.panel`クラスを使用します。
+
+```css
+.panel {
+  background: #F9FAFB; /* gray-50 */
+  margin: 0;
+  border-radius: 8px;
+}
+
+/* border-leftがある時は左上と左下のradiusを削除 */
+.panel[style*="border-left"] {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+```
+
+**注意**: 
+- パネル要素にはデフォルトで`margin: 0`が設定されています。親要素の`gap`プロパティで間隔を制御してください。
+- `border-left`が設定されている場合、左上と左下の`border-radius`は自動的に0になります。これは、左側にボーダーがある場合、角が丸いと見た目が悪くなるためです。
+
+### E. 背景・画像系（4種）
+23. 全画面背景 - 全画面に背景色・グラデーション・画像を適用（インパクト重視）
+24. 右側配置 - 画像を右側に配置
+25. 左側配置 - 画像を左側に配置
+26. 引用スライド - 引用文を強調
+
+#### 全画面背景の実装
+全画面背景はインパクトが必要なパターンです。section要素自体に背景を設定し、余白を最小限にします。
+
+```css
+.fullscreen-background {
+  padding: 0 !important;
+  background: linear-gradient(to right, #1B4565, #3E9BA4);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullscreen-background > * {
+  padding: var(--slide-padding);
+  max-width: 100%;
+}
+```
+- **padding**: 0（section要素の余白を削除）
+- **背景**: section要素に直接設定
+- **コンテンツ**: 中央配置で表示
+- **コンテンツ内のパディング**: 必要に応じてコンテンツ要素に設定
+
+### F. 強調・特殊系（3種）
+27. 統計スライド - 数値を大きく表示
+28. 中央配置 - シンプルな中央配置
+29. Q&Aスライド - 質問と回答
+
+### G. 応用パターン（10種）
+30. QRコード - リンク共有用
+31. 問いかけ - 質問で思考を促す
+32. まとめ - 要点を整理
+33. 企業事例 - ケーススタディ
+34. 比較表 - 複数項目の比較
+35. プロセスフロー - プロセスの可視化
+36. メリット・デメリット - 両面の提示
+37. チェックポイント - 確認項目
+38. 参考資料 - 参考文献リスト
+39. 次回予告 - 続きの案内
+
+## スライド基本スタイル
+
+### section要素の基本設定
+```css
+section {
+  background-color: #FFFFFF;
+  color: #1F2937;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.7;
+  box-sizing: border-box;
+  padding: 48px;
+  position: relative;
+}
+```
+- **パディング**: 48px（基本単位の6倍）で一貫性を保つ
+- **行間**: 1.7で可読性を確保
+- **フォントサイズ**: 24px（スライド用本文推奨サイズ、後列視認性を考慮）
+
+### 見出しの基本スタイル
+```css
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  color: #374151; /* gray-700 */
+}
+```
+
+#### h1（タイトルスライド用）
+```css
+h1 {
+  font-size: 64px;
+  line-height: 1.4;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+```
+- タイトルスライドや重要なメッセージに使用
+- 必要に応じて80pxまで拡大可能
+- スライド用に十分なサイズを確保
+- **下マージン**: 32px（本文との適切な間隔）
+
+#### h2（セクション見出し）
+```css
+h2 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #374151;
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+```
+- 通常スライドのメイン見出し
+- 必要に応じて52pxまで拡大可能
+- スライド用に十分なサイズを確保
+- **下マージン**: 32px（本文との適切な間隔）
+
+#### h3（サブ見出し）
+```css
+h3 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #4B5563;
+  margin-top: 32px;
+  margin-bottom: 20px;
+}
+```
+- スライド用に十分なサイズを確保
+- **上マージン**: 32px（前の要素との間隔）
+- **下マージン**: 20px（本文との適切な間隔）
+
+### 段落・要素間の余白
+```css
+p {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+p + p {
+  margin-top: 0;
+}
+
+div {
+  margin-bottom: 24px;
+}
+
+h1 + *,
+h2 + *,
+h3 + * {
+  margin-top: 0;
+}
+```
+- **段落間**: 24px（読みやすさを確保）
+- **見出し直後の要素**: マージンなし（見出しの下マージンで間隔を確保）
+- **div要素**: 24pxの下マージン（要素間の適切な間隔）
+
+### リストのスタイル
+```css
+ul, ol {
+  padding-left: 32px;
+  margin: 16px 0;
+}
+li {
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+```
+
+## ヘッダー・フッター
+
+### 基本方針
+- **フッター**: デフォルトで表示（ロゴとページ数は有用な情報）
+- **ヘッダー**: オプション（優先度低）- デフォルトでは非表示、必要に応じて`.with-header`クラスで表示
+- **例外**: タイトルスライド、セクション開始スライドなど、特定のクラスではフッターも非表示
+
+### ヘッダー（ページタイトル）【オプション・優先度低】
+```css
+/* デフォルトでは非表示 */
+header {
+  display: none;
+}
+
+/* .with-headerクラスで表示 */
+.with-header header {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: var(--slide-padding);
+  right: var(--slide-padding);
+  min-height: 60px;
+  align-items: center;
+  border-bottom: 2px solid var(--color-hr);
+  font-size: var(--font-size-heading);
+  font-weight: 700;
+  color: var(--color-heading);
+  padding: var(--spacing-small) 0;
+  line-height: 1.2;
+}
+```
+- **デフォルト**: 非表示（優先度低のオプション要素）
+- **表示方法**: `.with-header`クラスを追加することで表示
+- **位置**: スライド上部
+- **内容**: ページタイトル（`<header>`要素として明示的に指定）
+- **スタイル**: 見出しと同じフォントサイズ、下線で区切り
+- **パディング**: 上下均等（16px）でバランスを確保
+- **行間**: 1.2でテキストの垂直位置を調整
+
+**推奨**: ヘッダーは通常不要です。スライドの見出し（h1, h2）で十分に情報が伝わります。特別な理由がある場合のみ使用してください。
+
+### フッター（ロゴとページ数）
+```css
+footer {
+  position: absolute;
+  bottom: 0;
+  left: var(--slide-padding);
+  right: var(--slide-padding);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2px solid var(--color-hr);
+  font-size: var(--font-size-subheading);
+  color: var(--color-subheading);
+  padding: var(--spacing-small) 0;
+  line-height: 1.2;
+}
+```
+- **パディング**: 上下均等（16px）でバランスを確保
+- **行間**: 1.2でテキストの垂直位置を調整
+
+footer::before {
+  content: '';
+  width: 180px;
+  height: 50px;
+  background-image: url('logo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left center;
+}
+
+footer::after {
+  content: counter(page) ' / ' counter(pages);
+  font-weight: 600;
+}
+```
+- **位置**: スライド下部
+- **左側**: ロゴ（背景画像）
+- **右側**: ページ数（Marpのカウンターを使用）
+- **スタイル**: 上線で区切り、サブ見出しサイズのフォント
+
+### コンテンツエリアの調整
+```css
+section {
+  padding-top: var(--slide-padding); /* デフォルト */
+  padding-bottom: 100px; /* フッター分の余白 */
+}
+
+/* ヘッダーを表示する場合のみ上部パディングを増やす */
+.with-header {
+  padding-top: 100px;
+}
+```
+- フッターの高さ分、コンテンツエリアの下部パディングを調整
+- ヘッダーを表示する場合のみ、上部パディングを追加
+
+### フッターを非表示にするクラス
+```css
+/* タイトルスライド */
+.title-slide footer {
+  display: none;
+}
+.title-slide {
+  padding-top: var(--slide-padding);
+  padding-bottom: var(--slide-padding);
+}
+
+/* セクション開始スライド */
+.section-start footer {
+  display: none;
+}
+.section-start {
+  padding-top: var(--slide-padding);
+  padding-bottom: var(--slide-padding);
+}
+
+/* 明示的にフッターを非表示にするクラス */
+.no-footer {
+  padding-bottom: var(--slide-padding);
+}
+.no-footer footer {
+  display: none;
+}
+```
+
+### 使用例
+
+#### 通常のスライド（フッターのみ表示・推奨）
+```markdown
+## スライドタイトル
+
+コンテンツ...
+```
+- フッターにロゴとページ数が自動表示
+- ヘッダーは表示されない（通常は不要）
+
+#### ヘッダーを表示する場合（オプション）
+```markdown
+<!-- _class: with-header -->
+
+<header>スライドタイトル</header>
+
+## スライドタイトル
+
+コンテンツ...
+```
+- `.with-header`クラスを追加することでヘッダーを表示
+- ヘッダーの内容は`<header>`要素として明示的に指定
+- **推奨**: 通常は不要。特別な理由がある場合のみ使用
+
+#### タイトルスライド（フッター非表示）
+```markdown
+<!-- _class: title-slide -->
+
+# メインタイトル
+
+サブタイトル
+```
+- フッターは非表示（ヘッダーはデフォルトで非表示）
+
+#### セクション開始（フッター非表示）
+```markdown
+<!-- _class: section-start -->
+
+# セクション 1
+
+イントロダクション
+```
+- フッターは非表示（ヘッダーはデフォルトで非表示）
+
+#### フッターを明示的に非表示
+```markdown
+<!-- _class: no-footer -->
+
+## フルスクリーンコンテンツ
+
+全画面を使いたい場合
+```
+- フッターを明示的に非表示（ヘッダーはデフォルトで非表示）
+
+## Marpテーマ設定
+
+### CSS変数定義
+```css
+@theme default {
+  /* カラー */
+  --color-background: #FFFFFF;
+  --color-foreground: #1F2937;
+  --color-heading: #374151;
+  --color-subheading: #4B5563;
+  --color-primary: #3E9BA4;
+  --color-secondary: #1B4565;
+  --color-hr: #3E9BA4; /* 区切り線用 */
+  
+  /* タイポグラフィ（スライド用・後列視認性重視） */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-size-base: 24px;
+  --font-size-title: 64px;
+  --font-size-heading: 42px;
+  --font-size-subheading: 32px;
+  
+  /* スペーシング */
+  --spacing-base: 8px;
+  --spacing-small: 16px;
+  --spacing-medium: 24px;
+  --spacing-large: 32px;
+  --spacing-xlarge: 48px;
+  
+  /* レイアウト */
+  --slide-padding: 48px;
+  --line-height-base: 1.7;
+  --line-height-heading: 1.4;
+}
+```
+
+### カスタムクラス
+
+#### 基本クラス
+- `.title-slide` - タイトルスライド用（グラデーション背景、中央配置）
+- `.section-start` - セクション開始用（グラデーション背景）
+- `.panel` - パネル背景（#F9FAFB）
+- `.accent` - アクセントカラー適用
+- `.center` - 中央配置
+
+#### 装飾クラス（オプション）
+- `.decorated-heading` - h2に装飾線を追加
+  ```css
+  .decorated-heading h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--color-hr);
+    margin-top: 8px;
+  }
+  ```
+
+- `.with-footer` - フッターラインを表示
+  ```css
+  .with-footer::after {
+    content: '';
+    position: absolute;
+    left: var(--slide-padding);
+    right: var(--slide-padding);
+    bottom: 40px;
+    height: 8px;
+    background-color: var(--color-heading);
+  }
+  ```
+
+- `.with-logo` - ロゴを右上に配置（オプション）
+  ```css
+  .with-logo::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    right: var(--slide-padding);
+    width: 180px;
+    height: 50px;
+    background-image: url('logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top right;
+  }
+  ```
+  **注意**: ロゴは必要に応じて使用。すべてのスライドに適用しない。
+
+#### レイアウトクラス
+- `.lead` - タイトルスライド専用スタイル
+  - フッターとロゴを非表示
+  - h1のマージンを調整
+  - 本文フォントサイズを32pxに（スライド用）
+
+- `.with-header` - ヘッダーを表示（オプション・優先度低）
+  - デフォルトでは非表示のヘッダーを表示
+  - 特別な理由がある場合のみ使用を推奨
+  - `<header>`要素と併用
+
+- `.no-footer` - フッターを明示的に非表示
+  - フルスクリーンコンテンツなど、全画面を使いたい場合に使用
+  - パディングも通常サイズに戻す
+
+- `.fullscreen-background` - 全画面背景（インパクト重視）
+  - section要素のpaddingを0に設定
+  - section要素自体に背景色・グラデーション・画像を設定
+  - フッターを自動的に非表示
+  - コンテンツは中央配置で表示
+  - **使用例**:
+    ```markdown
+    <!-- _class: fullscreen-background -->
+    <style scoped>
+    section {
+      background: linear-gradient(to right, #1B4565, #3E9BA4);
+    }
+    </style>
+    
+    # タイトル
+    コンテンツ...
+    ```
+
+## スタイル実装のベストプラクティス
+
+### 1. 一貫性の維持
+- 同じレベルの見出しは同じスタイルを使用
+- パディングとマージンは基本単位（8px）の倍数で統一
+- カラーは定義されたパレットから選択
+
+### 2. アクセシビリティの確保
+- すべての見出しに適切なコントラスト比を確保
+- 装飾的な要素（::after、::before）は情報伝達に必須でない場合のみ使用
+- フッターやロゴは視覚的な補助であり、必須情報ではない
+
+### 3. 柔軟性の確保
+- CSS変数を使用してテーマを簡単に変更可能に
+- オプションクラスは必要に応じて適用
+- 既存のスライドパターンと競合しない設計
+
+### 4. パフォーマンス
+- 背景画像は必要最小限に
+- 複雑な疑似要素は控えめに使用
+- シンプルなスタイルを優先
+
+### 5. 推奨されないパターン
+- ❌ h2のabsolute positioning（既存レイアウトと競合）
+- ❌ すべてのスライドにフッター/ロゴを強制適用
+- ❌ 固定サイズのロゴ配置（calc()は柔軟性に欠ける）
+- ❌ 過度な装飾線（情報過多になる可能性）
+
+### 6. 推奨パターン
+- ✅ 通常のフローでの見出し配置
+- ✅ オプションクラスによる装飾の追加
+- ✅ CSS変数による柔軟なテーマ管理
+- ✅ シンプルで一貫性のあるスタイル
