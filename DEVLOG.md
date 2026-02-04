@@ -20,3 +20,15 @@
 - **意図**
   - デッキ単位で素材と本文を同じフォルダにまとめ、配布・再利用・差分管理をしやすくするため。
 
+### d8a0f21 Remove duplicate root assets
+
+- **変更の具体**
+  - `Slides/20260212/` に移動済みのため、ルート直下の重複ファイルを削除
+    - `CORLOGO.svg`
+    - `corporateon-ui.TP3UI4Ue_tfonX.webp`
+    - `deskScreen.png`
+    - `sam 1.png`
+    - `sample.md`
+- **意図**
+  - 同一アセットの二重管理を避け、参照元を `Slides/` 側へ一本化するため。
+
