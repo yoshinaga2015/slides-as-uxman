@@ -8,6 +8,10 @@
 
 ## カラーパレット
 
+### 重要なルール
+
+1スライドあたりアクセントカラーは1-2色まで
+
 ### プライマリグラデーション
 ```css
 background: linear-gradient(to right, #1B4565, #3E9BA4);
@@ -39,6 +43,10 @@ background: linear-gradient(to right, #1B4565, #3E9BA4);
 - タイトル・見出し: 700 (Bold)
 - 本文: 400 (Regular)
 - 強調: 600 (SemiBold)
+
+### ページ数（フッター）
+- 等幅フォントを使用（`--font-family-mono`、Noto Sans Mono）
+- 数字の幅を揃えるため `font-variant-numeric: tabular-nums;` を併用
 
 ## アクセシビリティ規則
 
@@ -456,6 +464,11 @@ h3 + * {
 - **見出し直後の要素**: マージンなし（見出しの下マージンで間隔を確保）
 - **div要素**: 24pxの下マージン（要素間の適切な間隔）
 
+**例外（テキストだけのブロック）**  
+短文の説明・ラベル・注釈など、**単独のテキストだけを置く div / p** は余白が不要なため `.text-block` を使用する。  
+**ただしパネル内（`.panel` / `.accent-card` / `.card-muted`）では余白が必要**なので、`.text-block` は使わない。
+連続する `.text-block` は最小限の間隔（8px）を入れる。
+
 ### リストのスタイル
 ```css
 ul, ol {
@@ -654,6 +667,44 @@ section {
 ### CSS変数定義
 ```css
 @theme default {
+  /* Noto Sans Mono（数字用途中心・latin / latin-ext） */
+  @font-face {
+    font-family: 'Noto Sans Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/notosansmono/v37/BngcUXNETWXI6LwhGYvaxZikqZqK6fBq6kPvUce2oAZ2evCj.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Noto Sans Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/notosansmono/v37/BngcUXNETWXI6LwhGYvaxZikqZqK6fBq6kPvUce2oAZ2dPCj7dc.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Noto Sans Mono';
+    font-style: normal;
+    font-weight: 600;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/notosansmono/v37/BngcUXNETWXI6LwhGYvaxZikqZqK6fBq6kPvUce2oAZ2evCj.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Noto Sans Mono';
+    font-style: normal;
+    font-weight: 600;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/notosansmono/v37/BngcUXNETWXI6LwhGYvaxZikqZqK6fBq6kPvUce2oAZ2dPCj7dc.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
   /* カラー */
   --color-background: #FFFFFF;
   --color-foreground: #1F2937;
@@ -665,6 +716,7 @@ section {
   
   /* タイポグラフィ（スライド用・後列視認性重視） */
   --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-family-mono: "Noto Sans Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   --font-size-base: 24px;
   --font-size-title: 64px;
   --font-size-heading: 42px;
@@ -750,6 +802,58 @@ section {
 - `.no-footer` - フッターを明示的に非表示
   - フルスクリーンコンテンツなど、全画面を使いたい場合に使用
   - パディングも通常サイズに戻す
+
+#### パネルユーティリティ
+- `.panel-center` - パネル内の中央揃え
+- `.panel-large` - パネル内余白を32pxに拡張
+- `.panel-compact` - パネル内余白を16pxに縮小
+- `.panel-column` - パネル内を縦方向のフレックスに
+- `.panel-accent-primary` - 左ボーダーをプライマリ色に
+- `.panel-accent-secondary` - 左ボーダーをセカンダリ色に
+- `.accent-card` - 上部ラインでアクセント（プライマリ）
+- `.accent-card-secondary` - 上部ラインでアクセント（セカンダリ）
+- `.card-muted` - 淡い背景カード
+  - **ルール**: ボーダーに接する角の角丸は0にする
+
+#### グリッドユーティリティ
+- `.grid-2col` - 2カラム（gap: 24px）
+- `.grid-2col-gap-32` - 2カラム（gap: 32px）
+- `.grid-2col-gap-48` - 2カラム（gap: 48px）
+- `.grid-2col-center` - 2カラム中央揃え（gap: 32px）
+- `.grid-2col-center-wide` - 2カラム中央揃え（gap: 48px）
+- `.grid-3col` - 3カラム（gap: 24px）
+- `.grid-3col-fill` - 3カラム（gap: 20px / 高さフィット）
+- `.grid-4col` - 4カラム（gap: 16px）
+- `.grid-2x3` - 2x3グリッド（gap: 12px）
+- `.grid-3x2-compact` - 3x2グリッド（gap: 8px）
+
+#### リストユーティリティ
+- `.timeline` - 番号付きのタイムライン（カウンター付き）
+- `.icon-list` - アイコン＋テキストのリスト
+
+#### スタックユーティリティ
+- `.stack-32` - 縦方向に32pxの間隔で配置
+
+#### テキストユーティリティ
+- `.text-block` - テキストだけのブロック（下マージンなし）
+
+#### プロセスフロー
+- `.process-flow` - 水平方向のステップフロー
+- `.flow-step` - 丸型ステップ番号
+- `.flow-label` - ステップ名
+
+#### レベル表示（横並び）
+- `.level-strip` - 5カラムを横並びのラベル表示
+- `.level-item` / `.level-1`〜`.level-5` - レベル色とラベル
+
+#### 統計スライド
+- `.stat-slide` - 数字を中心にした統計スライド
+- `.stat-number` - 強調数値（大きめ・太字）
+- `.stat-title` - 数値の説明タイトル
+- `.stat-caption` - 補足説明
+
+#### 問いかけスライド
+- `.question-slide` - 問いかけを強調する配置
 
 - `.fullscreen-background` - 全画面背景（インパクト重視）
   - section要素のpaddingを0に設定

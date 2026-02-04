@@ -3,6 +3,44 @@ marp: true
 theme: default
 paginate: true
 style: |
+  /* Noto Sans Mono（数字用途中心・latin / latin-ext） */
+  @font-face {
+    font-family: 'Noto Sans Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/notosansmono/v37/BngcUXNETWXI6LwhGYvaxZikqZqK6fBq6kPvUce2oAZ2evCj.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Noto Sans Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/notosansmono/v37/BngcUXNETWXI6LwhGYvaxZikqZqK6fBq6kPvUce2oAZ2dPCj7dc.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Noto Sans Mono';
+    font-style: normal;
+    font-weight: 600;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/notosansmono/v37/BngcUXNETWXI6LwhGYvaxZikqZqK6fBq6kPvUce2oAZ2evCj.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Noto Sans Mono';
+    font-style: normal;
+    font-weight: 600;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/notosansmono/v37/BngcUXNETWXI6LwhGYvaxZikqZqK6fBq6kPvUce2oAZ2dPCj7dc.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
   /* CSS変数定義 */
   :root {
     --color-background: #FFFFFF;
@@ -13,6 +51,7 @@ style: |
     --color-secondary: #1B4565;
     --color-hr: #3E9BA4;
     --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-family-mono: "Noto Sans Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     --font-size-base: 24px;
     --font-size-title: 64px;
     --font-size-heading: 42px;
@@ -162,6 +201,7 @@ style: |
     color: var(--color-subheading);
     padding: var(--spacing-small) 0;
     line-height: 1.2;
+    isolation: isolate;
   }
 
   footer::before {
@@ -177,6 +217,11 @@ style: |
   footer::after {
     content: counter(page) ' / ' counter(pages);
     font-weight: 600;
+    font-family: var(--font-family-mono);
+    font-variant-numeric: tabular-nums;
+    color: #FFFFFF;
+    mix-blend-mode: difference;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
   }
 
   /* タイトルスライド */
@@ -226,6 +271,147 @@ style: |
     border-radius: 8px;
   }
 
+  .panel-compact {
+    padding: 16px;
+  }
+
+  .accent-card {
+    background: #F9FAFB;
+    padding: 24px;
+    border-radius: 8px;
+    border-top: 6px solid var(--color-primary);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .accent-card-secondary {
+    background: #F9FAFB;
+    padding: 24px;
+    border-radius: 8px;
+    border-top: 6px solid var(--color-secondary);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .card-muted {
+    background: #F3F4F6;
+    padding: 24px;
+    border-radius: 8px;
+  }
+
+  .panel-center {
+    text-align: center;
+  }
+
+  .panel-large {
+    padding: 32px;
+  }
+
+  .panel-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .panel-accent-primary {
+    border-left: 4px solid var(--color-primary);
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+
+  .panel-accent-secondary {
+    border-left: 4px solid var(--color-secondary);
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+
+  /* グリッドレイアウト */
+  .grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .grid-2col-gap-32 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .grid-2col-gap-48 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .grid-2col-center {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .grid-2col-center-wide {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .grid-3col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  .grid-3col-fill {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    height: calc(100% - 80px);
+    align-items: stretch;
+  }
+
+  .grid-4col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 16px;
+  }
+
+  .level-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+  }
+
+  .level-item {
+    padding: 8px 10px;
+    border-radius: 999px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .level-1 { background: #F3F4F6; color: #374151; }
+  .level-2 { background: #E5E7EB; color: #374151; }
+  .level-3 { background: #D1D5DB; color: #374151; }
+  .level-4 { background: #9CA3AF; color: #FFFFFF; }
+  .level-5 { background: #3E9BA4; color: #FFFFFF; }
+
+  .grid-2x3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .grid-3x2-compact {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 8px;
+  }
+
   /* ユーティリティクラス */
   .accent {
     color: var(--color-primary);
@@ -235,6 +421,186 @@ style: |
     text-align: center;
   }
 
+  /* セーフエリア */
+  .safe-area {
+    max-width: 90%;
+    max-height: 80vh;
+    margin: 0 auto;
+    padding: 0 5%;
+  }
+
+  .center-stack {
+    padding: 40px 0;
+  }
+
+  .stack-32 {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* 統計スライド */
+  .stat-slide {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 96px;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0;
+  }
+
+  .stat-title {
+    font-size: 36px;
+    color: var(--color-heading);
+    margin-top: 16px;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
+  .stat-caption {
+    font-size: 24px;
+    color: var(--color-subheading);
+    margin-top: 12px;
+    margin-bottom: 0;
+  }
+
+  .text-block {
+    margin: 0;
+  }
+
+  .text-block + .text-block {
+    margin-top: 8px;
+  }
+
+  /* 問いかけスライド */
+  .question-slide {
+    text-align: left;
+  }
+
+  .question-slide h1 {
+    font-size: 56px;
+    color: var(--color-heading);
+    margin-bottom: 24px;
+  }
+
+  .question-slide p {
+    font-size: 28px;
+    color: var(--color-subheading);
+    margin: 0;
+  }
+
+  /* リスト系 */
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    counter-reset: timeline-step;
+  }
+
+  .timeline li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    font-size: 22px;
+    color: var(--color-foreground);
+  }
+
+  .timeline li::before {
+    counter-increment: timeline-step;
+    content: counter(timeline-step);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #FFFFFF;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .icon-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .icon-list li {
+    display: flex;
+    align-items: start;
+    gap: 12px;
+    margin: 0;
+    font-size: 22px;
+    color: var(--color-foreground);
+  }
+
+  .icon-list .icon {
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .process-flow {
+    list-style: none;
+    margin: 0;
+    padding: 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .process-flow li {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+    position: relative;
+  }
+
+  .process-flow li::after {
+    content: '→';
+    position: absolute;
+    right: -16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-primary);
+    font-size: 26px;
+  }
+
+  .process-flow li:last-child::after {
+    content: '';
+  }
+
+  .flow-step {
+    width: 64px;
+    height: 64px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-weight: 700;
+    margin: 0 auto 12px;
+    font-size: 20px;
+  }
+
+  .flow-label {
+    font-size: 22px;
+    color: var(--color-heading);
+    margin: 0;
+  }
   /* オプション: 装飾付き見出し */
   .decorated-heading h2::after {
     content: '';
@@ -424,9 +790,11 @@ style: |
   }
 ---
 
+
 <!-- _class: title-slide -->
 
 # 生成AI時代に覚えたい
+<!-- パターン: A. タイトル・セクション系 / 用途: 冒頭でテーマと登壇情報を提示し、期待値を揃える時。 -->
 ## ユースケース記述の書き方
 
 Yuki Yoshinaga  
@@ -437,6 +805,7 @@ Yuki Yoshinaga
 <!-- _class: section-start -->
 
 # 目次
+<!-- パターン: A. タイトル・セクション系 / 用途: 全体構成を提示し、聞き手の「地図」を作る時。 -->
 
 1. イントロダクション
 2. ユースケース記述とは
@@ -449,11 +818,13 @@ Yuki Yoshinaga
 <!-- _class: section-start -->
 
 # セクション 1
+<!-- パターン: A. タイトル・セクション系 / 用途: 章の切り替わりに使うインパクトのあるパターン。 -->
 ## イントロダクション
 
 ---
 
 # 生成AI時代の開発格差
+<!-- パターン: A. タイトル・セクション系 / 用途: 導入の問題提起を文章で説明する通常スライド。 -->
 
 生成AIが世の中に浸透して、今ではアプリケーションを誰でも開発できるようになったと言われていますよね。
 
@@ -462,11 +833,13 @@ Yuki Yoshinaga
 ---
 
 # セクション 2
+<!-- パターン: A. タイトル・セクション系 / 用途: 次の章へ切り替えるための区切りスライド。 -->
 ## ユースケース記述とは
 
 ---
 
 # ユースケース記述とは
+<!-- パターン: A. タイトル・セクション系 / 用途: 概念の定義を短く伝える通常スライド。 -->
 
 **物事が起きる順番に並べた箇条書き形式の作文**
 
@@ -475,6 +848,7 @@ Yuki Yoshinaga
 ---
 
 # 基本形態
+<!-- パターン: A. タイトル・セクション系 / 用途: フォーマットや書式をコード例で示す時。 -->
 
 ```markdown
 # ユースケース1のタイトル
@@ -489,14 +863,17 @@ Yuki Yoshinaga
 ---
 
 # セクション 3
+<!-- パターン: A. タイトル・セクション系 / 用途: 次の章へ切り替えるための区切りスライド。 -->
 ## 実例：Mediumのライブラリ機能
 
 ---
 
 
-# 2カラム比較：Before/After
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+# 2カラム比較：Before/After
+<!-- パターン: B. カラムレイアウト系 / 用途: 変更前後の比較を端的に見せたい時。 -->
+
+<div class="grid-2col">
 
 <div>
 
@@ -531,8 +908,9 @@ Yuki Yoshinaga
 
 
 # 2カラム対比：ユースケース記述の特徴
+<!-- パターン: B. カラムレイアウト系 / 用途: 2つの性質や考え方を対比して示す時。 -->
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+<div class="grid-2col">
 
 <div class="panel">
 
@@ -562,8 +940,9 @@ Yuki Yoshinaga
 
 
 # 3カラムレイアウト：ユースケース記述の要素
+<!-- パターン: B. カラムレイアウト系 / 用途: 構成要素を3点で整理したい時。 -->
 
-<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;">
+<div class="grid-3col">
 
 <div class="panel">
 
@@ -601,31 +980,32 @@ Yuki Yoshinaga
 
 
 # 3カラム（アクセントカラー）
+<!-- パターン: B. カラムレイアウト系 / 用途: 重要ポイントをアクセントで強調したい時。 -->
 
-<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;">
+<div class="grid-3col">
 
-<div style="background: #3E9BA4; color: white; padding: 24px; border-radius: 8px;">
+<div class="accent-card">
 
-<h2 style="color: white; margin: 0 0 24px 0; font-size: 24px; font-weight: 700;">シンプル</h2>
-<div style="color: white;">
+<h2 style="margin: 0 0 24px 0; font-size: 24px; font-weight: 700; color: #374151;">シンプル</h2>
+<div style="color: #1F2937;">
 物事を順序どおりに述べる
 </div>
 
 </div>
 
-<div style="background: #F3F4F6; padding: 24px; border-radius: 8px;">
+<div class="accent-card-secondary">
 
 <h2 style="margin: 0 0 24px 0; font-size: 24px; font-weight: 700; color: #374151;">明確</h2>
-<div>
+<div style="color: #1F2937;">
 主語を必ず書く
 </div>
 
 </div>
 
-<div style="background: #3E9BA4; color: white; padding: 24px; border-radius: 8px;">
+<div class="accent-card">
 
-<h2 style="color: white; margin: 0 0 24px 0; font-size: 24px; font-weight: 700;">実用的</h2>
-<div style="color: white;">
+<h2 style="margin: 0 0 24px 0; font-size: 24px; font-weight: 700; color: #374151;">実用的</h2>
+<div style="color: #1F2937;">
 AIに渡すだけで実装可能
 </div>
 
@@ -637,10 +1017,11 @@ AIに渡すだけで実装可能
 
 
 # 4カラムレイアウト：ユースケース記述の利点
+<!-- パターン: B. カラムレイアウト系 / 用途: 4つの利点・項目を並列に示す時。 -->
 
-<div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px;">
+<div class="grid-4col">
 
-<div class="panel" style="text-align: center;">
+<div class="panel panel-center">
 
 <h3 style="margin: 0 0 16px 0; font-size: 26px; font-weight: 600; color: #374151;">シンプル</h3>
 <div style="font-size: 24px; color: #4B5563;">
@@ -649,7 +1030,7 @@ AIに渡すだけで実装可能
 
 </div>
 
-<div class="panel" style="text-align: center;">
+<div class="panel panel-center">
 
 <h3 style="margin: 0 0 16px 0; font-size: 26px; font-weight: 600; color: #374151;">明確</h3>
 <div style="font-size: 24px; color: #4B5563;">
@@ -658,7 +1039,7 @@ AIに渡すだけで実装可能
 
 </div>
 
-<div class="panel" style="text-align: center;">
+<div class="panel panel-center">
 
 <h3 style="margin: 0 0 16px 0; font-size: 26px; font-weight: 600; color: #374151;">実用的</h3>
 <div style="font-size: 24px; color: #4B5563;">
@@ -667,7 +1048,7 @@ AIに渡すだけで実装可能
 
 </div>
 
-<div class="panel" style="text-align: center;">
+<div class="panel panel-center">
 
 <h3 style="margin: 0 0 16px 0; font-size: 26px; font-weight: 600; color: #374151;">拡張性</h3>
 <div style="font-size: 24px; color: #4B5563;">
@@ -682,97 +1063,58 @@ AIに渡すだけで実装可能
 
 
 # 5カラム：成熟度レベル
+<!-- パターン: B. カラムレイアウト系 / 用途: レベルや成熟度を段階的に示す時。 -->
 
-<div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;">
-
-<div style="background: #F3F4F6; padding: 16px; border-radius: 8px; text-align: center;">
-
-<h3 style="margin: 0 0 4px 0; font-size: 24px; font-weight: 600; color: #374151;">Lv.1</h3>
-<div style="font-size: 24px; color: #4B5563;">
-基本形
-</div>
-
-</div>
-
-<div style="background: #E5E7EB; padding: 16px; border-radius: 8px; text-align: center;">
-
-<h3 style="margin: 0 0 4px 0; font-size: 24px; font-weight: 600; color: #374151;">Lv.2</h3>
-<div style="font-size: 24px; color: #4B5563;">
-拡張
-</div>
-
-</div>
-
-<div style="background: #D1D5DB; padding: 16px; border-radius: 8px; text-align: center;">
-
-<h3 style="margin: 0 0 4px 0; font-size: 24px; font-weight: 600; color: #374151;">Lv.3</h3>
-<div style="font-size: 24px; color: #4B5563;">
-応用
-</div>
-
-</div>
-
-<div style="background: #9CA3AF; padding: 16px; border-radius: 8px; text-align: center; color: white;">
-
-<h3 style="margin: 0 0 4px 0; font-size: 24px; font-weight: 600; color: white;">Lv.4</h3>
-<div style="font-size: 24px; color: white;">
-高度
-</div>
-
-</div>
-
-<div style="background: #3E9BA4; padding: 16px; border-radius: 8px; text-align: center; color: white;">
-
-<h3 style="margin: 0 0 4px 0; font-size: 24px; font-weight: 600; color: white;">Lv.5</h3>
-<div style="font-size: 24px; color: white;">
-マスター
-</div>
-
-</div>
-
+<div class="level-strip">
+  <div class="level-item level-1">Lv.1 基本形</div>
+  <div class="level-item level-2">Lv.2 拡張</div>
+  <div class="level-item level-3">Lv.3 応用</div>
+  <div class="level-item level-4">Lv.4 高度</div>
+  <div class="level-item level-5">Lv.5 マスター</div>
 </div>
 
 ---
 
 
 # 2x2グリッド：ユースケース記述の活用場面
+<!-- パターン: B. カラムレイアウト系 / 用途: 4象限で用途や分類を整理したい時。 -->
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+<div class="grid-2col">
 
-<div class="panel">
+<div class="panel panel-compact">
 
-<h2 style="margin: 0 0 16px 0; font-size: 24px; font-weight: 700; color: #374151;">開発前</h2>
-<div style="font-size: 26px; color: #4B5563;">
+<h2 style="margin: 0 0 12px 0; font-size: 22px; font-weight: 700; color: #374151;">開発前</h2>
+<div style="font-size: 24px; color: #4B5563;">
 要件定義  
 仕様書作成
 </div>
 
 </div>
 
-<div class="panel">
+<div class="panel panel-compact">
 
-<h2 style="margin: 0 0 16px 0; font-size: 24px; font-weight: 700; color: #374151;">開発中</h2>
-<div style="font-size: 26px; color: #4B5563;">
+<h2 style="margin: 0 0 12px 0; font-size: 22px; font-weight: 700; color: #374151;">開発中</h2>
+<div style="font-size: 24px; color: #4B5563;">
 実装指示  
 AIへの指示
 </div>
 
 </div>
 
-<div class="panel">
+<div class="panel panel-compact">
 
-<h2 style="margin: 0 0 16px 0; font-size: 24px; font-weight: 700; color: #374151;">開発後</h2>
-<div style="font-size: 26px; color: #4B5563;">
+<h2 style="margin: 0 0 12px 0; font-size: 22px; font-weight: 700; color: #374151;">開発後</h2>
+<div style="font-size: 24px; color: #4B5563;">
 ドキュメント  
 引き継ぎ資料
 </div>
 
 </div>
 
-<div class="panel">
+<div class="panel panel-compact">
 
-<h2 style="margin: 0 0 16px 0; font-size: 24px; font-weight: 700; color: #374151;">教育</h2>
-<div style="font-size: 26px; color: #4B5563;">
+<h2 style="margin: 0 0 12px 0; font-size: 22px; font-weight: 700; color: #374151;">教育</h2>
+<div style="font-size: 24px; color: #4B5563;">
 新人研修  
 ベストプラクティス
 </div>
@@ -784,59 +1126,60 @@ AIへの指示
 ---
 
 
-# 2x3グリッド：ユースケース記述の実例
+# 3x2グリッド：ユースケース記述の実例
+<!-- パターン: B. カラムレイアウト系 / 用途: 複数の短い実例を一覧で見せたい時。 -->
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 1fr); gap: 12px;">
+<div class="grid-3x2-compact">
 
-<div class="panel">
+<div class="panel panel-compact">
 
-<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">記事を読む</h3>
-<div style="font-size: 24px; color: #4B5563; margin: 0;">
+<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">記事を読む</h3>
+<div style="font-size: 20px; color: #4B5563; margin: 0;">
 ユーザーは記事を開く
 </div>
 
 </div>
 
-<div class="panel">
+<div class="panel panel-compact">
 
-<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">お気に入り</h3>
-<div style="font-size: 24px; color: #4B5563; margin: 0;">
+<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">お気に入り</h3>
+<div style="font-size: 20px; color: #4B5563; margin: 0;">
 ユーザーはお気に入りボタンを押す
 </div>
 
 </div>
 
-<div class="panel">
+<div class="panel panel-compact">
 
-<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">ライブラリ表示</h3>
-<div style="font-size: 24px; color: #4B5563; margin: 0;">
+<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">ライブラリ表示</h3>
+<div style="font-size: 20px; color: #4B5563; margin: 0;">
 システムはライブラリ一覧を表示
 </div>
 
 </div>
 
-<div class="panel">
+<div class="panel panel-compact">
 
-<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">ライブラリ選択</h3>
-<div style="font-size: 24px; color: #4B5563; margin: 0;">
+<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">ライブラリ選択</h3>
+<div style="font-size: 20px; color: #4B5563; margin: 0;">
 ユーザーはライブラリを選択
 </div>
 
 </div>
 
-<div class="panel">
+<div class="panel panel-compact">
 
-<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">保存</h3>
-<div style="font-size: 24px; color: #4B5563; margin: 0;">
+<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">保存</h3>
+<div style="font-size: 20px; color: #4B5563; margin: 0;">
 システムは記事を保存
 </div>
 
 </div>
 
-<div class="panel">
+<div class="panel panel-compact">
 
-<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">完了</h3>
-<div style="font-size: 24px; color: #4B5563; margin: 0;">
+<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">完了</h3>
+<div style="font-size: 20px; color: #4B5563; margin: 0;">
 ユーザーは完了を確認
 </div>
 
@@ -848,6 +1191,7 @@ AIへの指示
 
 
 # ステップリスト：記事をお気に入りする
+<!-- パターン: C. リスト系 / 用途: 手順を順番に伝えたい時。 -->
 
 1. **ユーザー**はアプリケーションを開く
 2. **システム**は記事一覧を表示する
@@ -862,64 +1206,33 @@ AIへの指示
 
 
 # タイムライン：開発プロセス
+<!-- パターン: C. リスト系 / 用途: 時系列の流れを示したい時。 -->
 
-<div style="display: flex; flex-direction: column; gap: 24px;">
-
-<div style="display: flex; align-items: center; gap: 16px; margin: 0;">
-<div style="width: 40px; height: 40px; background: #3E9BA4; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin: 0;">1</div>
-<div style="margin: 0;">ユースケース記述を作成</div>
-</div>
-
-<div style="display: flex; align-items: center; gap: 16px; margin: 0;">
-<div style="width: 40px; height: 40px; background: #3E9BA4; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin: 0;">2</div>
-<div style="margin: 0;">AIに渡して実装</div>
-</div>
-
-<div style="display: flex; align-items: center; gap: 16px; margin: 0;">
-<div style="width: 40px; height: 40px; background: #3E9BA4; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin: 0;">3</div>
-<div style="margin: 0;">動作確認・修正</div>
-</div>
-
-<div style="display: flex; align-items: center; gap: 16px; margin: 0;">
-<div style="width: 40px; height: 40px; background: #3E9BA4; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin: 0;">4</div>
-<div style="margin: 0;">完成</div>
-</div>
-
-</div>
+<ol class="timeline">
+  <li>ユースケース記述を作成</li>
+  <li>AIに渡して実装</li>
+  <li>動作確認・修正</li>
+  <li>完成</li>
+</ol>
 
 ---
 
 
 # アイコン付きリスト：ユースケース記述の特徴
+<!-- パターン: C. リスト系 / 用途: 特徴を視覚的に分かりやすく伝える時。 -->
 
-<div style="display: flex; flex-direction: column; gap: 16px;">
-
-<div style="display: flex; align-items: start; gap: 16px; margin: 0;">
-<div style="font-size: 24px; margin: 0;">📝</div>
-<div style="margin: 0;"><strong>シンプル</strong> - 箇条書き形式で理解しやすい</div>
-</div>
-
-<div style="display: flex; align-items: start; gap: 16px; margin: 0;">
-<div style="font-size: 24px; margin: 0;">🎯</div>
-<div style="margin: 0;"><strong>明確</strong> - 主語を必ず書くため曖昧さがない</div>
-</div>
-
-<div style="display: flex; align-items: start; gap: 16px; margin: 0;">
-<div style="font-size: 24px; margin: 0;">⚡</div>
-<div style="margin: 0;"><strong>実用的</strong> - AIに渡すだけで実装可能</div>
-</div>
-
-<div style="display: flex; align-items: start; gap: 16px; margin: 0;">
-<div style="font-size: 24px; margin: 0;">🚀</div>
-<div style="margin: 0;"><strong>効率的</strong> - 修正指示なしで完成することも</div>
-</div>
-
-</div>
+<ul class="icon-list">
+  <li><span class="icon">📝</span><span><strong>シンプル</strong> - 箇条書き形式で理解しやすい</span></li>
+  <li><span class="icon">🎯</span><span><strong>明確</strong> - 主語を必ず書くため曖昧さがない</span></li>
+  <li><span class="icon">⚡</span><span><strong>実用的</strong> - AIに渡すだけで実装可能</span></li>
+  <li><span class="icon">🚀</span><span><strong>効率的</strong> - 修正指示なしで完成することも</span></li>
+</ul>
 
 ---
 
 
 # チェックリスト：ユースケース記述のチェックポイント
+<!-- パターン: C. リスト系 / 用途: 確認項目や達成条件を一覧化する時。 -->
 
 <div class="checklist">
 
@@ -964,6 +1277,7 @@ AIへの指示
 
 
 # 基本パネル
+<!-- パターン: D. パネルデザイン系 / 用途: まとまった説明をパネルで読みやすく提示したい時。 -->
 
 <div class="panel">
 
@@ -983,6 +1297,7 @@ AIへの指示
 
 
 # 強調パネル
+<!-- パターン: D. パネルデザイン系 / 用途: 重要メッセージを背景色で強調したい時。 -->
 
 <div style="background: linear-gradient(to right, #1B4565, #3E9BA4); color: white; padding: 32px; border-radius: 8px;">
 
@@ -1000,6 +1315,7 @@ AIへの指示
 
 
 # ガラス風パネル
+<!-- パターン: D. パネルデザイン系 / 用途: 背景の上に“浮かぶ”情報パネルを置きたい時（装飾多め）。 -->
 
 <div style="background: rgba(249, 250, 251, 0.8); backdrop-filter: blur(10px); padding: 32px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.5);">
 
@@ -1015,15 +1331,15 @@ AIへの指示
 
 
 # グラデーションパネル
+<!-- パターン: D. パネルデザイン系 / 用途: 事例やストーリーを少しリッチに見せたい時。 -->
 
 <div style="background: linear-gradient(135deg, #F9FAFB 0%, #E5E7EB 100%); padding: 32px; border-radius: 8px;">
 
 <h2 style="margin: 0 0 24px 0; font-size: 32px; font-weight: 700; color: #374151;">実例：TODOアプリ</h2>
 
 <div style="font-size: 24px; color: #1F2937; line-height: 1.6;">
-以前、ユースケース記述について講義をした時に、ユースケース記述からシンプルなTODOアプリをライブでバイブコーディングしたことがあります。
-
-**注目すべきは、修正指示なしでアプリケーションが出来上がったことです。**
+  <p>以前、ユースケース記述について講義をした時に、ユースケース記述からシンプルなTODOアプリをライブでバイブコーディングしたことがあります。</p>
+  <p><strong>注目すべきは、修正指示なしでアプリケーションが出来上がったことです。</strong></p>
 </div>
 
 </div>
@@ -1032,6 +1348,7 @@ AIへの指示
 
 
 # ボーダーパネル
+<!-- パターン: D. パネルデザイン系 / 用途: 枠線で情報ブロックを明確に区切りたい時。 -->
 
 <div style="background: #FFFFFF; padding: 32px; border-radius: 8px; border: 2px solid #3E9BA4;">
 
@@ -1055,6 +1372,7 @@ AIへの指示
 
 
 <!-- _class: fullscreen-background -->
+<!-- パターン: E. 背景・画像系 / 用途: 章の切り替えや強い主張で、全画面背景で印象づけたい時。 -->
 <style scoped>
 section {
   background: linear-gradient(135deg, #1B4565 0%, #2A5F7A 50%, #3E9BA4 100%);
@@ -1092,10 +1410,51 @@ section p {
 
 ---
 
+<!-- _class: fullscreen-background -->
+<!-- パターン: E. 背景・画像系 / 用途: 写真を全面背景にして“空気感”を作りたい時（文字は最小限）。 -->
+<style scoped>
+section {
+  background-image: url('../sampleAssets/sam 2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 56px !important;
+}
+
+section h1 {
+  color: white;
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 48px 0;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  text-align: left;
+}
+
+section p {
+  color: white;
+  font-size: 32px;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.95;
+  font-weight: 300;
+  text-align: left;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+</style>
+
+# 背景全面：画像サンプル
+
+画像をスライド全面に配置した例です。テキストは白とシャドウで可読性を確保しています。
+
+---
 
 # 右側配置：実例
+<!-- パターン: E. 背景・画像系 / 用途: 右にビジュアル、左に説明を置きたい時。 -->
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
+<div class="grid-2col-center">
 
 <div>
 
@@ -1111,7 +1470,7 @@ section p {
 
 </div>
 
-<div class="panel" style="text-align: center;">
+<div class="panel panel-center">
 
 <h3 style="margin: 0 0 20px 0; font-size: 26px; font-weight: 600; color: #374151;">Mediumのライブラリ機能</h3>
 
@@ -1127,10 +1486,11 @@ section p {
 
 
 # 左側配置：実装例
+<!-- パターン: E. 背景・画像系 / 用途: 左にビジュアル、右に説明を置きたい時。 -->
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
+<div class="grid-2col-center">
 
-<div class="panel" style="text-align: center;">
+<div class="panel panel-center">
 
 <h3 style="margin: 0 0 20px 0; font-size: 26px; font-weight: 600; color: #374151;">GitHubリポジトリ</h3>
 
@@ -1162,6 +1522,7 @@ https://github.com/yoshinaga2015/TODO-App-Sample
 
 
 # 引用スライド
+<!-- パターン: E. 背景・画像系 / 用途: 引用や印象的な一文を強調したい時。 -->
 
 <div style="border-left: 4px solid #3E9BA4; padding-left: 24px; margin: 32px 0;">
 
@@ -1177,27 +1538,29 @@ https://github.com/yoshinaga2015/TODO-App-Sample
 
 
 # 統計スライド
+<!-- パターン: F. 強調・特殊系 / 用途: 重要な数値を強く印象づけたい時。 -->
 
-<div class="center" style="padding: 48px 0;">
+<div class="center safe-area center-stack stat-slide">
 
-<div style="font-size: 120px; font-weight: 700; color: #3E9BA4; line-height: 1;">1</div>
+<div class="stat-number">1</div>
 
-<div style="font-size: 48px; color: #374151; margin-top: 24px;">回の指示で完成</div>
+<div class="stat-title">回の指示で完成</div>
 
-<div style="font-size: 24px; color: #6B7280; margin-top: 16px;">修正指示なしでアプリケーションが出来上がった</div>
+<div class="stat-caption">修正指示なしでアプリケーションが出来上がった</div>
 
 </div>
 
 ---
 
 
-# 中央配置：シンプルなメッセージ
-
-<div class="center" style="padding: 120px 0;">
+<div class="center safe-area center-stack">
+<!-- パターン: F. 強調・特殊系 / 用途: 強い一文メッセージを中央に置いて記憶に残したい時。 -->
 
 # ユースケース記述は「てこ」
 
+<div class="text-block" style="font-size: 28px; color: var(--color-subheading); margin-top: 16px;">
 生成AI開発を強力にする技術の一つ
+</div>
 
 </div>
 
@@ -1205,8 +1568,9 @@ https://github.com/yoshinaga2015/TODO-App-Sample
 
 
 # Q&Aスライド
+<!-- パターン: F. 強調・特殊系 / 用途: よくある質問と回答を整理して示す時。 -->
 
-<div style="display: flex; flex-direction: column; gap: 32px;">
+<div class="stack-32">
 
 <div class="panel">
 
@@ -1233,9 +1597,21 @@ A. 含めません。ユースケース記述は「何をするか」を記述�
 ---
 
 
-# QRコード：参考資料
+<!-- パターン: F. 強調・特殊系 / 用途: 聞き手に考えさせたい問いかけを提示する時。 -->
+<div class="center safe-area center-stack question-slide">
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+# では、この格差を一気に埋めることのできるフレームワークがあるとしたら？
+
+<p>デザイナーやPMがエンジニア並みに素早くアプリケーションを形にできるとしたら？</p>
+
+</div>
+
+---
+
+# QRコード：参考資料
+<!-- パターン: G. 応用パターン / 用途: 参照リンクや資料への導線を提示する時。 -->
+
+<div class="grid-2col-center-wide">
 
 <div>
 
@@ -1249,7 +1625,7 @@ A. 含めません。ユースケース記述は「何をするか」を記述�
 
 </div>
 
-<div class="panel" style="text-align: center; padding: 32px;">
+<div class="panel panel-center panel-large">
 
 <h3 style="margin: 0 0 24px 0; font-size: 26px; font-weight: 600; color: #374151;">QRコード</h3>
 
@@ -1266,20 +1642,10 @@ QR Code
 ---
 
 
-<div class="center" style="padding: 80px 0;">
-
-# では、この格差を一気に埋めることのできるフレームワークがあるとしたら？
-
-デザイナーやPMがエンジニア並みに素早くアプリケーションを形にできるとしたら？
-
-</div>
-
----
-
-
 # まとめ：要点整理
+<!-- パターン: G. 応用パターン / 用途: 章や話題の要点を簡潔に振り返る時。 -->
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+<div class="grid-2col">
 
 <div class="panel">
 
@@ -1323,8 +1689,9 @@ QR Code
 
 
 # 企業事例：実装例
+<!-- パターン: G. 応用パターン / 用途: 事例やケーススタディを紹介する時。 -->
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+<div class="grid-2col">
 
 <div class="panel">
 
@@ -1356,6 +1723,7 @@ QR Code
 
 
 # 比較表：従来手法との比較
+<!-- パターン: G. 応用パターン / 用途: 複数項目を表形式で比較したい時。 -->
 
 | 項目 | 従来の仕様書 | ユースケース記述 |
 |:-----|------------|----------------|
@@ -1370,45 +1738,36 @@ QR Code
 
 
 # プロセスフロー：開発フロー
+<!-- パターン: G. 応用パターン / 用途: 工程の全体像や流れを可視化したい時。 -->
 
-<div style="display: flex; align-items: center; padding: 32px 0; gap: 16px;">
-
-<div style="text-align: center; margin: 0; flex: 1; display: flex; flex-direction: column; align-items: center;">
-<div style="width: 80px; height: 80px; background: #3E9BA4; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin: 0 auto 16px;">1</div>
-<div style="margin: 0;">要件定義</div>
-</div>
-
-<div style="font-size: 32px; color: #3E9BA4; margin: 0; flex: 0 0 auto;">→</div>
-
-<div style="text-align: center; margin: 0; flex: 1; display: flex; flex-direction: column; align-items: center;">
-<div style="width: 80px; height: 80px; background: #3E9BA4; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin: 0 auto 16px;">2</div>
-<div style="margin: 0;">ユースケース記述</div>
-</div>
-
-<div style="font-size: 32px; color: #3E9BA4; margin: 0; flex: 0 0 auto;">→</div>
-
-<div style="text-align: center; margin: 0; flex: 1; display: flex; flex-direction: column; align-items: center;">
-<div style="width: 80px; height: 80px; background: #3E9BA4; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin: 0 auto 16px;">3</div>
-<div style="margin: 0;">AI実装</div>
-</div>
-
-<div style="font-size: 32px; color: #3E9BA4; margin: 0; flex: 0 0 auto;">→</div>
-
-<div style="text-align: center; margin: 0; flex: 1; display: flex; flex-direction: column; align-items: center;">
-<div style="width: 80px; height: 80px; background: #3E9BA4; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin: 0 auto 16px;">4</div>
-<div style="margin: 0;">完成</div>
-</div>
-
-</div>
+<ol class="process-flow">
+  <li>
+    <div class="flow-step">1</div>
+    <div class="flow-label">要件定義</div>
+  </li>
+  <li>
+    <div class="flow-step">2</div>
+    <div class="flow-label">ユースケース記述</div>
+  </li>
+  <li>
+    <div class="flow-step">3</div>
+    <div class="flow-label">AI実装</div>
+  </li>
+  <li>
+    <div class="flow-step">4</div>
+    <div class="flow-label">完成</div>
+  </li>
+</ol>
 
 ---
 
 
 # メリット・デメリット
+<!-- パターン: G. 応用パターン / 用途: メリット/デメリットなど両面を並べて判断材料を出す時。 -->
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+<div class="grid-2col-gap-32">
 
-<div class="panel" style="border-left: 4px solid #10B981;">
+<div class="panel panel-accent-primary">
 
 <h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">メリット</h2>
 
@@ -1421,7 +1780,7 @@ QR Code
 
 </div>
 
-<div class="panel" style="border-left: 4px solid #EF4444;">
+<div class="panel panel-accent-secondary">
 
 <h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">デメリット</h2>
 
@@ -1439,35 +1798,32 @@ QR Code
 
 
 # チェックポイント：ユースケース記述の確認
+<!-- パターン: G. 応用パターン / 用途: 最終確認のチェック項目を提示する時。 -->
 
-<div style="display: flex; flex-direction: column; gap: 16px;">
-
-<div style="display: flex; align-items: start; gap: 12px; margin: 0;">
-<div style="color: #10B981; font-size: 24px; margin: 0;">✓</div>
-<div style="margin: 0;">主語（ユーザー/システム）がすべての項目に含まれている</div>
-</div>
-
-<div style="display: flex; align-items: start; gap: 12px; margin: 0;">
-<div style="color: #10B981; font-size: 24px; margin: 0;">✓</div>
-<div style="margin: 0;">時系列に沿って順序立てられている</div>
-</div>
-
-<div style="display: flex; align-items: start; gap: 12px; margin: 0;">
-<div style="color: #10B981; font-size: 24px; margin: 0;">✓</div>
-<div style="margin: 0;">技術的詳細が含まれていない</div>
-</div>
-
-<div style="display: flex; align-items: start; gap: 12px; margin: 0;">
-<div style="color: #10B981; font-size: 24px; margin: 0;">✓</div>
-<div style="margin: 0;">読み手が理解しやすい表現になっている</div>
-</div>
-
+<div class="checklist">
+  <div class="checklist-item">
+    <div class="checklist-checkbox">☑</div>
+    <div class="checklist-text">主語（ユーザー/システム）がすべての項目に含まれている</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-checkbox">☑</div>
+    <div class="checklist-text">時系列に沿って順序立てられている</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-checkbox">☑</div>
+    <div class="checklist-text">技術的詳細が含まれていない</div>
+  </div>
+  <div class="checklist-item">
+    <div class="checklist-checkbox">☑</div>
+    <div class="checklist-text">読み手が理解しやすい表現になっている</div>
+  </div>
 </div>
 
 ---
 
 
 # 参考資料
+<!-- パターン: G. 応用パターン / 用途: 参考リンクや根拠をまとめて提示する時。 -->
 
 <div style="display: flex; flex-direction: column; gap: 16px; font-size: 24px;">
 
@@ -1489,8 +1845,9 @@ QR Code
 
 
 # 次回予告
+<!-- パターン: G. 応用パターン / 用途: 次の回への期待を作り、行動（視聴・参加）を促す時。 -->
 
-<div class="center" style="padding: 80px 0;">
+<div class="center safe-area center-stack">
 
 <h2 style="margin: 0 0 24px 0; font-size: 32px; font-weight: 700; color: #374151;">次回のテーマ</h2>
 
@@ -1506,19 +1863,12 @@ QR Code
 
 ---
 
-<!-- _class: section-start -->
-
-# セクション終了
-## まとめ
-
----
-
-
 # まとめ：ユースケース記述の価値
+<!-- パターン: G. 応用パターン / 用途: プレゼンの結論や価値を強調して締める時。 -->
 
-<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; height: calc(100% - 80px); align-items: stretch;">
+<div class="grid-3col-fill">
 
-<div class="panel" style="display: flex; flex-direction: column;">
+<div class="panel panel-column">
 
 <h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">シンプルで強力</h3>
 <div style="font-size: 22px; color: #1F2937; line-height: 1.5; flex: 1;">
@@ -1527,7 +1877,7 @@ QR Code
 
 </div>
 
-<div class="panel" style="display: flex; flex-direction: column;">
+<div class="panel panel-column">
 
 <h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">生成AIとの相性</h3>
 <div style="font-size: 22px; color: #1F2937; line-height: 1.5; flex: 1;">
@@ -1536,7 +1886,7 @@ QR Code
 
 </div>
 
-<div class="panel" style="display: flex; flex-direction: column;">
+<div class="panel panel-column">
 
 <h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">誰でも使える</h3>
 <div style="font-size: 22px; color: #1F2937; line-height: 1.5; flex: 1;">
@@ -1549,9 +1899,18 @@ QR Code
 
 ---
 
+<!-- _class: section-start -->
+
+# セクション終了
+<!-- パターン: A. タイトル・セクション系 / 用途: 章や発表の区切りとして“締め”を作る時。 -->
+## まとめ
+
+---
+
 <!-- _class: title-slide -->
 
 # ありがとうございました
+<!-- パターン: A. タイトル・セクション系 / 用途: クロージングで連絡先と呼びかけを提示する時。 -->
 
 ## ご質問・ご意見をお待ちしています
 
