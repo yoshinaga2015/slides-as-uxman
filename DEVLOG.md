@@ -2,6 +2,17 @@
 
 ## 2026-02-04
 
+### 3662326 Update example slides and assets
+
+- **変更の具体**
+  - `Maker/slides/example.md` の内容をサンプル文に置換し、目次レイアウトや見出し構成を整理
+  - 表紙/クロージングのロゴ配置を「登壇者名の右隣」へ変更し、`logo.png` を追加
+  - `Maker/docs/style-guide.md` のフッター/ロゴ記述を現状に合わせて更新
+  - `example.html` / `example.pdf` を再生成
+  - `Maker/sampleAssets/` にサンプルSVG（`dummy-qr.svg` ほか）を追加
+- **意図**
+  - サンプルデッキが具体的内容に引きずられず、レイアウト見本として使える状態にするため。
+
 ### 3d050c0 Refine example slides and style guide
 
 - **変更の具体**
