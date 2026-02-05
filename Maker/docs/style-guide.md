@@ -14,9 +14,12 @@
 
 ### プライマリグラデーション
 ```css
-background: linear-gradient(to right, #1B4565, #3E9BA4);
+background: linear-gradient(to right, #0536AF, #3163E3);
 ```
 - タイトルスライド、セクション開始、強調スライドに使用
+
+**実装メモ**:
+- 引用スライドのボーダーなど、アクセント色は `var(--color-primary)` を優先（色の一貫性のため）
 
 ### グレースケール
 - `gray-50`: #F9FAFB - パネル背景（淡い）
@@ -26,27 +29,42 @@ background: linear-gradient(to right, #1B4565, #3E9BA4);
 - `gray-800`: #1F2937 - メインテキスト
 
 ### アクセントカラー
-- プライマリ: #3E9BA4（グラデーションの終点）
-- セカンダリ: #1B4565（グラデーションの始点）
+- ブランド（面・アクセント）: #F4F754（低コントラスト。**極めて大きい要素／極太文字かつ2文字まで**に限定。グラデーションにも使用可）
+- ブランド（テキスト用）: #AFAD05（ブランド色をテキストで使いたい場合）
+- リンク/強調（明）: #3163E3
+- リンク/強調（濃）: #0536AF
+- アラート: #FA0715
 
 ## タイポグラフィ
 
 ### フォントサイズ（スライド用・後列視認性重視）
-- タイトル: 64-80px（スライドタイプにより調整）
+- タイトル（h1）: 128px（より強い“私らしさ”のため大きく）
 - 見出し: 42-52px
 - 本文: 24-32px
 - サブテキスト: 18-22px
 
+**運用ルール（重要）**:
+- 通常スライドのタイトルは **h2（`##`）** を基本とする
+- **h1（`#`）は“インパクトを与えたいパターン”のみ**で使用する（例: タイトルスライド / セクション開始 / 全画面背景 / 問いかけ / 中央メッセージ）
+
 **注意**: スライドはWEBページよりも大きなフォントサイズが必要です。後列の聴衆にも見えるよう、十分なサイズを確保してください。
 
 ### フォントウェイト
-- タイトル・見出し: 700 (Bold)
+- タイトル（h1）: 900 (Black)
+- 見出し（h2）: 700 (Bold)
 - 本文: 400 (Regular)
 - 強調: 600 (SemiBold)
 
 ### ページ数（フッター）
 - 等幅フォントを使用（`--font-family-mono`、Noto Sans Mono）
 - 数字の幅を揃えるため `font-variant-numeric: tabular-nums;` を併用
+
+### 日本語本文フォント（Google Fonts）
+- 日本語には **Zen Kaku Gothic New** を使用する（`--font-family`）
+- Marpでは `@import` が効かない/効きにくいケースがあるため、**`@font-face` を `style:` に埋め込む**方式を推奨
+
+### 英数字フォント（Google Fonts）
+- 英数字には **Lato** を使用する（`--font-family` の先頭に置き、Zenへフォールバック）
 
 ## アクセシビリティ規則
 
@@ -56,9 +74,11 @@ background: linear-gradient(to right, #1B4565, #3E9BA4);
 - **UIコンポーネント**: 3:1以上（ボタン、フォーム要素など）
 
 ### カラーコントラストの推奨値
-- **背景色が濃い場合（#3E9BA4など）**:
+- **背景色が濃い場合（#3163E3 / #0536AFなど）**:
   - テキスト色: `#FFFFFF`（white）を明示的に指定
   - h1, h2, h3などの見出しも同様に`color: white`を指定
+- **ブランドイエロー（#F4F754）を背景に使う場合**:
+  - 原則、**文字を載せない**（載せるなら「極太・2文字まで」を厳守し、`#1F2937` など濃色を使用）
 - **背景色が薄い場合（#F9FAFB, #F3F4F6など）**:
   - テキスト色: `#1F2937`（gray-800）以上
   - 見出し: `#374151`（gray-700）以上
@@ -69,6 +89,26 @@ background: linear-gradient(to right, #1B4565, #3E9BA4);
 - [ ] フォントサイズが適切（最小14px以上推奨）
 - [ ] インタラクティブ要素にフォーカス表示がある
 - [ ] 画像に代替テキストがある
+
+### リンク（URL）の可読性ルール
+HTMLでは **生URLが自動的にリンク（`<a>`）** になるため、既定のスタイルに任せず明示的にコントラストを確保する。
+
+```css
+a {
+  color: var(--color-link); /* 薄すぎないリンク色 */
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+a:visited { color: var(--color-link-strong); }
+a:hover { color: var(--color-link-strong); }
+
+/* 暗い背景では白リンクに切り替え */
+:where(.panel-strong, .section-start, .title-slide, .fullscreen-background) a {
+  color: #FFFFFF;
+  text-decoration-color: rgba(255, 255, 255, 0.75);
+}
+```
 
 ### カラーコントラスト計算ツール
 - オンラインツール: WebAIM Contrast Checker
@@ -96,7 +136,7 @@ background: linear-gradient(to right, #1B4565, #3E9BA4);
 - **h2の下**: 32px（本文との間隔）
 - **h3の下**: 20px（本文との間隔）
 - **段落間**: 24px（読みやすさを確保）
-- **div要素間**: 24px（要素間の適切な間隔）
+- **スライド直下のブロック**: 24px（要素間の適切な間隔。`section > div` のみ）
 
 **注意**: 見出し直後の要素（p, divなど）の上マージンは0に設定し、見出しの下マージンで間隔を確保します。これにより、一貫性のある余白が保たれます。
 
@@ -215,9 +255,9 @@ table td:nth-child(3) {
 
 ### A. タイトル・セクション系（5種）
 1. タイトルスライド - グラデーション背景、中央配置
-2. セクション開始 - セクション番号付き、グラデーション
-3. セクション終了・まとめ - 要点を箇条書き
-4. 目次スライド - ナビゲーション用
+2. セクション開始 - 章の区切り（インパクト／短文）
+3. セクション終了 - 章の締め（見た目を変えて「区切り」を強調）
+4. 目次スライド - ナビゲーション用（セクション開始とは見た目・役割を分離）
 5. クロージングスライド - 連絡先・QRコード
 
 ### B. カラムレイアウト系（8種）
@@ -235,6 +275,76 @@ table td:nth-child(3) {
 15. タイムライン - 時系列の流れ
 16. アイコン付きリスト - 視覚的区別
 17. チェックリスト - 完了状態の表示
+
+#### アイコン付きリスト（カード型）の実装
+アイコン＋短い説明を「カード」として縦に並べるパターンです。**左に円形アイコン、右にタイトル＋本文を縦積み**にします。
+
+```css
+.icon-card-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.icon-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  padding: 20px 24px;
+  background: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+}
+.icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(62, 155, 164, 0.14);
+  border: 1px solid rgba(62, 155, 164, 0.22);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.icon-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.icon-card-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-heading);
+  line-height: 1.25;
+}
+.icon-card-body {
+  font-size: 24px;
+  color: var(--color-subheading);
+  line-height: 1.5;
+}
+```
+
+**注意（高さ）**:
+- **1スライドに入るのは最大3カードまで**（タイトル込みで高さが足りなくなるため）
+- 4枚以上必要なら、**スライド分割**するか、`grid-2col` 等で**2カラム**にする
+
+**実装例**:
+```html
+<ul class="icon-card-list">
+  <li class="icon-card">
+    <span class="icon-badge">📝</span>
+    <div class="icon-card-content">
+      <div class="icon-card-title">シンプル</div>
+      <div class="icon-card-body">箇条書き形式で理解しやすい</div>
+    </div>
+  </li>
+</ul>
+```
 
 #### チェックリストの実装
 チェックリストは完了状態を視覚的に表示するパターンです。HTML形式で実装し、チェックマークとテキストを適切にスタイリングします。
@@ -325,13 +435,19 @@ table td:nth-child(3) {
 25. 左側配置 - 画像を左側に配置
 26. 引用スライド - 引用文を強調
 
+#### 右側配置 / 左側配置（画像は必須）
+- **ルール**: 右側配置 / 左側配置は、必ず片側に**画像（スクリーンショット / 図 / 説明用イメージ）**を配置する  
+  - 「画像がない」場合は、このパターンを使わず **パネル（`.panel`）/ カード / リスト**等で情報を組み直す
+- **推奨**: 画像は内容理解を助ける説明にする（単なる装飾目的にしない）
+- **推奨**: 画像はカラム幅にフィットさせ、角丸・枠線などで「パネル相当のまとまり」を作る（例: `.explain-img` のような共通クラスで統一）
+
 #### 全画面背景の実装
 全画面背景はインパクトが必要なパターンです。section要素自体に背景を設定し、余白を最小限にします。
 
 ```css
 .fullscreen-background {
   padding: 0 !important;
-  background: linear-gradient(to right, #1B4565, #3E9BA4);
+  background: linear-gradient(to right, #0536AF, #3163E3);
   color: white;
   display: flex;
   flex-direction: column;
@@ -373,7 +489,7 @@ table td:nth-child(3) {
 section {
   background-color: #FFFFFF;
   color: #1F2937;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Lato", "Zen Kaku Gothic New", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 400;
   font-size: 24px;
   line-height: 1.7;
@@ -450,8 +566,24 @@ p + p {
   margin-top: 0;
 }
 
-div {
+/*
+  divにグローバルで余白を持たせると、グリッド/フレックス内の「素のdiv」まで
+  下方向に膨らみ、フッター衝突や意図しない間延びの原因になる。
+  余白は「スライド直下のブロック」だけに限定し、ネストしたレイアウトは gap/padding で制御する。
+*/
+section > div {
   margin-bottom: 24px;
+}
+section > div:last-child {
+  margin-bottom: 0;
+}
+
+/* card/panel内は「余白あり」が基本（ただし直下要素に限定してネスト汚染を防ぐ） */
+:where(.panel, .panel-strong, .panel-glass, .panel-gradient, .accent-card, .accent-card-secondary, .card-muted) > div {
+  margin-bottom: 24px;
+}
+:where(.panel, .panel-strong, .panel-glass, .panel-gradient, .accent-card, .accent-card-secondary, .card-muted) > div:last-child {
+  margin-bottom: 0;
 }
 
 h1 + *,
@@ -462,7 +594,8 @@ h3 + * {
 ```
 - **段落間**: 24px（読みやすさを確保）
 - **見出し直後の要素**: マージンなし（見出しの下マージンで間隔を確保）
-- **div要素**: 24pxの下マージン（要素間の適切な間隔）
+- **スライド直下のブロック（`section > div`）**: 24pxの下マージン（要素間の適切な間隔）
+- **panel/card直下の`div`**: 24pxの下マージン（テキストブロック同士の間隔。ネストしたレイアウトに影響させないため直下に限定。`.accent-card-brand` も対象に含める）
 
 **例外（テキストだけのブロック）**  
 短文の説明・ラベル・注釈など、**単独のテキストだけを置く div / p** は余白が不要なため `.text-block` を使用する。  
@@ -522,7 +655,7 @@ header {
 
 **推奨**: ヘッダーは通常不要です。スライドの見出し（h1, h2）で十分に情報が伝わります。特別な理由がある場合のみ使用してください。
 
-### フッター（ロゴとページ数）
+### フッター（ページ数）
 ```css
 footer {
   position: absolute;
@@ -532,26 +665,18 @@ footer {
   min-height: 60px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 12px;
   border-top: 2px solid var(--color-hr);
   font-size: var(--font-size-subheading);
   color: var(--color-subheading);
   padding: var(--spacing-small) 0;
   line-height: 1.2;
+  isolation: isolate;
 }
 ```
 - **パディング**: 上下均等（16px）でバランスを確保
 - **行間**: 1.2でテキストの垂直位置を調整
-
-footer::before {
-  content: '';
-  width: 180px;
-  height: 50px;
-  background-image: url('logo.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: left center;
-}
 
 footer::after {
   content: counter(page) ' / ' counter(pages);
@@ -559,8 +684,7 @@ footer::after {
 }
 ```
 - **位置**: スライド下部
-- **左側**: ロゴ（背景画像）
-- **右側**: ページ数（Marpのカウンターを使用）
+- **内容**: ページ数（Marpのカウンターを使用）
 - **スタイル**: 上線で区切り、サブ見出しサイズのフォント
 
 ### コンテンツエリアの調整
@@ -594,6 +718,32 @@ section {
   display: none;
 }
 .section-start {
+  /* 章の区切りとして使うため、レイアウトを縦中央寄せにする */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding-top: var(--slide-padding);
+  padding-bottom: var(--slide-padding);
+}
+
+/* 目次（ナビゲーション用） */
+.toc-slide {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+/* セクション終了（締め） */
+.section-end footer {
+  display: none;
+}
+.section-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   padding-top: var(--slide-padding);
   padding-bottom: var(--slide-padding);
 }
@@ -710,15 +860,20 @@ section {
   --color-foreground: #1F2937;
   --color-heading: #374151;
   --color-subheading: #4B5563;
-  --color-primary: #3E9BA4;
-  --color-secondary: #1B4565;
-  --color-hr: #3E9BA4; /* 区切り線用 */
+  --color-brand: #F4F754;
+  --color-brand-text: #AFAD05;
+  --color-link: #3163E3;
+  --color-link-strong: #0536AF;
+  --color-alert: #FA0715;
+  --color-primary: var(--color-link);
+  --color-secondary: var(--color-link-strong);
+  --color-hr: var(--color-link-strong); /* 区切り線用 */
   
   /* タイポグラフィ（スライド用・後列視認性重視） */
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-family: "Lato", "Zen Kaku Gothic New", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-family-mono: "Noto Sans Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   --font-size-base: 24px;
-  --font-size-title: 64px;
+  --font-size-title: 128px;
   --font-size-heading: 42px;
   --font-size-subheading: 32px;
   
@@ -741,6 +896,8 @@ section {
 #### 基本クラス
 - `.title-slide` - タイトルスライド用（グラデーション背景、中央配置）
 - `.section-start` - セクション開始用（グラデーション背景）
+- `.section-end` - セクション終了用（締め／セクション開始と見た目を分離）
+- `.toc-slide` - 目次用（ナビゲーション／セクション開始と見た目を分離）
 - `.panel` - パネル背景（#F9FAFB）
 - `.accent` - アクセントカラー適用
 - `.center` - 中央配置
@@ -771,19 +928,22 @@ section {
   }
   ```
 
-- `.with-logo` - ロゴを右上に配置（オプション）
+- `.with-logo` - ロゴを右上に配置（オプション。表紙/クロージングなど限定用途）
   ```css
   .with-logo::before {
     content: '';
     position: absolute;
     top: 40px;
     right: var(--slide-padding);
-    width: 180px;
-    height: 50px;
+    width: var(--logo-size);
+    height: var(--logo-size);
     background-image: url('logo.png');
     background-repeat: no-repeat;
-    background-size: contain;
-    background-position: top right;
+    background-size: cover;
+    background-position: center;
+    background-color: #FFFFFF;
+    border-radius: 999px;
+    border: 1px solid rgba(17, 24, 39, 0.16);
   }
   ```
   **注意**: ロゴは必要に応じて使用。すべてのスライドに適用しない。
@@ -810,10 +970,17 @@ section {
 - `.panel-column` - パネル内を縦方向のフレックスに
 - `.panel-accent-primary` - 左ボーダーをプライマリ色に
 - `.panel-accent-secondary` - 左ボーダーをセカンダリ色に
+- `.panel-accent-alert` - 左ボーダーをアラート色に（デメリット/注意の枠）
 - `.accent-card` - 上部ラインでアクセント（プライマリ）
 - `.accent-card-secondary` - 上部ラインでアクセント（セカンダリ）
+- `.accent-card-brand` - 上部ラインでアクセント（ブランドテキスト色 / `--color-brand-text`）
 - `.card-muted` - 淡い背景カード
   - **ルール**: ボーダーに接する角の角丸は0にする
+  - **推奨**: 上部ライン分だけ `padding-top` を大きめにする（例: 32px）
+  - **推奨**: グリッド内では余分な下マージンを付けない（`margin-bottom: 0`）
+- `.panel-strong` - 強調パネル（プライマリグラデーション＋白文字）
+- `.panel-glass` - ガラス風パネル（半透明＋ぼかし）
+- `.panel-gradient` - グラデーションパネル（淡い背景グラデーション）
 
 #### グリッドユーティリティ
 - `.grid-2col` - 2カラム（gap: 24px）
@@ -829,13 +996,14 @@ section {
 
 #### リストユーティリティ
 - `.timeline` - 番号付きのタイムライン（カウンター付き）
-- `.icon-list` - アイコン＋テキストのリスト
+- `.icon-card-list` / `.icon-card` - アイコン付きリスト（カード型）
 
 #### スタックユーティリティ
 - `.stack-32` - 縦方向に32pxの間隔で配置
 
 #### テキストユーティリティ
 - `.text-block` - テキストだけのブロック（下マージンなし）
+- `.mb-0` - 下マージンを強制的に0（グリッド内の余計な余白除去など）
 
 #### プロセスフロー
 - `.process-flow` - 水平方向のステップフロー
@@ -844,7 +1012,10 @@ section {
 
 #### レベル表示（横並び）
 - `.level-strip` - 5カラムを横並びのラベル表示
-- `.level-item` / `.level-1`〜`.level-5` - レベル色とラベル
+- `.level-item` / `.level-1`〜`.level-5` - レベル色とボックス
+- `.level-title` - レベル名（タイトル、h3相当: 32px）
+- `.level-desc` - レベル説明（短文、本文相当: 24px）
+  - **推奨**: `level-item` は `padding-top` を大きめ（例: 32px）にして、タイトル上の余白を確保する
 
 #### 統計スライド
 - `.stat-slide` - 数字を中心にした統計スライド
@@ -865,7 +1036,7 @@ section {
     <!-- _class: fullscreen-background -->
     <style scoped>
     section {
-      background: linear-gradient(to right, #1B4565, #3E9BA4);
+      background: linear-gradient(to right, #0536AF, #3163E3);
     }
     </style>
     

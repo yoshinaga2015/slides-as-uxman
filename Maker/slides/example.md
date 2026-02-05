@@ -41,19 +41,143 @@ style: |
     unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
   }
 
+  /* Zen Kaku Gothic New（日本語本文用・Google Fonts） */
+  /* latin */
+  @font-face {
+    font-family: 'Zen Kaku Gothic New';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.bunny.net/zen-kaku-gothic-new/files/zen-kaku-gothic-new-latin-400-normal.woff2) format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  /* japanese */
+  @font-face {
+    font-family: 'Zen Kaku Gothic New';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.bunny.net/zen-kaku-gothic-new/files/zen-kaku-gothic-new-japanese-400-normal.woff2) format('woff2');
+  }
+
+  /* latin */
+  @font-face {
+    font-family: 'Zen Kaku Gothic New';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.bunny.net/zen-kaku-gothic-new/files/zen-kaku-gothic-new-latin-700-normal.woff2) format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  /* japanese */
+  @font-face {
+    font-family: 'Zen Kaku Gothic New';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.bunny.net/zen-kaku-gothic-new/files/zen-kaku-gothic-new-japanese-700-normal.woff2) format('woff2');
+  }
+
+  /* latin */
+  @font-face {
+    font-family: 'Zen Kaku Gothic New';
+    font-style: normal;
+    font-weight: 900; /* Black */
+    font-display: swap;
+    src: url(https://fonts.bunny.net/zen-kaku-gothic-new/files/zen-kaku-gothic-new-latin-900-normal.woff2) format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  /* japanese */
+  @font-face {
+    font-family: 'Zen Kaku Gothic New';
+    font-style: normal;
+    font-weight: 900; /* Black */
+    font-display: swap;
+    src: url(https://fonts.bunny.net/zen-kaku-gothic-new/files/zen-kaku-gothic-new-japanese-900-normal.woff2) format('woff2');
+  }
+
+  /* Lato（英数字用・Google Fonts） */
+  /* latin-ext */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHjxAwXjeu.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  /* latin */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHjx4wXg.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  /* latin-ext */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh6UVSwaPGR_p.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  /* latin */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh6UVSwiPGQ.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  /* latin-ext */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh50XSwaPGR_p.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  /* latin */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh50XSwiPGQ.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
   /* CSS変数定義 */
   :root {
     --color-background: #FFFFFF;
     --color-foreground: #1F2937;
     --color-heading: #374151;
     --color-subheading: #4B5563;
-    --color-primary: #3E9BA4;
-    --color-secondary: #1B4565;
-    --color-hr: #3E9BA4;
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    /*
+      Brand palette (UXMAN)
+      - Brand yellow is low-contrast: use only for very large/thick elements or <= 2 chars text.
+    */
+    --color-brand: #F4F754;
+    --color-brand-text: #AFAD05;
+    --color-link: #3163E3;
+    --color-link-strong: #0536AF;
+    --color-alert: #FA0715;
+
+    /* Legacy slots (used by many utilities) */
+    --color-primary: var(--color-link);
+    --color-secondary: var(--color-link-strong);
+
+    /* Dividers / accents */
+    --color-hr: var(--color-link-strong);
+    --font-family: "Lato", "Zen Kaku Gothic New", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --font-family-mono: "Noto Sans Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     --font-size-base: 24px;
-    --font-size-title: 64px;
+    --font-size-title: 128px; /* h1: 2x */
     --font-size-heading: 42px;
     --font-size-subheading: 32px;
     --spacing-base: 8px;
@@ -62,6 +186,7 @@ style: |
     --spacing-large: 32px;
     --spacing-xlarge: 48px;
     --slide-padding: 48px;
+    --logo-size: 44px;
     --line-height-base: 1.7;
     --line-height-heading: 1.4;
   }
@@ -90,7 +215,7 @@ style: |
   h1 {
     font-size: var(--font-size-title);
     line-height: var(--line-height-heading);
-    font-weight: 700;
+    font-weight: 900; /* Black */
     color: var(--color-heading);
     margin-top: 0;
     margin-bottom: var(--spacing-large);
@@ -122,8 +247,24 @@ style: |
     margin-top: 0;
   }
 
-  div {
+  /*
+    divにグローバルで余白を持たせると、グリッド/フレックス内の「素のdiv」まで
+    下方向に膨らみ、フッター衝突や意図しない間延びの原因になる。
+    余白は「スライド直下のブロック」だけに限定し、ネストしたレイアウトは gap/padding で制御する。
+  */
+  section > div {
     margin-bottom: var(--spacing-medium);
+  }
+  section > div:last-child {
+    margin-bottom: 0;
+  }
+
+  /* card/panel内は「余白あり」が基本（ただし直下要素に限定してネスト汚染を防ぐ） */
+  :where(.panel, .panel-strong, .panel-glass, .panel-gradient, .accent-card, .accent-card-secondary, .accent-card-brand, .card-muted) > div {
+    margin-bottom: var(--spacing-medium);
+  }
+  :where(.panel, .panel-strong, .panel-glass, .panel-gradient, .accent-card, .accent-card-secondary, .accent-card-brand, .card-muted) > div:last-child {
+    margin-bottom: 0;
   }
 
   /* 見出し直後の要素は上マージンなし（見出しの下マージンで間隔を確保） */
@@ -131,6 +272,27 @@ style: |
   h2 + *,
   h3 + * {
     margin-top: 0;
+  }
+
+  /* リンク（HTMLでURLが自動リンク化されるため、十分なコントラストを確保する） */
+  a {
+    color: var(--color-link);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  a:visited {
+    color: var(--color-link-strong);
+  }
+
+  a:hover {
+    color: var(--color-link-strong);
+  }
+
+  :where(.panel-strong, .section-start, .title-slide, .fullscreen-background) a {
+    color: #FFFFFF;
+    text-decoration-color: rgba(255, 255, 255, 0.75);
   }
 
   /* リストのスタイル */
@@ -195,7 +357,8 @@ style: |
     min-height: 60px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 12px;
     border-top: 2px solid var(--color-hr);
     font-size: var(--font-size-subheading);
     color: var(--color-subheading);
@@ -204,24 +367,16 @@ style: |
     isolation: isolate;
   }
 
-  footer::before {
-    content: '';
-    width: 180px;
-    height: 50px;
-    background-image: url('logo.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: left center;
-  }
-
   footer::after {
     content: counter(page) ' / ' counter(pages);
     font-weight: 600;
     font-family: var(--font-family-mono);
     font-variant-numeric: tabular-nums;
-    color: #FFFFFF;
-    mix-blend-mode: difference;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    margin-left: auto; /* 常に右寄せ */
+    color: var(--color-link-strong); /* 黄色化させない */
+    mix-blend-mode: normal;
+    text-shadow: none;
+    text-align: right;
   }
 
   /* タイトルスライド */
@@ -250,6 +405,11 @@ style: |
   .section-start {
     background: linear-gradient(to right, var(--color-secondary), var(--color-primary));
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
     padding-top: var(--slide-padding);
     padding-bottom: var(--slide-padding);
   }
@@ -264,10 +424,152 @@ style: |
     color: white !important;
   }
 
+  .section-start h1 {
+    font-size: 88px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .section-start h2 {
+    font-size: 48px;
+    font-weight: 600;
+    opacity: 0.95;
+    margin-bottom: 0;
+  }
+
+  /* 目次（ナビゲーション用。section-startと役割を分ける） */
+  .toc-slide {
+    background: var(--color-background);
+    color: var(--color-foreground);
+  }
+
+  /* 目次専用レイアウト（2カラム、間隔を詰める） */
+  .toc-layout {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 140px;
+    align-items: start;
+  }
+
+  .toc-layout > div:first-child {
+    padding-right: 8px;
+  }
+
+  .toc-layout > div:last-child {
+    padding-left: 8px;
+  }
+
+  .toc-title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .toc-title-group h1 {
+    font-size: 72px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin: 0;
+    line-height: 1.1;
+    text-align: left;
+  }
+
+  .toc-title-group h2 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    margin: 0;
+    line-height: 1.2;
+    color: var(--color-subheading);
+    text-align: center;
+    align-self: center;
+  }
+
+  .toc-title-group + * {
+    margin-top: 32px;
+  }
+
+  .toc-slide ol {
+    margin: 0;
+    padding-left: 36px;
+    font-size: 32px;
+    line-height: 1.55;
+  }
+
+  .toc-slide li {
+    margin-bottom: 12px;
+  }
+
+  /* セクション終了（締め用。section-startと見た目を分ける） */
+  .section-end {
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: var(--slide-padding);
+    padding-bottom: var(--slide-padding);
+  }
+
+  .section-end footer {
+    display: none;
+  }
+
+  .section-end h1,
+  .section-end h2,
+  .section-end h3 {
+    color: white !important;
+  }
+
+  .section-end h1 {
+    font-size: 72px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+
+  .section-end h2 {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
   /* パネル */
   .panel {
     background: #F9FAFB;
     padding: var(--spacing-medium);
+    border-radius: 8px;
+  }
+
+  .panel-strong {
+    background: linear-gradient(to right, var(--color-secondary), var(--color-primary));
+    color: #FFFFFF;
+    padding: 32px;
+    border-radius: 8px;
+  }
+
+  .panel-strong h2,
+  .panel-strong h3,
+  .panel-strong p,
+  .panel-strong div {
+    color: #FFFFFF;
+  }
+
+  .panel-glass {
+    background: rgba(249, 250, 251, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .panel-gradient {
+    background: linear-gradient(135deg, #F9FAFB 0%, #E5E7EB 100%);
+    padding: 32px;
     border-radius: 8px;
   }
 
@@ -277,20 +579,32 @@ style: |
 
   .accent-card {
     background: #F9FAFB;
-    padding: 24px;
+    padding: 32px 24px 24px;
     border-radius: 8px;
     border-top: 6px solid var(--color-primary);
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+    margin-bottom: 0;
   }
 
   .accent-card-secondary {
     background: #F9FAFB;
-    padding: 24px;
+    padding: 32px 24px 24px;
     border-radius: 8px;
     border-top: 6px solid var(--color-secondary);
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+    margin-bottom: 0;
+  }
+
+  .accent-card-brand {
+    background: #F9FAFB;
+    padding: 32px 24px 24px;
+    border-radius: 8px;
+    border-top: 6px solid var(--color-brand-text);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-bottom: 0;
   }
 
   .card-muted {
@@ -320,6 +634,12 @@ style: |
 
   .panel-accent-secondary {
     border-left: 4px solid var(--color-secondary);
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+
+  .panel-accent-alert {
+    border-left: 4px solid var(--color-alert);
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
   }
@@ -384,19 +704,32 @@ style: |
   }
 
   .level-item {
-    padding: 8px 10px;
-    border-radius: 999px;
+    padding: 32px 12px 28px;
+    border-radius: 12px;
     text-align: center;
-    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .level-title {
+    font-size: var(--font-size-subheading);
     font-weight: 600;
-    line-height: 1.2;
+    color: inherit;
+  }
+
+  .level-desc {
+    font-size: var(--font-size-base);
+    font-weight: 400;
+    opacity: 0.95;
+    color: inherit;
   }
 
   .level-1 { background: #F3F4F6; color: #374151; }
   .level-2 { background: #E5E7EB; color: #374151; }
   .level-3 { background: #D1D5DB; color: #374151; }
-  .level-4 { background: #9CA3AF; color: #FFFFFF; }
-  .level-5 { background: #3E9BA4; color: #FFFFFF; }
+  .level-4 { background: var(--color-link); color: #FFFFFF; }
+  .level-5 { background: var(--color-link-strong); color: #FFFFFF; }
 
   .grid-2x3 {
     display: grid;
@@ -419,6 +752,10 @@ style: |
 
   .center {
     text-align: center;
+  }
+
+  .mb-0 {
+    margin-bottom: 0 !important;
   }
 
   /* セーフエリア */
@@ -529,27 +866,146 @@ style: |
     flex-shrink: 0;
   }
 
-  .icon-list {
+  /* アイコン付きリスト（カード型） */
+  .icon-card-list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
   }
 
-  .icon-list li {
+  .icon-card {
     display: flex;
-    align-items: start;
-    gap: 12px;
+    align-items: center;
+    gap: 16px;
     margin: 0;
-    font-size: 22px;
-    color: var(--color-foreground);
+    padding: 20px 24px;
+    background: #F9FAFB; /* gray-50 */
+    border: 1px solid #E5E7EB; /* gray-200 */
+    border-radius: 12px;
   }
 
-  .icon-list .icon {
+  .icon-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    background: rgba(62, 155, 164, 0.14); /* primary tint */
+    border: 1px solid rgba(62, 155, 164, 0.22);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-size: 22px;
+    line-height: 1;
     flex-shrink: 0;
+  }
+
+  .icon-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .icon-card-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-heading);
+    line-height: 1.25;
+  }
+
+  .icon-card-body {
+    font-size: 24px;
+    color: var(--color-subheading);
+    line-height: 1.5;
+  }
+
+  /* 引用（左アクセントライン。blockquoteのデフォルト線と二重にならないようにする） */
+  .quote-accent {
+    border-left: 4px solid var(--color-primary);
+    padding-left: 24px;
+    margin: 32px 0;
+  }
+
+  .quote-accent blockquote {
+    margin: 0;
+    padding: 0;
+    border-left: none !important;
+  }
+
+  .quote-accent blockquote > p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* QRコード（中央配置・大きめ） */
+  .qr-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .qr-code-box {
+    width: 360px;
+    height: 360px;
+    background: #F3F4F6; /* gray-100 */
+    border: 1px solid #E5E7EB; /* gray-200 */
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .qr-code-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    background: #FFFFFF;
+  }
+
+  .qr-caption {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .qr-caption-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin: 0;
+  }
+
+  .qr-caption-url {
+    font-size: 20px;
+    color: var(--color-subheading);
+    font-family: var(--font-family-mono);
+    font-variant-numeric: tabular-nums;
+    margin: 0;
+    word-break: break-all;
+  }
+
+  /* 説明用画像（パネルの代替） */
+  .explain-figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .explain-img {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    border: 1px solid #E5E7EB;
+    background: #FFFFFF;
+    box-shadow: 0 14px 28px rgba(17, 24, 39, 0.12);
   }
 
   .process-flow {
@@ -629,23 +1085,17 @@ style: |
   }
 
   /* オプション: ロゴ配置（右上） */
-  .with-logo::before {
-    content: '';
-    position: absolute;
-    top: 40px;
-    right: var(--slide-padding);
-    width: 180px;
-    height: 50px;
-    background-image: url('logo.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: top right;
-  }
-
-  /* タイトルスライドではロゴを非表示 */
-  .title-slide.with-logo::before,
-  .section-start.with-logo::before {
-    display: none;
+  /* インラインロゴ（Yuki Yoshinagaの右隣に配置） */
+  .logo-inline {
+    display: inline-block;
+    vertical-align: middle;
+    width: var(--logo-size);
+    height: var(--logo-size);
+    margin-left: 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: #FFFFFF;
+    object-fit: cover;
   }
 
   /* レイアウトクラス: タイトルスライド専用スタイル */
@@ -698,14 +1148,7 @@ style: |
     max-width: 100%;
   }
 
-  /* パネルの背景色を変数化（オプション） */
-  .panel {
-    background: #F9FAFB; /* gray-50 */
-    margin: 0;
-    border-radius: 8px;
-  }
-
-  /* border-leftがある時は左上と左下のradiusを削除 */
+  /* border-leftがある時は左上と左下のradiusを削除（レガシー互換） */
   .panel[style*="border-left"] {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -793,96 +1236,88 @@ style: |
 
 <!-- _class: title-slide -->
 
-# 生成AI時代に覚えたい
+# タイトル
 <!-- パターン: A. タイトル・セクション系 / 用途: 冒頭でテーマと登壇情報を提示し、期待値を揃える時。 -->
-## ユースケース記述の書き方
+## サブタイトル
 
-Yuki Yoshinaga  
-2025年12月29日
+登壇者名 <img class="logo-inline" src="logo.png" alt="" />  
+202X年X月X日
+
+---
+
+<!-- _class: toc-slide -->
+
+<div class="toc-layout">
+
+<div>
+
+<div class="toc-title-group">
+  <h1>目次</h1>
+  <h2>Index</h2>
+  <!-- パターン: A. タイトル・セクション系 / 用途: 全体構成を提示し、聞き手の「地図」を作る時。 -->
+</div>
+
+</div>
+
+<div>
+
+1. セクションA
+2. セクションB
+3. セクションC
+4. セクションD
+5. セクションE
+
+</div>
+
+</div>
 
 ---
 
 <!-- _class: section-start -->
 
-# 目次
-<!-- パターン: A. タイトル・セクション系 / 用途: 全体構成を提示し、聞き手の「地図」を作る時。 -->
-
-1. イントロダクション
-2. ユースケース記述とは
-3. 実例：Mediumのライブラリ機能
-4. 生成AIとの相性
-5. まとめ
-
----
-
-<!-- _class: section-start -->
-
-# セクション 1
+# セクション開始
 <!-- パターン: A. タイトル・セクション系 / 用途: 章の切り替わりに使うインパクトのあるパターン。 -->
-## イントロダクション
+## セクションタイトル
 
 ---
 
-# 生成AI時代の開発格差
+## ここにタイトルが入ります
 <!-- パターン: A. タイトル・セクション系 / 用途: 導入の問題提起を文章で説明する通常スライド。 -->
 
-生成AIが世の中に浸透して、今ではアプリケーションを誰でも開発できるようになったと言われていますよね。
+ここに説明文が入ります。
 
-**しかし、その開発速度や精度は、個々人によって大きな格差がある**のが現状です。
-
----
-
-# セクション 2
-<!-- パターン: A. タイトル・セクション系 / 用途: 次の章へ切り替えるための区切りスライド。 -->
-## ユースケース記述とは
+**ここに強調文が入ります。**
 
 ---
 
-# ユースケース記述とは
-<!-- パターン: A. タイトル・セクション系 / 用途: 概念の定義を短く伝える通常スライド。 -->
-
-**物事が起きる順番に並べた箇条書き形式の作文**
-
-ユーザーとシステムとの対話を叙述的に書きます。
-
----
-
-# 基本形態
+## ここにタイトルが入ります
 <!-- パターン: A. タイトル・セクション系 / 用途: フォーマットや書式をコード例で示す時。 -->
 
 ```markdown
-# ユースケース1のタイトル
-- ユーザーは[XXX]する
-- システムは[XXX]する
-- ユーザーは[XXX]する
-- システムは[XXX]する
+# サンプルタイトル
+- 項目A
+- 項目B
+- 項目C
+- 項目D
 ```
 
-必ず主語（「ユーザー」「システム」）を明記します。
+ここに説明文が入ります。
 
 ---
 
-# セクション 3
-<!-- パターン: A. タイトル・セクション系 / 用途: 次の章へ切り替えるための区切りスライド。 -->
-## 実例：Mediumのライブラリ機能
-
----
-
-
-
-# 2カラム比較：Before/After
+## 2カラム比較：Before/After
 <!-- パターン: B. カラムレイアウト系 / 用途: 変更前後の比較を端的に見せたい時。 -->
 
 <div class="grid-2col">
 
-<div>
+<div class="mb-0">
 
 <h2 style="margin: 0 0 24px 0; font-size: 28px; font-weight: 700; color: #374151;">Before</h2>
 <div style="font-size: 24px; color: #1F2937; margin-bottom: 16px;">
-曖昧な指示
+ここに短い説明が入ります
 </div>
 <div style="font-size: 26px; color: #4B5563; font-style: italic;">
-「記事をお気に入りできる機能を作って」
+「ここに例文が入ります」
 </div>
 
 </div>
@@ -891,13 +1326,13 @@ Yuki Yoshinaga
 
 <h2 style="margin: 0 0 24px 0; font-size: 28px; font-weight: 700; color: #374151;">After</h2>
 <div style="font-size: 24px; color: #1F2937; margin-bottom: 16px;">
-ユースケース記述
+ここに短い説明が入ります
 </div>
 <ul style="font-size: 26px; color: #1F2937; margin: 0; padding-left: 24px;">
-<li>ユーザーは記事を開く</li>
-<li>システムは記事を表示する</li>
-<li>ユーザーはお気に入りボタンを押す</li>
-<li>システムはライブラリ一覧を表示する</li>
+<li>項目A</li>
+<li>項目B</li>
+<li>項目C</li>
+<li>項目D</li>
 </ul>
 
 </div>
@@ -907,29 +1342,29 @@ Yuki Yoshinaga
 ---
 
 
-# 2カラム対比：ユースケース記述の特徴
+## 2カラム対比：タイトル
 <!-- パターン: B. カラムレイアウト系 / 用途: 2つの性質や考え方を対比して示す時。 -->
 
 <div class="grid-2col">
 
 <div class="panel">
 
-<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">従来の仕様書</h2>
+<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">項目A</h2>
 <ul style="font-size: 26px; color: #1F2937; margin: 0; padding-left: 24px;">
-<li>技術的詳細が多い</li>
-<li>実装方法が混在</li>
-<li>読み手の解釈に依存</li>
+<li>説明文A</li>
+<li>説明文B</li>
+<li>説明文C</li>
 </ul>
 
 </div>
 
 <div class="panel">
 
-<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">ユースケース記述</h2>
+<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">項目B</h2>
 <ul style="font-size: 26px; color: #1F2937; margin: 0; padding-left: 24px;">
-<li>シンプルで直感的</li>
-<li>順序が明確</li>
-<li>主語が明示的</li>
+<li>説明文A</li>
+<li>説明文B</li>
+<li>説明文C</li>
 </ul>
 
 </div>
@@ -939,37 +1374,37 @@ Yuki Yoshinaga
 ---
 
 
-# 3カラムレイアウト：ユースケース記述の要素
+## 3カラムレイアウト：タイトル
 <!-- パターン: B. カラムレイアウト系 / 用途: 構成要素を3点で整理したい時。 -->
 
 <div class="grid-3col">
 
 <div class="panel">
 
-<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">主語</h2>
+<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">タイトルA</h2>
 <div style="font-size: 26px; color: #1F2937;">
-ユーザー  
-システム
+テキスト  
+テキスト
 </div>
 
 </div>
 
 <div class="panel">
 
-<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">動詞</h2>
+<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">タイトルB</h2>
 <div style="font-size: 26px; color: #1F2937;">
-〜する  
-〜表示する
+テキスト  
+テキスト
 </div>
 
 </div>
 
 <div class="panel">
 
-<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">順序</h2>
+<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">タイトルC</h2>
 <div style="font-size: 26px; color: #1F2937;">
-時系列に沿って  
-箇条書きで
+テキスト  
+テキスト
 </div>
 
 </div>
@@ -979,34 +1414,34 @@ Yuki Yoshinaga
 ---
 
 
-# 3カラム（アクセントカラー）
+## 3カラム（アクセント）
 <!-- パターン: B. カラムレイアウト系 / 用途: 重要ポイントをアクセントで強調したい時。 -->
 
 <div class="grid-3col">
 
 <div class="accent-card">
 
-<h2 style="margin: 0 0 24px 0; font-size: 24px; font-weight: 700; color: #374151;">シンプル</h2>
+<h2 style="margin: 0 0 24px 0; font-size: 24px; font-weight: 700; color: #374151;">タイトルA</h2>
 <div style="color: #1F2937;">
-物事を順序どおりに述べる
+ここに説明文が入ります
 </div>
 
 </div>
 
-<div class="accent-card-secondary">
+<div class="accent-card-brand">
 
-<h2 style="margin: 0 0 24px 0; font-size: 24px; font-weight: 700; color: #374151;">明確</h2>
+<h2 style="margin: 0 0 24px 0; font-size: 24px; font-weight: 700; color: #374151;">タイトルB</h2>
 <div style="color: #1F2937;">
-主語を必ず書く
+ここに説明文が入ります
 </div>
 
 </div>
 
 <div class="accent-card">
 
-<h2 style="margin: 0 0 24px 0; font-size: 24px; font-weight: 700; color: #374151;">実用的</h2>
+<h2 style="margin: 0 0 24px 0; font-size: 24px; font-weight: 700; color: #374151;">タイトルC</h2>
 <div style="color: #1F2937;">
-AIに渡すだけで実装可能
+ここに説明文が入ります
 </div>
 
 </div>
@@ -1016,43 +1451,43 @@ AIに渡すだけで実装可能
 ---
 
 
-# 4カラムレイアウト：ユースケース記述の利点
+## 4カラムレイアウト：タイトル
 <!-- パターン: B. カラムレイアウト系 / 用途: 4つの利点・項目を並列に示す時。 -->
 
 <div class="grid-4col">
 
 <div class="panel panel-center">
 
-<h3 style="margin: 0 0 16px 0; font-size: 26px; font-weight: 600; color: #374151;">シンプル</h3>
+<h3 style="margin: 0 0 16px 0; font-size: 26px; font-weight: 600; color: #374151;">タイトルA</h3>
 <div style="font-size: 24px; color: #4B5563;">
-理解しやすい
+ここに説明文が入ります
 </div>
 
 </div>
 
 <div class="panel panel-center">
 
-<h3 style="margin: 0 0 16px 0; font-size: 26px; font-weight: 600; color: #374151;">明確</h3>
+<h3 style="margin: 0 0 16px 0; font-size: 26px; font-weight: 600; color: #374151;">タイトルB</h3>
 <div style="font-size: 24px; color: #4B5563;">
-曖昧さがない
+ここに説明文が入ります
 </div>
 
 </div>
 
 <div class="panel panel-center">
 
-<h3 style="margin: 0 0 16px 0; font-size: 26px; font-weight: 600; color: #374151;">実用的</h3>
+<h3 style="margin: 0 0 16px 0; font-size: 26px; font-weight: 600; color: #374151;">タイトルC</h3>
 <div style="font-size: 24px; color: #4B5563;">
-すぐ使える
+ここに説明文が入ります
 </div>
 
 </div>
 
 <div class="panel panel-center">
 
-<h3 style="margin: 0 0 16px 0; font-size: 26px; font-weight: 600; color: #374151;">拡張性</h3>
+<h3 style="margin: 0 0 16px 0; font-size: 26px; font-weight: 600; color: #374151;">タイトルD</h3>
 <div style="font-size: 24px; color: #4B5563;">
-追加しやすい
+ここに説明文が入ります
 </div>
 
 </div>
@@ -1062,61 +1497,76 @@ AIに渡すだけで実装可能
 ---
 
 
-# 5カラム：成熟度レベル
+## 5カラム：成熟度レベル
 <!-- パターン: B. カラムレイアウト系 / 用途: レベルや成熟度を段階的に示す時。 -->
 
 <div class="level-strip">
-  <div class="level-item level-1">Lv.1 基本形</div>
-  <div class="level-item level-2">Lv.2 拡張</div>
-  <div class="level-item level-3">Lv.3 応用</div>
-  <div class="level-item level-4">Lv.4 高度</div>
-  <div class="level-item level-5">Lv.5 マスター</div>
+  <div class="level-item level-1">
+    <div class="level-title">Lv.1 タイトル</div>
+    <div class="level-desc">ここに説明文が入ります</div>
+  </div>
+  <div class="level-item level-2">
+    <div class="level-title">Lv.2 タイトル</div>
+    <div class="level-desc">ここに説明文が入ります</div>
+  </div>
+  <div class="level-item level-3">
+    <div class="level-title">Lv.3 タイトル</div>
+    <div class="level-desc">ここに説明文が入ります</div>
+  </div>
+  <div class="level-item level-4">
+    <div class="level-title">Lv.4 タイトル</div>
+    <div class="level-desc">ここに説明文が入ります</div>
+  </div>
+  <div class="level-item level-5">
+    <div class="level-title">Lv.5 タイトル</div>
+    <div class="level-desc">ここに説明文が入ります</div>
+  </div>
 </div>
 
 ---
 
 
-# 2x2グリッド：ユースケース記述の活用場面
+## 2x2グリッド：タイトル
 <!-- パターン: B. カラムレイアウト系 / 用途: 4象限で用途や分類を整理したい時。 -->
 
 <div class="grid-2col">
 
 <div class="panel panel-compact">
 
-<h2 style="margin: 0 0 12px 0; font-size: 22px; font-weight: 700; color: #374151;">開発前</h2>
+<h2 style="margin: 0 0 12px 0; font-size: 22px; font-weight: 700; color: #374151;">カテゴリA</h2>
 <div style="font-size: 24px; color: #4B5563;">
-要件定義  
-仕様書作成
+テキスト  
+テキスト
 </div>
 
 </div>
 
 <div class="panel panel-compact">
 
-<h2 style="margin: 0 0 12px 0; font-size: 22px; font-weight: 700; color: #374151;">開発中</h2>
+<h2 style="margin: 0 0 12px 0; font-size: 22px; font-weight: 700; color: #374151;">カテゴリB</h2>
 <div style="font-size: 24px; color: #4B5563;">
-実装指示  
-AIへの指示
+テキスト  
+テキスト
 </div>
 
 </div>
 
 <div class="panel panel-compact">
 
-<h2 style="margin: 0 0 12px 0; font-size: 22px; font-weight: 700; color: #374151;">開発後</h2>
+<h2 style="margin: 0 0 12px 0; font-size: 22px; font-weight: 700; color: #374151;">カテゴリC</h2>
 <div style="font-size: 24px; color: #4B5563;">
-ドキュメント  
-引き継ぎ資料
+テキスト  
+テキスト
 </div>
 
 </div>
 
 <div class="panel panel-compact">
 
-<h2 style="margin: 0 0 12px 0; font-size: 22px; font-weight: 700; color: #374151;">教育</h2>
+<h2 style="margin: 0 0 12px 0; font-size: 22px; font-weight: 700; color: #374151;">カテゴリD</h2>
 <div style="font-size: 24px; color: #4B5563;">
-新人研修  
-ベストプラクティス
+テキスト  
+テキスト
 </div>
 
 </div>
@@ -1126,61 +1576,61 @@ AIへの指示
 ---
 
 
-# 3x2グリッド：ユースケース記述の実例
+## 3x2グリッド：タイトル
 <!-- パターン: B. カラムレイアウト系 / 用途: 複数の短い実例を一覧で見せたい時。 -->
 
 <div class="grid-3x2-compact">
 
 <div class="panel panel-compact">
 
-<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">記事を読む</h3>
+<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">タイトルA</h3>
 <div style="font-size: 20px; color: #4B5563; margin: 0;">
-ユーザーは記事を開く
+ここに説明文が入ります
 </div>
 
 </div>
 
 <div class="panel panel-compact">
 
-<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">お気に入り</h3>
+<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">タイトルB</h3>
 <div style="font-size: 20px; color: #4B5563; margin: 0;">
-ユーザーはお気に入りボタンを押す
+ここに説明文が入ります
 </div>
 
 </div>
 
 <div class="panel panel-compact">
 
-<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">ライブラリ表示</h3>
+<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">タイトルC</h3>
 <div style="font-size: 20px; color: #4B5563; margin: 0;">
-システムはライブラリ一覧を表示
+ここに説明文が入ります
 </div>
 
 </div>
 
 <div class="panel panel-compact">
 
-<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">ライブラリ選択</h3>
+<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">タイトルD</h3>
 <div style="font-size: 20px; color: #4B5563; margin: 0;">
-ユーザーはライブラリを選択
+ここに説明文が入ります
 </div>
 
 </div>
 
 <div class="panel panel-compact">
 
-<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">保存</h3>
+<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">タイトルE</h3>
 <div style="font-size: 20px; color: #4B5563; margin: 0;">
-システムは記事を保存
+ここに説明文が入ります
 </div>
 
 </div>
 
 <div class="panel panel-compact">
 
-<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">完了</h3>
+<h3 style="margin: 0 0 6px 0; font-size: 18px; font-weight: 600; color: #374151;">タイトルF</h3>
 <div style="font-size: 20px; color: #4B5563; margin: 0;">
-ユーザーは完了を確認
+ここに説明文が入ります
 </div>
 
 </div>
@@ -1190,85 +1640,102 @@ AIへの指示
 ---
 
 
-# ステップリスト：記事をお気に入りする
+## ステップリスト：タイトル
 <!-- パターン: C. リスト系 / 用途: 手順を順番に伝えたい時。 -->
 
-1. **ユーザー**はアプリケーションを開く
-2. **システム**は記事一覧を表示する
-3. **ユーザー**はいずれかの記事を開く
-4. **システム**は当該記事を表示する
-5. **ユーザー**は当該記事をお気に入り(Save)する
-6. **システム**はライブラリ一覧を表示してユーザーに尋ねる
-7. **ユーザー**はライブラリを選択して完了する
-8. **システム**は当該ライブラリに記事を追加する
+1. **項目**の説明文が入ります
+2. **項目**の説明文が入ります
+3. **項目**の説明文が入ります
+4. **項目**の説明文が入ります
+5. **項目**の説明文が入ります
+6. **項目**の説明文が入ります
+7. **項目**の説明文が入ります
+8. **項目**の説明文が入ります
 
 ---
 
 
-# タイムライン：開発プロセス
+## タイムライン：タイトル
 <!-- パターン: C. リスト系 / 用途: 時系列の流れを示したい時。 -->
 
 <ol class="timeline">
-  <li>ユースケース記述を作成</li>
-  <li>AIに渡して実装</li>
-  <li>動作確認・修正</li>
-  <li>完成</li>
+  <li>ここに工程名が入ります</li>
+  <li>ここに工程名が入ります</li>
+  <li>ここに工程名が入ります</li>
+  <li>ここに工程名が入ります</li>
 </ol>
 
 ---
 
 
-# アイコン付きリスト：ユースケース記述の特徴
+## アイコン付きリスト：タイトル
 <!-- パターン: C. リスト系 / 用途: 特徴を視覚的に分かりやすく伝える時。 -->
 
-<ul class="icon-list">
-  <li><span class="icon">📝</span><span><strong>シンプル</strong> - 箇条書き形式で理解しやすい</span></li>
-  <li><span class="icon">🎯</span><span><strong>明確</strong> - 主語を必ず書くため曖昧さがない</span></li>
-  <li><span class="icon">⚡</span><span><strong>実用的</strong> - AIに渡すだけで実装可能</span></li>
-  <li><span class="icon">🚀</span><span><strong>効率的</strong> - 修正指示なしで完成することも</span></li>
+<ul class="icon-card-list">
+  <li class="icon-card">
+    <span class="icon-badge">📝</span>
+    <div class="icon-card-content">
+      <div class="icon-card-title">タイトルA</div>
+      <div class="icon-card-body">ここに説明文が入ります</div>
+    </div>
+  </li>
+  <li class="icon-card">
+    <span class="icon-badge">🎯</span>
+    <div class="icon-card-content">
+      <div class="icon-card-title">タイトルB</div>
+      <div class="icon-card-body">ここに説明文が入ります</div>
+    </div>
+  </li>
+  <li class="icon-card">
+    <span class="icon-badge">⚡</span>
+    <div class="icon-card-content">
+      <div class="icon-card-title">タイトルC</div>
+      <div class="icon-card-body">ここに説明文が入ります</div>
+    </div>
+  </li>
 </ul>
 
 ---
 
 
-# チェックリスト：ユースケース記述のチェックポイント
+## チェックリスト：タイトル
 <!-- パターン: C. リスト系 / 用途: 確認項目や達成条件を一覧化する時。 -->
 
 <div class="checklist">
 
 <div class="checklist-item">
 <div class="checklist-checkbox">☑</div>
-<div class="checklist-text">主語（ユーザー/システム）が明記されている</div>
+<div class="checklist-text">ここに確認項目が入ります</div>
 </div>
 
 <div class="checklist-item">
 <div class="checklist-checkbox">☑</div>
-<div class="checklist-text">時系列に沿って順序立てられている</div>
+<div class="checklist-text">ここに確認項目が入ります</div>
 </div>
 
 <div class="checklist-item">
 <div class="checklist-checkbox">☑</div>
-<div class="checklist-text">箇条書き形式で書かれている</div>
+<div class="checklist-text">ここに確認項目が入ります</div>
 </div>
 
 <div class="checklist-item">
 <div class="checklist-checkbox">☑</div>
-<div class="checklist-text">技術的詳細が含まれていない</div>
+<div class="checklist-text">ここに確認項目が入ります</div>
 </div>
 
 <div class="checklist-item">
 <div class="checklist-checkbox">☑</div>
-<div class="checklist-text">読み手が理解しやすい表現になっている</div>
+<div class="checklist-text">ここに確認項目が入ります</div>
 </div>
 
 <div class="checklist-item unchecked">
 <div class="checklist-checkbox">☐</div>
-<div class="checklist-text">エラーケースが考慮されている（オプション）</div>
+<div class="checklist-text">ここに確認項目が入ります（オプション）</div>
 </div>
 
 <div class="checklist-item unchecked">
 <div class="checklist-checkbox">☐</div>
-<div class="checklist-text">代替フローが記載されている（オプション）</div>
+<div class="checklist-text">ここに確認項目が入ります（オプション）</div>
 </div>
 
 </div>
@@ -1276,19 +1743,19 @@ AIへの指示
 ---
 
 
-# 基本パネル
+## 基本パネル
 <!-- パターン: D. パネルデザイン系 / 用途: まとまった説明をパネルで読みやすく提示したい時。 -->
 
 <div class="panel">
 
-<h2 style="margin: 0 0 24px 0; font-size: 32px; font-weight: 700; color: #374151;">ユースケース記述の基本形</h2>
+<h2 style="margin: 0 0 24px 0; font-size: 32px; font-weight: 700; color: #374151;">ここにタイトルが入ります</h2>
 
 <div style="font-size: 24px; color: #1F2937; line-height: 1.6;">
-ユースケース記述は、物事が起きる順番に並べた箇条書き形式の作文です。
+ここに説明文が入ります。
 
-ユーザーとシステムとの対話を叙述的に書きます。
+ここに説明文が入ります。
 
-必ず主語を書くようにします。
+ここに説明文が入ります。
 </div>
 
 </div>
@@ -1296,17 +1763,17 @@ AIへの指示
 ---
 
 
-# 強調パネル
+## 強調パネル
 <!-- パターン: D. パネルデザイン系 / 用途: 重要メッセージを背景色で強調したい時。 -->
 
-<div style="background: linear-gradient(to right, #1B4565, #3E9BA4); color: white; padding: 32px; border-radius: 8px;">
+<div class="panel panel-strong">
 
-<h2 style="color: white; margin: 0 0 24px 0; font-size: 32px; font-weight: 700;">生成AIとの相性</h2>
+<h2 style="margin: 0 0 24px 0; font-size: 32px; font-weight: 700;">ここにタイトルが入ります</h2>
 
-<div style="color: white;">
-ユースケース記述自体は生成AI時代になって新しく登場したフレームワークではありません。
+<div>
+ここに説明文が入ります。
 
-しかし、生成AIとの相性は**最高の部類**に入ります。
+ここに強調文が入ります。
 </div>
 
 </div>
@@ -1314,15 +1781,15 @@ AIへの指示
 ---
 
 
-# ガラス風パネル
+## ガラス風パネル
 <!-- パターン: D. パネルデザイン系 / 用途: 背景の上に“浮かぶ”情報パネルを置きたい時（装飾多め）。 -->
 
-<div style="background: rgba(249, 250, 251, 0.8); backdrop-filter: blur(10px); padding: 32px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.5);">
+<div class="panel panel-glass">
 
-<h2 style="margin: 0 0 24px 0; font-size: 32px; font-weight: 700; color: #374151;">ユースケース記述は「てこ」</h2>
+<h2 style="margin: 0 0 24px 0; font-size: 32px; font-weight: 700; color: #374151;">ここにタイトルが入ります</h2>
 
 <div style="font-size: 24px; color: #1F2937; line-height: 1.6;">
-生成AIを使った開発をより強力にしてくれる「てこ」は、これまでに培われた様々な技術やフレームワークであり、それを知り、用いることが良い生成AI開発につながります。
+ここに説明文が入ります。
 </div>
 
 </div>
@@ -1330,16 +1797,16 @@ AIへの指示
 ---
 
 
-# グラデーションパネル
+## グラデーションパネル
 <!-- パターン: D. パネルデザイン系 / 用途: 事例やストーリーを少しリッチに見せたい時。 -->
 
-<div style="background: linear-gradient(135deg, #F9FAFB 0%, #E5E7EB 100%); padding: 32px; border-radius: 8px;">
+<div class="panel panel-gradient">
 
-<h2 style="margin: 0 0 24px 0; font-size: 32px; font-weight: 700; color: #374151;">実例：TODOアプリ</h2>
+<h2 style="margin: 0 0 24px 0; font-size: 32px; font-weight: 700; color: #374151;">ここにタイトルが入ります</h2>
 
 <div style="font-size: 24px; color: #1F2937; line-height: 1.6;">
-  <p>以前、ユースケース記述について講義をした時に、ユースケース記述からシンプルなTODOアプリをライブでバイブコーディングしたことがあります。</p>
-  <p><strong>注目すべきは、修正指示なしでアプリケーションが出来上がったことです。</strong></p>
+  <p>ここに説明文が入ります。</p>
+  <p><strong>ここに強調文が入ります。</strong></p>
 </div>
 
 </div>
@@ -1347,23 +1814,23 @@ AIへの指示
 ---
 
 
-# ボーダーパネル
+## ボーダーパネル
 <!-- パターン: D. パネルデザイン系 / 用途: 枠線で情報ブロックを明確に区切りたい時。 -->
 
-<div style="background: #FFFFFF; padding: 32px; border-radius: 8px; border: 2px solid #3E9BA4;">
+<div style="background: #FFFFFF; padding: 32px; border-radius: 8px; border: 2px solid var(--color-link);">
 
-<h2 style="margin: 0 0 24px 0; font-size: 32px; font-weight: 700; color: #374151;">ユースケース記述の基本形態</h2>
+<h2 style="margin: 0 0 24px 0; font-size: 32px; font-weight: 700; color: #374151;">ここにタイトルが入ります</h2>
 
 ```markdown
-# ユースケース1のタイトル
-- ユーザーは[XXX]する
-- システムは[XXX]する
-- ユーザーは[XXX]する
-- システムは[XXX]する
+# サンプルタイトル
+- 項目A
+- 項目B
+- 項目C
+- 項目D
 ```
 
 <div style="font-size: 24px; color: #1F2937; margin-top: 16px;">
-これで、あるケースにおける現実世界とシステム内の挙動を端的に表すことが出来ます。
+ここに説明文が入ります。
 </div>
 
 </div>
@@ -1375,7 +1842,7 @@ AIへの指示
 <!-- パターン: E. 背景・画像系 / 用途: 章の切り替えや強い主張で、全画面背景で印象づけたい時。 -->
 <style scoped>
 section {
-  background: linear-gradient(135deg, #1B4565 0%, #2A5F7A 50%, #3E9BA4 100%);
+  background: linear-gradient(135deg, #0536AF 0%, #3163E3 55%, #F4F754 100%);
   color: white;
   padding: 56px !important;
 }
@@ -1402,11 +1869,11 @@ section p {
 }
 </style>
 
-# 生成AI時代の開発格差
+# ここにタイトルが入ります
 
-開発速度や精度は、個々人によって大きな格差がある
+ここに説明文が入ります
 
-経験から来る差によって、その差は広がり続けている
+ここに説明文が入ります
 
 ---
 
@@ -1451,33 +1918,27 @@ section p {
 
 ---
 
-# 右側配置：実例
+## 右側配置：サンプル
 <!-- パターン: E. 背景・画像系 / 用途: 右にビジュアル、左に説明を置きたい時。 -->
 
 <div class="grid-2col-center">
 
 <div>
 
-<h2 style="margin: 0 0 24px 0; font-size: 28px; font-weight: 700; color: #374151;">記事を読む・お気に入りする</h2>
+<h2 style="margin: 0 0 24px 0; font-size: 28px; font-weight: 700; color: #374151;">ここにタイトルが入ります</h2>
 
 <ul style="font-size: 26px; color: #1F2937; margin: 0; padding-left: 24px;">
-<li><strong>ユーザー</strong>はアプリケーションを開く</li>
-<li><strong>システム</strong>は記事一覧を表示する</li>
-<li><strong>ユーザー</strong>はいずれかの記事を開く</li>
-<li><strong>システム</strong>は当該記事を表示する</li>
-<li><strong>ユーザー</strong>は当該記事をお気に入り(Save)する</li>
+<li><strong>項目</strong>の説明文が入ります</li>
+<li><strong>項目</strong>の説明文が入ります</li>
+<li><strong>項目</strong>の説明文が入ります</li>
+<li><strong>項目</strong>の説明文が入ります</li>
+<li><strong>項目</strong>の説明文が入ります</li>
 </ul>
 
 </div>
 
-<div class="panel panel-center">
-
-<h3 style="margin: 0 0 20px 0; font-size: 26px; font-weight: 600; color: #374151;">Mediumのライブラリ機能</h3>
-
-<div style="font-size: 24px; color: #4B5563;">
-実例として、Mediumのライブラリ機能をユースケース記述で表現しました。
-</div>
-
+<div class="explain-figure">
+  <img class="explain-img" src="../sampleAssets/explain-medium-library.svg" alt="説明画像（サンプル）" />
 </div>
 
 </div>
@@ -1485,33 +1946,23 @@ section p {
 ---
 
 
-# 左側配置：実装例
+## 左側配置：サンプル
 <!-- パターン: E. 背景・画像系 / 用途: 左にビジュアル、右に説明を置きたい時。 -->
 
 <div class="grid-2col-center">
 
-<div class="panel panel-center">
-
-<h3 style="margin: 0 0 20px 0; font-size: 26px; font-weight: 600; color: #374151;">GitHubリポジトリ</h3>
-
-<div style="font-size: 24px; color: #3E9BA4; margin-bottom: 16px;">
-https://github.com/yoshinaga2015/TODO-App-Sample
-</div>
-
-<div style="font-size: 24px; color: #4B5563;">
-ユースケース記述からワンショットで作成されたTODOアプリのコードが公開されています。
-</div>
-
+<div class="explain-figure">
+  <img class="explain-img" src="../sampleAssets/explain-repo-overview.svg" alt="説明画像（サンプル）" />
 </div>
 
 <div>
 
-<h2 style="margin: 0 0 24px 0; font-size: 28px; font-weight: 700; color: #374151;">実装のポイント</h2>
+<h2 style="margin: 0 0 24px 0; font-size: 28px; font-weight: 700; color: #374151;">ここにタイトルが入ります</h2>
 
 <ul style="font-size: 26px; color: #1F2937; margin: 0; padding-left: 24px;">
-<li>ユースケース記述をAIに渡す</li>
-<li>修正指示なしで完成することも</li>
-<li>ゼロから生成AIとアプリケーションを作る場合、必ずチャットで何往復も対話するものと思われていますが、このアプリは最初に1回「これを実装して下さい」と言っただけです。</li>
+<li>ここに説明文が入ります</li>
+<li>ここに説明文が入ります</li>
+<li>ここに長めの説明文が入ります</li>
 </ul>
 
 </div>
@@ -1521,32 +1972,32 @@ https://github.com/yoshinaga2015/TODO-App-Sample
 ---
 
 
-# 引用スライド
+## 引用スライド
 <!-- パターン: E. 背景・画像系 / 用途: 引用や印象的な一文を強調したい時。 -->
 
-<div style="border-left: 4px solid #3E9BA4; padding-left: 24px; margin: 32px 0;">
+<div class="quote-accent">
 
-> 生成AIにも、上手な使い方とそうでない使い方があります。
+> ここに引用文が入ります。
 >
-> 生成AIを使った開発をより強力にしてくれる「てこ」は、これまでに培われた様々な技術やフレームワークであり、それを知り、用いることが良い生成AI開発につながります。
+> ここに引用文が入ります。
 >
-> ユースケース記述はそんな「てこ」の1つとして利用できるでしょう。
+> ここに引用文が入ります。
 
 </div>
 
 ---
 
 
-# 統計スライド
+## 統計スライド
 <!-- パターン: F. 強調・特殊系 / 用途: 重要な数値を強く印象づけたい時。 -->
 
 <div class="center safe-area center-stack stat-slide">
 
 <div class="stat-number">1</div>
 
-<div class="stat-title">回の指示で完成</div>
+<div class="stat-title">ここにタイトルが入ります</div>
 
-<div class="stat-caption">修正指示なしでアプリケーションが出来上がった</div>
+<div class="stat-caption">ここに補足文が入ります</div>
 
 </div>
 
@@ -1556,10 +2007,10 @@ https://github.com/yoshinaga2015/TODO-App-Sample
 <div class="center safe-area center-stack">
 <!-- パターン: F. 強調・特殊系 / 用途: 強い一文メッセージを中央に置いて記憶に残したい時。 -->
 
-# ユースケース記述は「てこ」
+# ここに訴求文が入ります
 
 <div class="text-block" style="font-size: 28px; color: var(--color-subheading); margin-top: 16px;">
-生成AI開発を強力にする技術の一つ
+ここに説明文が入ります
 </div>
 
 </div>
@@ -1567,27 +2018,27 @@ https://github.com/yoshinaga2015/TODO-App-Sample
 ---
 
 
-# Q&Aスライド
+## Q&Aスライド
 <!-- パターン: F. 強調・特殊系 / 用途: よくある質問と回答を整理して示す時。 -->
 
 <div class="stack-32">
 
 <div class="panel">
 
-<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">Q. ユースケース記述は誰が書くべき？</h2>
+<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">Q. ここに質問文が入ります</h2>
 
 <div style="font-size: 26px; color: #1F2937; line-height: 1.6;">
-A. デザイナーやPM、PdMでも書けます。エンジニアでなくても、シンプルな形式なので誰でも作成可能です。
+A. ここに回答文が入ります。
 </div>
 
 </div>
 
 <div class="panel">
 
-<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">Q. 技術的詳細は含めるべき？</h2>
+<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">Q. ここに質問文が入ります</h2>
 
 <div style="font-size: 26px; color: #1F2937; line-height: 1.6;">
-A. 含めません。ユースケース記述は「何をするか」を記述し、「どう実装するか」は含めません。
+A. ここに回答文が入ります。
 </div>
 
 </div>
@@ -1600,85 +2051,67 @@ A. 含めません。ユースケース記述は「何をするか」を記述�
 <!-- パターン: F. 強調・特殊系 / 用途: 聞き手に考えさせたい問いかけを提示する時。 -->
 <div class="center safe-area center-stack question-slide">
 
-# では、この格差を一気に埋めることのできるフレームワークがあるとしたら？
+# ここに問いかけのタイトルが入ります
 
-<p>デザイナーやPMがエンジニア並みに素早くアプリケーションを形にできるとしたら？</p>
+<p>ここに問いかけの説明文が入ります</p>
 
 </div>
 
 ---
 
-# QRコード：参考資料
+## QRコード：参考資料
 <!-- パターン: G. 応用パターン / 用途: 参照リンクや資料への導線を提示する時。 -->
 
-<div class="grid-2col-center-wide">
-
-<div>
-
-<h2 style="margin: 0 0 24px 0; font-size: 28px; font-weight: 700; color: #374151;">参考資料</h2>
-
-<ul style="font-size: 26px; color: #1F2937; margin: 0; padding-left: 24px;">
-<li>GitHub: TODO-App-Sample</li>
-<li>デモ: https://yoshinaga2015.github.io/TODO-App-Sample/</li>
-<li>記事: Medium記事へのリンク</li>
-</ul>
-
-</div>
-
-<div class="panel panel-center panel-large">
-
-<h3 style="margin: 0 0 24px 0; font-size: 26px; font-weight: 600; color: #374151;">QRコード</h3>
-
-<div style="width: 200px; height: 200px; background: #F3F4F6; margin: 0 auto; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
-
-QR Code
-
-</div>
-
-</div>
-
+<div class="center safe-area center-stack qr-slide">
+  <div class="qr-code-box">
+    <img class="qr-code-img" src="../sampleAssets/dummy-qr.svg" alt="QR code" />
+  </div>
+  <div class="qr-caption">
+    <div class="qr-caption-title">タイトルがここに入ります</div>
+    <div class="qr-caption-url">https://example.com</div>
+  </div>
 </div>
 
 ---
 
 
-# まとめ：要点整理
+## まとめ：要点整理
 <!-- パターン: G. 応用パターン / 用途: 章や話題の要点を簡潔に振り返る時。 -->
 
 <div class="grid-2col">
 
 <div class="panel">
 
-<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">1. ユースケース記述とは</h3>
+<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">1. タイトルA</h3>
 <div style="font-size: 22px; color: #1F2937; line-height: 1.5;">
-物事が起きる順番に並べた箇条書き形式の作文
+ここに説明文が入ります
 </div>
 
 </div>
 
 <div class="panel">
 
-<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">2. 基本形態</h3>
+<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">2. タイトルB</h3>
 <div style="font-size: 22px; color: #1F2937; line-height: 1.5;">
-主語（ユーザー/システム）を明記し、時系列で記述
+ここに説明文が入ります
 </div>
 
 </div>
 
 <div class="panel">
 
-<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">3. 生成AIとの相性</h3>
+<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">3. タイトルC</h3>
 <div style="font-size: 22px; color: #1F2937; line-height: 1.5;">
-最高の部類。修正指示なしで完成することも
+ここに説明文が入ります
 </div>
 
 </div>
 
 <div class="panel">
 
-<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">4. 活用方法</h3>
+<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">4. タイトルD</h3>
 <div style="font-size: 22px; color: #1F2937; line-height: 1.5;">
-「てこ」として、生成AI開発を強力にする
+ここに説明文が入ります
 </div>
 
 </div>
@@ -1688,31 +2121,31 @@ QR Code
 ---
 
 
-# 企業事例：実装例
+## 企業事例：タイトル
 <!-- パターン: G. 応用パターン / 用途: 事例やケーススタディを紹介する時。 -->
 
 <div class="grid-2col">
 
 <div class="panel">
 
-<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">ケース1：TODOアプリ</h2>
+<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">ケース1：タイトル</h2>
 
 <ul style="font-size: 26px; color: #1F2937; margin: 0; padding-left: 24px;">
-<li>ユースケース記述からワンショットで実装</li>
-<li>修正指示なしで完成</li>
-<li>GitHubで公開中</li>
+<li>ここに説明文が入ります</li>
+<li>ここに説明文が入ります</li>
+<li>ここに説明文が入ります</li>
 </ul>
 
 </div>
 
 <div class="panel">
 
-<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">ケース2：Mediumライブラリ</h2>
+<h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">ケース2：タイトル</h2>
 
 <ul style="font-size: 26px; color: #1F2937; margin: 0; padding-left: 24px;">
-<li>記事をお気に入りする機能</li>
-<li>ライブラリから除外する機能</li>
-<li>複数のユースケースで表現</li>
+<li>ここに説明文が入ります</li>
+<li>ここに説明文が入ります</li>
+<li>ここに説明文が入ります</li>
 </ul>
 
 </div>
@@ -1722,47 +2155,47 @@ QR Code
 ---
 
 
-# 比較表：従来手法との比較
+## 比較表：タイトル
 <!-- パターン: G. 応用パターン / 用途: 複数項目を表形式で比較したい時。 -->
 
-| 項目 | 従来の仕様書 | ユースケース記述 |
-|:-----|------------|----------------|
-| 形式 | 長文・図表 | 箇条書き |
-| 主語 | 曖昧 | 明示的 |
-| 順序 | 不明確 | 時系列 |
-| AIとの相性 | 低い | 高い |
-| 作成難易度 | 高い | 低い |
-| 理解しやすさ | 中程度 | 高い |
+| 項目 | 比較A | 比較B |
+|:-----|------|------|
+| 項目1 | テキスト | テキスト |
+| 項目2 | テキスト | テキスト |
+| 項目3 | テキスト | テキスト |
+| 項目4 | テキスト | テキスト |
+| 項目5 | テキスト | テキスト |
+| 項目6 | テキスト | テキスト |
 
 ---
 
 
-# プロセスフロー：開発フロー
+## プロセスフロー：タイトル
 <!-- パターン: G. 応用パターン / 用途: 工程の全体像や流れを可視化したい時。 -->
 
 <ol class="process-flow">
   <li>
     <div class="flow-step">1</div>
-    <div class="flow-label">要件定義</div>
+    <div class="flow-label">ステップ1</div>
   </li>
   <li>
     <div class="flow-step">2</div>
-    <div class="flow-label">ユースケース記述</div>
+    <div class="flow-label">ステップ2</div>
   </li>
   <li>
     <div class="flow-step">3</div>
-    <div class="flow-label">AI実装</div>
+    <div class="flow-label">ステップ3</div>
   </li>
   <li>
     <div class="flow-step">4</div>
-    <div class="flow-label">完成</div>
+    <div class="flow-label">ステップ4</div>
   </li>
 </ol>
 
 ---
 
 
-# メリット・デメリット
+## メリット・デメリット（サンプル）
 <!-- パターン: G. 応用パターン / 用途: メリット/デメリットなど両面を並べて判断材料を出す時。 -->
 
 <div class="grid-2col-gap-32">
@@ -1772,22 +2205,22 @@ QR Code
 <h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">メリット</h2>
 
 <ul style="font-size: 26px; color: #1F2937; margin: 0; padding-left: 24px;">
-<li>シンプルで理解しやすい</li>
-<li>AIとの相性が良い</li>
-<li>誰でも書ける</li>
-<li>修正指示が少ない</li>
+<li>ここに説明文が入ります</li>
+<li>ここに説明文が入ります</li>
+<li>ここに説明文が入ります</li>
+<li>ここに説明文が入ります</li>
 </ul>
 
 </div>
 
-<div class="panel panel-accent-secondary">
+<div class="panel panel-accent-alert">
 
 <h2 style="margin: 0 0 20px 0; font-size: 24px; font-weight: 700; color: #374151;">デメリット</h2>
 
 <ul style="font-size: 26px; color: #1F2937; margin: 0; padding-left: 24px;">
-<li>エラーケースの記述が弱い</li>
-<li>技術的詳細は別途必要</li>
-<li>複雑なロジックには不向き</li>
+<li>ここに説明文が入ります</li>
+<li>ここに説明文が入ります</li>
+<li>ここに説明文が入ります</li>
 </ul>
 
 </div>
@@ -1797,100 +2230,81 @@ QR Code
 ---
 
 
-# チェックポイント：ユースケース記述の確認
+## チェックポイント：タイトル
 <!-- パターン: G. 応用パターン / 用途: 最終確認のチェック項目を提示する時。 -->
 
 <div class="checklist">
   <div class="checklist-item">
     <div class="checklist-checkbox">☑</div>
-    <div class="checklist-text">主語（ユーザー/システム）がすべての項目に含まれている</div>
+    <div class="checklist-text">ここに確認項目が入ります</div>
   </div>
   <div class="checklist-item">
     <div class="checklist-checkbox">☑</div>
-    <div class="checklist-text">時系列に沿って順序立てられている</div>
+    <div class="checklist-text">ここに確認項目が入ります</div>
   </div>
   <div class="checklist-item">
     <div class="checklist-checkbox">☑</div>
-    <div class="checklist-text">技術的詳細が含まれていない</div>
+    <div class="checklist-text">ここに確認項目が入ります</div>
   </div>
   <div class="checklist-item">
     <div class="checklist-checkbox">☑</div>
-    <div class="checklist-text">読み手が理解しやすい表現になっている</div>
+    <div class="checklist-text">ここに確認項目が入ります</div>
   </div>
 </div>
 
 ---
 
 
-# 参考資料
+## 参考資料（サンプル）
 <!-- パターン: G. 応用パターン / 用途: 参考リンクや根拠をまとめて提示する時。 -->
 
 <div style="display: flex; flex-direction: column; gap: 16px; font-size: 24px;">
 
-1. **ユースケース記述からワンショットでTODOアプリをバイブコーディングする様子**
-   - 動画デモ（無音）
+1. **サンプル資料A**
+   - ここに説明文が入ります
 
-2. **GitHubリポジトリ**
-   - https://github.com/yoshinaga2015/TODO-App-Sample
+2. **サンプル資料B**
+   - https://example.com
 
-3. **デモアプリ**
-   - https://yoshinaga2015.github.io/TODO-App-Sample/
+3. **サンプル資料C**
+   - https://example.com
 
-4. **Medium記事**
-   - 生成AI時代に覚えたい、ユースケース記述の書き方
-
-</div>
-
----
-
-
-# 次回予告
-<!-- パターン: G. 応用パターン / 用途: 次の回への期待を作り、行動（視聴・参加）を促す時。 -->
-
-<div class="center safe-area center-stack">
-
-<h2 style="margin: 0 0 24px 0; font-size: 32px; font-weight: 700; color: #374151;">次回のテーマ</h2>
-
-<h1 style="margin: 0 0 32px 0; font-size: 48px; font-weight: 700; color: #1F2937;">ユースケース記述の実践</h1>
-
-<ul style="font-size: 26px; color: #1F2937; margin: 0; padding-left: 24px; text-align: left; display: inline-block;">
-<li>より複雑なケースの記述方法</li>
-<li>エラーケースの扱い方</li>
-<li>チームでの活用方法</li>
-</ul>
+4. **サンプル資料D**
+   - ここに説明文が入ります
 
 </div>
 
 ---
 
-# まとめ：ユースケース記述の価値
+
+## まとめ：タイトル
 <!-- パターン: G. 応用パターン / 用途: プレゼンの結論や価値を強調して締める時。 -->
 
 <div class="grid-3col-fill">
 
 <div class="panel panel-column">
 
-<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">シンプルで強力</h3>
+<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">タイトルA</h3>
 <div style="font-size: 22px; color: #1F2937; line-height: 1.5; flex: 1;">
-物事が起きる順番に並べた箇条書き形式の作文
+ここに説明文が入ります
 </div>
 
 </div>
 
 <div class="panel panel-column">
 
-<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">生成AIとの相性</h3>
+<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">タイトルB</h3>
 <div style="font-size: 22px; color: #1F2937; line-height: 1.5; flex: 1;">
-最高の部類。修正指示なしで完成することも
+ここに説明文が入ります
 </div>
 
 </div>
 
 <div class="panel panel-column">
 
-<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">誰でも使える</h3>
+<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 600; color: #374151;">タイトルC</h3>
 <div style="font-size: 22px; color: #1F2937; line-height: 1.5; flex: 1;">
-デザイナーやPM、PdMでも書ける「てこ」
+ここに説明文が入ります
 </div>
 
 </div>
@@ -1899,7 +2313,7 @@ QR Code
 
 ---
 
-<!-- _class: section-start -->
+<!-- _class: section-end -->
 
 # セクション終了
 <!-- パターン: A. タイトル・セクション系 / 用途: 章や発表の区切りとして“締め”を作る時。 -->
@@ -1909,10 +2323,10 @@ QR Code
 
 <!-- _class: title-slide -->
 
-# ありがとうございました
+## ありがとうございました
 <!-- パターン: A. タイトル・セクション系 / 用途: クロージングで連絡先と呼びかけを提示する時。 -->
 
-## ご質問・ご意見をお待ちしています
+ご質問・ご意見をお待ちしています
 
-Yuki Yoshinaga  
+Yuki Yoshinaga <img class="logo-inline" src="logo.png" alt="" />  
 @uxman

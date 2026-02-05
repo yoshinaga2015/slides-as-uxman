@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-label="Dummy QR code">
+  <rect width="360" height="360" fill="#FFFFFF"/>
+
+  <!-- finder patterns -->
+  <g fill="#111827">
+    <rect x="24" y="24" width="88" height="88" rx="6"/>
+    <rect x="36" y="36" width="64" height="64" fill="#FFFFFF" rx="4"/>
+    <rect x="48" y="48" width="40" height="40" rx="3"/>
+
+    <rect x="248" y="24" width="88" height="88" rx="6"/>
+    <rect x="260" y="36" width="64" height="64" fill="#FFFFFF" rx="4"/>
+    <rect x="272" y="48" width="40" height="40" rx="3"/>
+
+    <rect x="24" y="248" width="88" height="88" rx="6"/>
+    <rect x="36" y="260" width="64" height="64" fill="#FFFFFF" rx="4"/>
+    <rect x="48" y="272" width="40" height="40" rx="3"/>
+  </g>
+
+  <!-- modules (deterministic pattern, not a real QR) -->
+  <g fill="#111827" opacity="0.98">
+    <!-- row 1 -->
+    <rect x="140" y="32" width="12" height="12"/><rect x="164" y="32" width="12" height="12"/><rect x="188" y="32" width="12" height="12"/><rect x="212" y="32" width="12" height="12"/>
+    <!-- row 2 -->
+    <rect x="128" y="56" width="12" height="12"/><rect x="152" y="56" width="12" height="12"/><rect x="200" y="56" width="12" height="12"/><rect x="224" y="56" width="12" height="12"/>
+    <!-- row 3 -->
+    <rect x="140" y="80" width="12" height="12"/><rect x="176" y="80" width="12" height="12"/><rect x="212" y="80" width="12" height="12"/>
+
+    <!-- middle block -->
+    <rect x="136" y="136" width="12" height="12"/><rect x="160" y="136" width="12" height="12"/><rect x="184" y="136" width="12" height="12"/><rect x="208" y="136" width="12" height="12"/>
+    <rect x="148" y="160" width="12" height="12"/><rect x="172" y="160" width="12" height="12"/><rect x="220" y="160" width="12" height="12"/>
+    <rect x="136" y="184" width="12" height="12"/><rect x="196" y="184" width="12" height="12"/><rect x="232" y="184" width="12" height="12"/>
+    <rect x="160" y="208" width="12" height="12"/><rect x="184" y="208" width="12" height="12"/><rect x="208" y="208" width="12" height="12"/>
+
+    <!-- bottom/right fill -->
+    <rect x="128" y="248" width="12" height="12"/><rect x="152" y="248" width="12" height="12"/><rect x="176" y="248" width="12" height="12"/><rect x="224" y="248" width="12" height="12"/>
+    <rect x="140" y="272" width="12" height="12"/><rect x="188" y="272" width="12" height="12"/><rect x="212" y="272" width="12" height="12"/><rect x="236" y="272" width="12" height="12"/><rect x="260" y="272" width="12" height="12"/>
+    <rect x="128" y="296" width="12" height="12"/><rect x="164" y="296" width="12" height="12"/><rect x="200" y="296" width="12" height="12"/><rect x="248" y="296" width="12" height="12"/><rect x="272" y="296" width="12" height="12"/>
+  </g>
+</svg>
