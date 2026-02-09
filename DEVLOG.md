@@ -43,3 +43,23 @@
 - **意図**
   - 同一アセットの二重管理を避け、参照元を `Slides/` 側へ一本化するため。
 
+## 2026-02-09
+
+### deckカード改善 + 20260212デッキ構成の見直し
+
+- **変更の具体**
+  - `Slides/20260212/` の生成物を `Slides/20260212/Slides/` に集約し、アセットは `Slides/20260212/assets/`、SVGは `Slides/20260212/svg/` に整理
+    - デッキ側から参照が壊れないよう、`Slides/20260212/Slides/deck.md` / `deck.html` / `deck-preview.html` の相対パスを `../assets/` / `../svg/` に統一
+  - 「作ったもの」カードのサムネ画像を実際のスクショへ差し替え
+    - `TTMScreenshot00.png` / `AIforResidenceResearch01.png` / `site&discord (1).png`
+  - 画像付きカード（`.image-card-thumb`）を基本は **Fit**（`object-fit: contain`）に変更
+    - ただし `「頑張る」` のカードグリッドだけは **Fill**（`object-fit: cover`）に戻すため、`image-card-grid-fill` を追加して局所上書き
+  - 画像付きカードに **タグ行（caption相当 18px）** を追加し、説明文の下に配置（`.image-card-tag`）
+  - 上記の仕様を `Maker/docs/style-guide.md` と `Maker/slides/example.md` / `example.html` にも逆輸入して、今後の再利用の“正”を揃えた
+  - `Maker/sampleAssets/` にカード用のサンプル画像を追加（tomato/cucumber/eggplant 等）
+  - `.DS_Store` / `.cursor/` をコミット対象から外すため `.gitignore` を追加
+
+- **意図**
+  - “生成物の置き場所”と“参照パス”を一貫させて、配布・差分管理・再生成時の事故を減らすため。
+  - 画像の見せ方（Fit/Fill）や、カード内の情報階層（タイトル→説明→タグ）をテンプレとして固定し、今後のデッキ制作で迷わないようにするため。
+

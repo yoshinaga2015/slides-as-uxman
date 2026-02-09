@@ -1,0 +1,2160 @@
+---
+marp: true
+theme: default
+paginate: true
+style: |
+  /* Noto Sans Mono（数字用途中心・latin / latin-ext） */
+  @font-face {
+    font-family: 'Noto Sans Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/notosansmono/v37/BngcUXNETWXI6LwhGYvaxZikqZqK6fBq6kPvUce2oAZ2evCj.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Noto Sans Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/notosansmono/v37/BngcUXNETWXI6LwhGYvaxZikqZqK6fBq6kPvUce2oAZ2dPCj7dc.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Noto Sans Mono';
+    font-style: normal;
+    font-weight: 600;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/notosansmono/v37/BngcUXNETWXI6LwhGYvaxZikqZqK6fBq6kPvUce2oAZ2evCj.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Noto Sans Mono';
+    font-style: normal;
+    font-weight: 600;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/notosansmono/v37/BngcUXNETWXI6LwhGYvaxZikqZqK6fBq6kPvUce2oAZ2dPCj7dc.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
+  /* Zen Kaku Gothic New（日本語本文用・Google Fonts） */
+  /* latin */
+  @font-face {
+    font-family: 'Zen Kaku Gothic New';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.bunny.net/zen-kaku-gothic-new/files/zen-kaku-gothic-new-latin-400-normal.woff2) format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  /* japanese */
+  @font-face {
+    font-family: 'Zen Kaku Gothic New';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.bunny.net/zen-kaku-gothic-new/files/zen-kaku-gothic-new-japanese-400-normal.woff2) format('woff2');
+  }
+
+  /* latin */
+  @font-face {
+    font-family: 'Zen Kaku Gothic New';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.bunny.net/zen-kaku-gothic-new/files/zen-kaku-gothic-new-latin-700-normal.woff2) format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  /* japanese */
+  @font-face {
+    font-family: 'Zen Kaku Gothic New';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.bunny.net/zen-kaku-gothic-new/files/zen-kaku-gothic-new-japanese-700-normal.woff2) format('woff2');
+  }
+
+  /* latin */
+  @font-face {
+    font-family: 'Zen Kaku Gothic New';
+    font-style: normal;
+    font-weight: 900; /* Black */
+    font-display: swap;
+    src: url(https://fonts.bunny.net/zen-kaku-gothic-new/files/zen-kaku-gothic-new-latin-900-normal.woff2) format('woff2');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  /* japanese */
+  @font-face {
+    font-family: 'Zen Kaku Gothic New';
+    font-style: normal;
+    font-weight: 900; /* Black */
+    font-display: swap;
+    src: url(https://fonts.bunny.net/zen-kaku-gothic-new/files/zen-kaku-gothic-new-japanese-900-normal.woff2) format('woff2');
+  }
+
+  /* Lato（英数字用・Google Fonts） */
+  /* latin-ext */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHjxAwXjeu.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  /* latin */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHjx4wXg.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  /* latin-ext */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh6UVSwaPGR_p.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  /* latin */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh6UVSwiPGQ.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  /* latin-ext */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh50XSwaPGR_p.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  /* latin */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh50XSwiPGQ.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  /* CSS変数定義 */
+  :root {
+    --color-background: #FFFFFF;
+    --color-foreground: #1F2937;
+    --color-heading: #374151;
+    --color-subheading: #4B5563;
+    /*
+      Brand palette (UXMAN)
+      - Brand yellow is low-contrast: use only for very large/thick elements or <= 2 chars text.
+    */
+    --color-brand: #F4F754;
+    --color-brand-text: #AFAD05;
+    --color-link: #3163E3;
+    --color-link-strong: #0536AF;
+    --color-alert: #FA0715;
+
+    /* Legacy slots (used by many utilities) */
+    --color-primary: var(--color-link);
+    --color-secondary: var(--color-link-strong);
+
+    /* Dividers / accents */
+    --color-hr: var(--color-link-strong);
+    --font-family: "Lato", "Zen Kaku Gothic New", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-family-mono: "Noto Sans Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    --font-size-base: 24px;
+    --font-size-title: 128px; /* h1: 2x */
+    --font-size-heading: 42px;
+    --font-size-subheading: 32px;
+    --spacing-base: 8px;
+    --spacing-small: 16px;
+    --spacing-medium: 24px;
+    --spacing-large: 32px;
+    --spacing-xlarge: 48px;
+    --slide-padding: 48px;
+    --logo-size: 44px;
+    --line-height-base: 1.7;
+    --line-height-heading: 1.4;
+  }
+
+  /* section基本スタイル */
+  section {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    box-sizing: border-box;
+    padding: var(--slide-padding);
+    padding-bottom: 100px; /* フッター分の余白 */
+    position: relative;
+  }
+
+  /* 見出しの基本スタイル */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: var(--font-size-title);
+    line-height: var(--line-height-heading);
+    font-weight: 900; /* Black */
+    color: var(--color-heading);
+    margin-top: 0;
+    margin-bottom: var(--spacing-large);
+  }
+
+  h2 {
+    font-size: var(--font-size-heading);
+    font-weight: 700;
+    color: var(--color-heading);
+    margin-top: 0;
+    margin-bottom: var(--spacing-large);
+  }
+
+  h3 {
+    font-size: var(--font-size-subheading);
+    font-weight: 600;
+    color: var(--color-subheading);
+    margin-top: var(--spacing-large);
+    margin-bottom: 20px;
+  }
+
+  /* 段落・要素間の余白 */
+  p {
+    margin-top: 0;
+    margin-bottom: var(--spacing-medium);
+  }
+
+  p + p {
+    margin-top: 0;
+  }
+
+  /*
+    divにグローバルで余白を持たせると、グリッド/フレックス内の「素のdiv」まで
+    下方向に膨らみ、フッター衝突や意図しない間延びの原因になる。
+    余白は「スライド直下のブロック」だけに限定し、ネストしたレイアウトは gap/padding で制御する。
+  */
+  section > div {
+    margin-bottom: var(--spacing-medium);
+  }
+  section > div:last-child {
+    margin-bottom: 0;
+  }
+
+  /* card/panel内は「余白あり」が基本（ただし直下要素に限定してネスト汚染を防ぐ） */
+  :where(.panel, .panel-strong, .panel-glass, .panel-gradient, .accent-card, .accent-card-secondary, .accent-card-brand, .card-muted) > div {
+    margin-bottom: var(--spacing-medium);
+  }
+  :where(.panel, .panel-strong, .panel-glass, .panel-gradient, .accent-card, .accent-card-secondary, .accent-card-brand, .card-muted) > div:last-child {
+    margin-bottom: 0;
+  }
+
+  /* 見出し直後の要素は上マージンなし（見出しの下マージンで間隔を確保） */
+  h1 + *,
+  h2 + *,
+  h3 + * {
+    margin-top: 0;
+  }
+
+  /* リンク（HTMLでURLが自動リンク化されるため、十分なコントラストを確保する） */
+  a {
+    color: var(--color-link);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+
+  a:visited {
+    color: var(--color-link-strong);
+  }
+
+  a:hover {
+    color: var(--color-link-strong);
+  }
+
+  :where(.panel-strong, .section-start, .title-slide, .fullscreen-background) a {
+    color: #FFFFFF;
+    text-decoration-color: rgba(255, 255, 255, 0.75);
+  }
+
+  /* リストのスタイル */
+  ul, ol {
+    padding-left: var(--spacing-large);
+    margin: var(--spacing-small) 0;
+  }
+
+  li {
+    margin-bottom: 10px;
+    line-height: var(--line-height-base);
+  }
+
+  /* リスト内の段落のmarginを調整 */
+  li > p,
+  ol > li > p,
+  ul > li > p {
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+
+  /* リスト内の最後の段落のmarginを削除 */
+  li > p:last-child,
+  ol > li > p:last-child,
+  ul > li > p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ヘッダー（ページタイトル）【オプション・優先度低】 */
+  /* デフォルトでは非表示 */
+  header {
+    display: none;
+  }
+
+  /* .with-headerクラスで表示 */
+  .with-header {
+    padding-top: 100px; /* ヘッダー分の余白 */
+  }
+
+  .with-header header {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: var(--slide-padding);
+    right: var(--slide-padding);
+    min-height: 60px;
+    align-items: center;
+    border-bottom: 2px solid var(--color-hr);
+    font-size: var(--font-size-heading);
+    font-weight: 700;
+    color: var(--color-heading);
+    padding: var(--spacing-small) 0;
+    line-height: 1.2;
+  }
+
+  /* フッター（ロゴとページ数） */
+  footer {
+    position: absolute;
+    bottom: 0;
+    left: var(--slide-padding);
+    right: var(--slide-padding);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    border-top: 2px solid var(--color-hr);
+    font-size: var(--font-size-subheading);
+    color: var(--color-subheading);
+    padding: var(--spacing-small) 0;
+    line-height: 1.2;
+    isolation: isolate;
+  }
+
+  footer::after {
+    content: counter(page) ' / ' counter(pages);
+    font-weight: 600;
+    font-family: var(--font-family-mono);
+    font-variant-numeric: tabular-nums;
+    margin-left: auto; /* 常に右寄せ */
+    color: var(--color-link-strong); /* 黄色化させない */
+    mix-blend-mode: normal;
+    text-shadow: none;
+    text-align: right;
+  }
+
+  /* タイトルスライド */
+  .title-slide {
+    background: linear-gradient(to right, var(--color-secondary), var(--color-primary));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: var(--slide-padding);
+    padding-bottom: var(--slide-padding);
+  }
+
+  .title-slide footer {
+    display: none;
+  }
+
+  .title-slide h1,
+  .title-slide h2,
+  .title-slide h3 {
+    color: white !important;
+  }
+
+  /* セクション開始 */
+  .section-start {
+    background: linear-gradient(to right, var(--color-secondary), var(--color-primary));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding-top: var(--slide-padding);
+    padding-bottom: var(--slide-padding);
+  }
+
+  .section-start footer {
+    display: none;
+  }
+
+  .section-start h1,
+  .section-start h2,
+  .section-start h3 {
+    color: white !important;
+  }
+
+  .section-start h1 {
+    font-size: 88px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .section-start h2 {
+    font-size: 48px;
+    font-weight: 600;
+    opacity: 0.95;
+    margin-bottom: 0;
+  }
+
+  /* 目次（ナビゲーション用。section-startと役割を分ける） */
+  .toc-slide {
+    background: var(--color-background);
+    color: var(--color-foreground);
+  }
+
+  /* 目次専用レイアウト（2カラム、間隔を詰める） */
+  .toc-layout {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 140px;
+    align-items: start;
+  }
+
+  .toc-layout > div:first-child {
+    padding-right: 8px;
+  }
+
+  .toc-layout > div:last-child {
+    padding-left: 8px;
+  }
+
+  .toc-title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .toc-title-group h1 {
+    font-size: 72px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin: 0;
+    line-height: 1.1;
+    text-align: left;
+  }
+
+  .toc-title-group h2 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    margin: 0;
+    line-height: 1.2;
+    color: var(--color-subheading);
+    text-align: center;
+    align-self: center;
+  }
+
+  .toc-title-group + * {
+    margin-top: 32px;
+  }
+
+  .toc-slide ol {
+    margin: 0;
+    padding-left: 36px;
+    font-size: 32px;
+    line-height: 1.55;
+  }
+
+  .toc-slide li {
+    margin-bottom: 12px;
+  }
+
+  /* セクション終了（締め用。section-startと見た目を分ける） */
+  .section-end {
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: var(--slide-padding);
+    padding-bottom: var(--slide-padding);
+  }
+
+  .section-end footer {
+    display: none;
+  }
+
+  .section-end h1,
+  .section-end h2,
+  .section-end h3 {
+    color: white !important;
+  }
+
+  .section-end h1 {
+    font-size: 72px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+
+  .section-end h2 {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
+  /* パネル */
+  .panel {
+    background: #F9FAFB;
+    padding: var(--spacing-medium);
+    border-radius: 8px;
+  }
+
+  .panel-strong {
+    background: linear-gradient(to right, var(--color-secondary), var(--color-primary));
+    color: #FFFFFF;
+    padding: 32px;
+    border-radius: 8px;
+  }
+
+  .panel-strong h2,
+  .panel-strong h3,
+  .panel-strong p,
+  .panel-strong div {
+    color: #FFFFFF;
+  }
+
+  .panel-glass {
+    background: rgba(249, 250, 251, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .panel-gradient {
+    background: linear-gradient(135deg, #F9FAFB 0%, #E5E7EB 100%);
+    padding: 32px;
+    border-radius: 8px;
+  }
+
+  .panel-compact {
+    padding: 16px;
+  }
+
+  .accent-card {
+    background: #F9FAFB;
+    padding: 32px 24px 24px;
+    border-radius: 8px;
+    border-top: 6px solid var(--color-primary);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-bottom: 0;
+  }
+
+  .accent-card-secondary {
+    background: #F9FAFB;
+    padding: 32px 24px 24px;
+    border-radius: 8px;
+    border-top: 6px solid var(--color-secondary);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-bottom: 0;
+  }
+
+  .accent-card-brand {
+    background: #F9FAFB;
+    padding: 32px 24px 24px;
+    border-radius: 8px;
+    border-top: 6px solid var(--color-brand-text);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-bottom: 0;
+  }
+
+  .card-muted {
+    background: #F3F4F6;
+    padding: 24px;
+    border-radius: 8px;
+  }
+
+  /* 3カラム画像付きカード */
+  .image-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .image-card {
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-card-thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px 12px 0 0;
+    display: block;
+    object-fit: contain;
+    background: #E5E7EB;
+  }
+
+  /* このグリッドだけは「Fill（cover）」で見せたい */
+  .image-card-grid-fill .image-card-thumb {
+    object-fit: cover;
+  }
+
+  .image-card-content {
+    padding: 16px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .image-card-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-heading);
+  }
+
+  .image-card-tag {
+    font-size: 18px; /* caption 相当 */
+    color: #9CA3AF;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .image-card-text {
+    font-size: 22px;
+    color: var(--color-subheading);
+    line-height: 1.5;
+  }
+
+  /* 右側全面画像 */
+  .right-image-full {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: center;
+    min-height: calc(100% - 100px);
+  }
+
+  .right-image-full .image-pane {
+    position: absolute;
+    top: calc(-1 * var(--slide-padding));
+    right: calc(-1 * var(--slide-padding));
+    bottom: -100px;
+    left: calc(50% + 12px);
+    border-radius: 0;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .right-image-full > div:first-child {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .right-image-full .image-pane img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .panel-center {
+    text-align: center;
+  }
+
+  .panel-large {
+    padding: 32px;
+  }
+
+  .panel-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .panel-accent-primary {
+    border-left: 4px solid var(--color-primary);
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+
+  .panel-accent-secondary {
+    border-left: 4px solid var(--color-secondary);
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+
+  .panel-accent-alert {
+    border-left: 4px solid var(--color-alert);
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+
+  /* グリッドレイアウト */
+  .grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .grid-2col-gap-32 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .grid-2col-gap-48 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .grid-2col-center {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .grid-2col-center-wide {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .grid-3col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  .grid-3col-fill {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    height: calc(100% - 80px);
+    align-items: stretch;
+  }
+
+  .grid-4col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 16px;
+  }
+
+  .level-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+  }
+
+  .level-item {
+    padding: 32px 12px 28px;
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .level-title {
+    font-size: var(--font-size-subheading);
+    font-weight: 600;
+    color: inherit;
+  }
+
+  .level-desc {
+    font-size: var(--font-size-base);
+    font-weight: 400;
+    opacity: 0.95;
+    color: inherit;
+  }
+
+  .level-1 { background: #F3F4F6; color: #374151; }
+  .level-2 { background: #E5E7EB; color: #374151; }
+  .level-3 { background: #D1D5DB; color: #374151; }
+  .level-4 { background: var(--color-link); color: #FFFFFF; }
+  .level-5 { background: var(--color-link-strong); color: #FFFFFF; }
+
+  .grid-2x3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .grid-3x2-compact {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  /* ユーティリティクラス */
+  .accent {
+    color: var(--color-primary);
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .mb-0 {
+    margin-bottom: 0 !important;
+  }
+
+  /* セーフエリア */
+  .safe-area {
+    max-width: 90%;
+    max-height: 80vh;
+    margin: 0 auto;
+    padding: 0 5%;
+  }
+
+  .center-stack {
+    padding: 40px 0;
+  }
+
+  .stack-32 {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* 統計スライド */
+  .stat-slide {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 96px;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0;
+  }
+
+  .stat-title {
+    font-size: 36px;
+    color: var(--color-heading);
+    margin-top: 16px;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
+  .stat-caption {
+    font-size: 24px;
+    color: var(--color-subheading);
+    margin-top: 12px;
+    margin-bottom: 0;
+  }
+
+  .text-block {
+    margin: 0;
+  }
+
+  .text-block + .text-block {
+    margin-top: 8px;
+  }
+
+  .caption-sm {
+    font-size: 18px;
+    color: #9CA3AF;
+    line-height: 1.6;
+    margin: 4px 0 0;
+  }
+
+  /* 問いかけスライド */
+  .question-slide {
+    text-align: left;
+  }
+
+  .question-slide h1 {
+    font-size: 56px;
+    color: var(--color-heading);
+    margin-bottom: 24px;
+  }
+
+  .question-slide p {
+    font-size: 28px;
+    color: var(--color-subheading);
+    margin: 0;
+  }
+
+  /* リスト系 */
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    counter-reset: timeline-step;
+  }
+
+  .timeline li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    font-size: 22px;
+    color: var(--color-foreground);
+  }
+
+  .timeline li::before {
+    counter-increment: timeline-step;
+    content: counter(timeline-step);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #FFFFFF;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  /* アイコン付きリスト（カード型） */
+  .icon-card-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .icon-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0;
+    padding: 20px 24px;
+    background: #F9FAFB; /* gray-50 */
+    border: 1px solid #E5E7EB; /* gray-200 */
+    border-radius: 12px;
+  }
+
+  .icon-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    background: rgba(62, 155, 164, 0.14); /* primary tint */
+    border: 1px solid rgba(62, 155, 164, 0.22);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .icon-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .icon-card-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-heading);
+    line-height: 1.25;
+  }
+
+  .icon-card-body {
+    font-size: 24px;
+    color: var(--color-subheading);
+    line-height: 1.5;
+  }
+
+  /* 引用（左アクセントライン。blockquoteのデフォルト線と二重にならないようにする） */
+  .quote-accent {
+    border-left: 4px solid var(--color-primary);
+    padding-left: 24px;
+    margin: 32px 0;
+    border-radius: 0;
+  }
+
+  .quote-accent blockquote {
+    margin: 0;
+    padding: 0;
+    border-left: 4px solid var(--color-primary) !important;
+  }
+
+  .quote-accent blockquote > p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* QRコード（中央配置・大きめ） */
+  .qr-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .qr-code-box {
+    width: 360px;
+    height: 360px;
+    background: #F3F4F6; /* gray-100 */
+    border: 1px solid #E5E7EB; /* gray-200 */
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .qr-code-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    background: #FFFFFF;
+  }
+
+  .qr-caption {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .qr-caption-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin: 0;
+  }
+
+  .qr-caption-url {
+    font-size: 20px;
+    color: var(--color-subheading);
+    font-family: var(--font-family-mono);
+    font-variant-numeric: tabular-nums;
+    margin: 0;
+    word-break: break-all;
+  }
+
+  /* 説明用画像（パネルの代替） */
+  .explain-figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .explain-img {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    border: 1px solid #E5E7EB;
+    background: #FFFFFF;
+    box-shadow: 0 14px 28px rgba(17, 24, 39, 0.12);
+  }
+
+  .process-flow {
+    list-style: none;
+    margin: 0;
+    padding: 16px 0;
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .process-flow li {
+    flex: 1;
+    min-height: 140px;
+    text-align: center;
+    margin: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .process-flow li::after {
+    content: '→';
+    position: absolute;
+    right: -16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-primary);
+    font-size: 26px;
+  }
+
+  .process-flow li:last-child::after {
+    content: '';
+  }
+
+  .flow-step {
+    width: 64px;
+    height: 64px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-weight: 700;
+    margin: 0 auto 12px;
+    font-size: 20px;
+  }
+  .usecase-title-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: nowrap;
+  }
+  .usecase-title-row .flow-step {
+    margin: 0;
+    flex: 0 0 auto;
+    width: 52px;
+    height: 52px;
+  }
+  .usecase-title-row h2 {
+    margin: 0;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .flow-label {
+    font-size: 22px;
+    color: var(--color-heading);
+    margin: 0;
+  }
+  /* オプション: 装飾付き見出し */
+  .decorated-heading h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--color-hr);
+    margin-top: 8px;
+  }
+
+  /* オプション: フッターライン */
+  .with-footer::after {
+    content: '';
+    position: absolute;
+    left: var(--slide-padding);
+    right: var(--slide-padding);
+    bottom: 40px;
+    height: 8px;
+    background-color: var(--color-heading);
+  }
+
+  /* タイトルスライドではフッターを非表示 */
+  .title-slide.with-footer::after,
+  .section-start.with-footer::after {
+    display: none;
+  }
+
+  /* オプション: ロゴ配置（右上） */
+  /* インラインロゴ（Yuki Yoshinagaの右隣に配置） */
+  .logo-inline {
+    display: inline-block;
+    vertical-align: middle;
+    width: var(--logo-size);
+    height: var(--logo-size);
+    margin-left: 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: #FFFFFF;
+    object-fit: cover;
+  }
+
+  /* レイアウトクラス: タイトルスライド専用スタイル */
+  .lead {
+    border-bottom: none;
+    padding-top: var(--slide-padding);
+    padding-bottom: var(--slide-padding);
+  }
+
+  .lead footer,
+  .lead header,
+  .lead.with-footer::after,
+  .lead.with-logo::before {
+    display: none;
+  }
+
+  .lead h1 {
+    margin-bottom: var(--spacing-medium);
+  }
+
+  .lead p {
+    font-size: 32px;
+    color: var(--color-foreground);
+  }
+
+  /* フッターを明示的に非表示 */
+  .no-footer {
+    padding-bottom: var(--slide-padding);
+  }
+
+  .no-footer footer {
+    display: none;
+  }
+
+  /* 全画面背景（インパクト重視） */
+  .fullscreen-background {
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fullscreen-background footer {
+    display: none;
+  }
+
+  .fullscreen-background > *:not(.panel):not(.panel-glass) {
+    padding: var(--slide-padding);
+    max-width: 100%;
+  }
+
+  /* fullscreen-background用の白文字スタイル */
+  .fullscreen-background h1 {
+    color: white;
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 48px 0;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    text-align: left;
+  }
+
+  .fullscreen-background h2 {
+    color: white;
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 28px 0;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    text-align: left;
+  }
+
+  .fullscreen-background p {
+    color: white;
+    font-size: 32px;
+    line-height: 1.6;
+    margin: 24px 0 48px 0;
+    opacity: 0.95;
+    font-weight: 300;
+    text-align: left;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  .fullscreen-background img {
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.25));
+  }
+
+  .fullscreen-background .panel-glass img {
+    filter: none !important;
+  }
+
+  .fullscreen-background .panel-glass {
+    max-width: 50% !important;
+  }
+
+  .fullscreen-background footer {
+    border-top-color: rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .fullscreen-background footer::after {
+    color: #FFFFFF;
+  }
+
+  /* fullscreen-background + 引用オーバーレイ（背景画像を暗くして引用を目立たせる） */
+  .fullscreen-background.quote-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.42);
+    z-index: 0;
+  }
+
+  .fullscreen-background.quote-overlay > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .fullscreen-background.quote-overlay blockquote,
+  .fullscreen-background.quote-overlay blockquote p {
+    color: white !important;
+    font-size: 32px !important;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.95;
+    font-weight: 400;
+    text-align: left;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  .fullscreen-background.quote-overlay .quote-accent {
+    background: rgba(0, 0, 0, 0.38) !important;
+    padding: 28px 32px !important;
+    border-radius: 0;
+    border-left: 4px solid var(--color-primary) !important;
+    margin: 0 !important;
+  }
+
+  .fullscreen-background.quote-overlay blockquote strong {
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: white !important;
+  }
+
+  /* border-leftがある時は左上と左下のradiusを削除（レガシー互換） */
+  .panel[style*="border-left"] {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  /* チェックリストのスタイル */
+  .checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .checklist-item {
+    display: flex;
+    align-items: start;
+    gap: 12px;
+    margin: 0;
+  }
+
+  .checklist-checkbox {
+    color: #10B981;
+    font-size: 24px;
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  .checklist-text {
+    font-size: 24px;
+    color: var(--color-foreground);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .checklist-item.unchecked .checklist-checkbox {
+    color: #9CA3AF;
+  }
+
+  /* 表のレスポンシブスタイル */
+  table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    font-size: 20px;
+    margin: 24px 0;
+    table-layout: auto;
+    word-break: break-word;
+  }
+
+  table th,
+  table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #E5E7EB;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  table th {
+    font-weight: 600;
+    color: var(--color-heading);
+    background-color: #F9FAFB;
+    white-space: nowrap;
+  }
+
+  table td {
+    color: var(--color-foreground);
+  }
+
+  /* 最初の列（項目）を狭く、後ろの列を広く */
+  table th:first-child,
+  table td:first-child {
+    width: 20%;
+    min-width: 100px;
+  }
+
+  table th:nth-child(2),
+  table td:nth-child(2),
+  table th:nth-child(3),
+  table td:nth-child(3) {
+    width: 40%;
+  }
+---
+
+
+<!-- _class: title-slide -->
+
+# AI時代に必要な<br>アイデアの形
+
+LegalOn Technologies, PdM / Product Designer  
+吉永悠記 a.k.a UXマン <img class="logo-inline" src="../assets/logo.png" alt="" />  
+
+---
+
+<!-- _class: toc-slide -->
+
+<div class="toc-layout">
+
+<div>
+
+<div class="toc-title-group">
+  <h1>目次</h1>
+  <h2>Index</h2>
+</div>
+
+</div>
+
+<div>
+
+1. 自己紹介
+2. AI時代に必要なもの
+3. アイデアの価値
+4. 開発戦術の変化
+5. アイデアの像
+
+</div>
+
+</div>
+
+---
+
+<!-- _class: section-start -->
+
+# 自己紹介
+
+---
+
+## 自己紹介
+
+<div class="grid-2col">
+
+<div class="panel">
+
+### プロフィール
+LegalOn Technologiesにて、
+新規事業チームでリードデザイナー兼PdM。UXリサーチとプロダクトデザインの10年選手。UXマンとして知られる。AIが大好き。
+一児のパパ(予定)
+
+</div>
+
+<div class="panel">
+
+### 職歴
+Makuake > Branding Engineer > メディアドゥ > パーソルキャリアを経て、ASMRアプリ「ZOWA」で起業し、事業売却。二度目の起業を経て現職。
+コーポレート部門やCXO向けのソリューションに携わる。
+
+</div>
+
+</div>
+
+---
+
+## 作ったもの
+
+<!-- パターン: B. カラムレイアウト系 / 用途: 画像付きカードを3つ並べて紹介したい時。 -->
+
+<div class="image-card-grid">
+  <div class="image-card">
+    <img class="image-card-thumb" src="../assets/TTMScreenshot00.png" alt="作ったもの1（サンプル画像）" />
+    <div class="image-card-content">
+      <div class="image-card-title">メール仕事を助けるAI</div>
+      <div class="image-card-text">奥さんのメール業務補助</div>
+      <div class="image-card-tag">Chrome拡張機能</div>
+    </div>
+  </div>
+  <div class="image-card">
+    <img class="image-card-thumb" src="../assets/AIforResidenceResearch01.png" alt="作ったもの2（サンプル画像）" />
+    <div class="image-card-content">
+      <div class="image-card-title">不動産リサーチのAI</div>
+      <div class="image-card-text">知り合いの不動産屋の業務平準化</div>
+      <div class="image-card-tag">PCアプリ</div>
+    </div>
+  </div>
+  <div class="image-card">
+    <img class="image-card-thumb" src="../assets/site&amp;discord%20(1).png" alt="作ったもの3（サンプル画像）" />
+    <div class="image-card-content">
+      <div class="image-card-title">ニュース運営エージェント</div>
+      <div class="image-card-text">個人投資家のためのAIアンテナ</div>
+      <div class="image-card-tag">WEBサイト, Webhook API</div>
+    </div>
+  </div>
+</div>
+
+---
+
+<!-- _class: fullscreen-background -->
+<!-- パターン: E. 背景・画像系 / 用途: 事例紹介など、背景画像＋ロゴ＋説明文＋補足要素を配置したい時。 -->
+<style scoped>
+section {
+  background-image: url('../assets/COR-babg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 56px !important;
+}
+
+.panel-glass {
+  max-width: 50%;
+}
+</style>
+
+![CORLOGO width:520px](../assets/CORLOGO.svg)
+
+<p>
+コーポレート部門向けのAI製品。<br>デザイナー兼PdMとして担当した新規事業。<br>現在はARR数千万円の製品になっている。
+</p>
+
+<div class="panel panel-glass" style="padding: 24px;">
+  <img src="../assets/campaignLogos.png" alt="導入企業例" style="width: 100%; display: block; filter: none;" />
+</div>
+
+---
+
+<!-- _class: section-start -->
+
+# AI時代に<br>必要なもの
+---
+
+<!-- _class: fullscreen-background quote-overlay -->
+<!-- パターン: E. 背景・画像系 / 用途: 写真を全面背景にして“空気感”を作りたい時（文字は最小限）。 -->
+<style scoped>
+section {
+  background-image: url('../assets/sam 2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 56px !important;
+}
+
+.quote-accent {
+  background: rgba(0, 0, 0, 0.38) !important;
+  padding: 28px 32px !important;
+  border-radius: 0 !important;
+  border-left: none !important;
+  margin: 0 !important;
+}
+
+blockquote {
+  color: white !important;
+  font-size: 32px !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+  opacity: 0.95;
+  font-weight: 400;
+  text-align: left;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-left: 4px solid var(--color-primary) !important;
+  padding: 0 0 0 24px !important;
+}
+
+blockquote p {
+  color: white !important;
+  font-size: 32px !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+  opacity: 0.95;
+  font-weight: 400;
+  text-align: left;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+blockquote strong {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: white !important;
+}
+</style>
+<div class="quote-accent">
+
+> 以前はプログラミングを学ぶことが明らかに正しい選択だった。  
+> でも今は違う。  
+> <strong>高い主体性、アイデアを生み出す上手さ、折れない心、急速に変化する世界への順応力</strong>が、特定のスキルより重要になる
+>
+> ー Sam Altman
+
+</div>
+
+---
+
+<!-- パターン: F. 強調・特殊系 / 用途: 聞き手に考えさせたい問いかけを提示する時。 -->
+<div class="center safe-area center-stack question-slide">
+
+# アイデアを生み出す上手さ
+
+<p>って何だろう？</p>
+
+</div>
+
+---
+
+## 「アイデアに価値は無い」
+
+---
+
+## 「アイデアに価値は無い」❌️
+
+---
+
+## 「アイデアに価値がある」🫤
+
+---
+
+## 「<span class="accent">完成形をイメージできる詳細度のアイデア</span>に価値がある」✅️
+
+---
+
+<!-- _class: section-start -->
+
+# 色々やってみた
+> 完成形をイメージできる詳細度のアイデア
+
+---
+
+<!-- パターン: D. パネルデザイン系 / 用途: 上下に2つのフローを並べて比較したい時。 -->
+
+<style scoped>
+.dual-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dual-flow .panel {
+  padding: 20px 24px;
+}
+
+/* 2本並べるため、フローを少しコンパクトにする */
+.dual-flow .process-flow {
+  padding: 8px 0;
+  gap: 10px;
+}
+.dual-flow .process-flow li {
+  min-height: 110px;
+}
+.dual-flow .flow-step {
+  width: 52px;
+  height: 52px;
+  font-size: 18px;
+  margin: 0 auto 10px;
+}
+.dual-flow .process-flow li::after {
+  font-size: 22px;
+  right: -14px;
+}
+.dual-flow .flow-label {
+  font-size: 18px;
+}
+
+/* 上段（従来）はニュートラルなグレーで表現 */
+.flow-legacy .flow-step {
+  background: var(--color-subheading) !important;
+}
+.flow-legacy .process-flow li::after {
+  color: var(--color-subheading) !important;
+}
+.flow-legacy .flow-label {
+  color: var(--color-subheading);
+}
+</style>
+
+<div class="dual-flow">
+
+<div class="panel">
+
+<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 700; color: #374151;">従来の開発戦術</h3>
+
+<div class="flow-legacy">
+<ol class="process-flow">
+  <li><div class="flow-step">1</div><div class="flow-label">リサーチ</div></li>
+  <li><div class="flow-step">2</div><div class="flow-label">要件</div></li>
+  <li><div class="flow-step">3</div><div class="flow-label">仕様設計</div></li>
+  <li><div class="flow-step">4</div><div class="flow-label">UI</div></li>
+  <li><div class="flow-step">5</div><div class="flow-label">ハンドオフ</div></li>
+  <li><div class="flow-step">6</div><div class="flow-label">実装</div></li>
+</ol>
+<div class="text-block center" style="font-size: 20px; color: var(--color-subheading); margin-top: 10px;">
+役割ごとに工程を分け、ハンドオフで繋ぐ前提
+</div>
+</div>
+
+</div>
+
+<div class="panel">
+
+<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 700; color: #374151;">変化した開発戦術</h3>
+
+<ol class="process-flow">
+  <li><div class="flow-step">1</div><div class="flow-label">ユースケース記述</div></li>
+  <li><div class="flow-step">2</div><div class="flow-label">PRDとSPEC</div></li>
+  <li><div class="flow-step">3</div><div class="flow-label">CLI試作</div></li>
+  <li><div class="flow-step">4</div><div class="flow-label">ブラッシュアップ</div></li>
+  <li><div class="flow-step">5</div><div class="flow-label">ハンドオフ</div></li>
+</ol>
+<div class="text-block center" style="font-size: 20px; color: var(--color-subheading); margin-top: 10px;">
+AI前提の仕事の流れ
+</div>
+
+</div>
+
+</div>
+
+---
+
+# 結果
+小機能はデザイナーやPdMが作るようになった。
+これは表象でなくデータやプロトコルといった実体の設計。
+つまり、**従来よりも本当の意味でデザインしている**。
+
+(本番リリースのためのエンジニアの協力はある)
+
+---
+
+
+
+<!-- パターン: B. カラムレイアウト系 / 用途: 左で定義を伝え、右で手順例を並べて理解を促す時。 -->
+
+<style scoped>
+/* 右カラムのみ caption 相当のサイズに落とす */
+.usecase-steps {
+  font-size: 20px;
+  color: var(--color-subheading);
+  margin: 0;
+  padding-left: 24px;
+  line-height: 1.45;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.usecase-steps li {
+  margin-bottom: 0;
+}
+.usecase-left {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+</style>
+
+<div class="grid-2col-center">
+
+<div class="usecase-left">
+
+<div class="usecase-title-row">
+  <div class="flow-step">1</div>
+  <h2 style="font-size: 28px; font-weight: 700; color: #374151;">ユースケース記述</h2>
+</div>
+
+<div style="font-size: 26px; color: #1F2937; line-height: 1.6;">
+  主体ごとの挙動をシナリオベースで叙述した作文。<br>
+  物事が起きる順に行動とシステムの反応を並べる。
+</div>
+
+</div>
+
+<div class="panel">
+
+<ol class="usecase-steps">
+  <li>ユーザーはホーム画面を開く</li>
+  <li>アプリはホーム画面を表示する</li>
+  <li>アプリはニュース一覧を表示する</li>
+  <li>ユーザーはいずれかのニュースを開く</li>
+  <li>アプリは当該ニュースを表示する</li>
+  <li>ユーザーは当該ニュースを読む</li>
+  <li>ユーザーは当該ニュースをお気に入り登録する</li>
+  <li>アプリはユーザー登録を促す</li>
+  <li>ユーザーは...</li>
+</ol>
+
+</div>
+
+</div>
+
+---
+
+
+<style scoped>
+.usecase-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+</style>
+
+<div class="grid-2col-center">
+
+<div class="usecase-left">
+  <div class="usecase-title-row">
+    <div class="flow-step">2</div>
+    <h2 style="font-size: 28px; font-weight: 700; color: #374151;">PRD と SPEC の生成</h2>
+  </div>
+
+  <div style="font-size: 26px; color: #1F2937; line-height: 1.6;">
+    ユースケースをもとに、PRDとSPECを生成する。<br>
+    AIの方が人より安定的で上手で早い。
+  </div>
+
+</div>
+
+<div class="explain-figure">
+  <img class="explain-img" src="../assets/スクリーンショット 2026-02-06 16.14.29.png" alt="PRDとSPEC生成のイメージ" />
+</div>
+
+</div>
+
+---
+<!-- パターン: B. カラムレイアウト系 / 用途: 画像を2つ並べて見せたい時。 -->
+<style scoped>
+.image-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.image-grid-2 .image-wrap {
+  background: #0B0B0B;
+  padding: 20px 0 0;
+  border-radius: 14px;
+  display: flex;
+  box-shadow: 0 16px 32px rgba(17, 24, 39, 0.14);
+  filter: drop-shadow(0 12px 24px rgba(17, 24, 39, 0.12));
+}
+.image-grid-2 .image-frame {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: contain;
+  object-position: center top;
+  display: block;
+  background: transparent;
+}
+</style>
+
+<div class="image-grid-2">
+  <div class="image-wrap">
+    <img class="image-frame" src="../assets/PRD.png" alt="PRDの内容" />
+  </div>
+  <div class="image-wrap">
+    <img class="image-frame" src="../assets/SPEC.png" alt="SPECの内容" />
+  </div>
+</div>
+
+---
+
+<div class="usecase-title-row">
+  <div class="flow-step">3</div>
+  <h2>CLI(コマンドライン)試作</h2>
+</div>
+
+<div class="grid-2col-center">
+
+<div style="display: flex; flex-direction: column; gap: 20px;">
+  <div style="font-size: 26px; color: #1F2937; line-height: 1.6;">
+    ビジュアルから始めない。動くものから作る。<br>
+    どんなデータを作れるか、どんなデータが来るか<br>試行錯誤。
+  </div>
+</div>
+
+<div class="explain-figure">
+  <img class="explain-img" src="../assets/demo01.png" alt="CLI試作のデモ" />
+</div>
+
+</div>
+
+---
+
+<div class="usecase-title-row">
+  <div class="flow-step">4</div>
+  <h2>頑張る</h2>
+</div>
+
+<div class="image-card-grid image-card-grid-fill">
+  <div class="image-card">
+    <img class="image-card-thumb" src="../svg/better-data-iteration.svg" alt="より良いデータを作る試行" />
+    <div class="image-card-content">
+      <div class="image-card-title">良い素材を探す・作る</div>
+      <div class="image-card-text">質を上げるため使うデータソースやAPIを見直す・選定する。</div>
+    </div>
+  </div>
+  <div class="image-card">
+    <img class="image-card-thumb" src="../svg/search-better-sources.svg" alt="良い素材を探す" />
+    <div class="image-card-content">
+      <div class="image-card-title">ターゲットやコンセプト見直し</div>
+      <div class="image-card-text">インスピレーションを得て企画レベルの発想転換をする。</div>
+    </div>
+  </div>
+  <div class="image-card">
+    <img class="image-card-thumb" src="../svg/optimal-ui-design.svg" alt="データを踏まえたUI設計" />
+    <div class="image-card-content">
+      <div class="image-card-title">最適なUIを考える</div>
+      <div class="image-card-text">実際のデータの形や特性を見て、UIを最適化する。</div>
+    </div>
+  </div>
+</div>
+
+---
+
+<div class="center">
+
+![width:1150px](../assets/sampleUIs.png)
+
+</div>
+
+---
+
+<div class="usecase-title-row">
+  <div class="flow-step">5</div>
+  <h2>"AIに聞いてもらう" というハンドオフ</h2>
+</div>
+
+<ul class="icon-card-list">
+  <li class="icon-card">
+    <span class="icon-badge">👨‍💻</span>
+    <div class="icon-card-content">
+      <div class="icon-card-title">エンジニア</div>
+      <div class="icon-card-body">「ここはなぜこの仕様にしたんですか」</div>
+    </div>
+  </li>
+  <li class="icon-card">
+    <span class="icon-badge">🤔</span>
+    <div class="icon-card-content">
+      <div class="icon-card-title">吉永</div>
+      <div class="icon-card-body">（わからない・忘れた）</div>
+    </div>
+  </li>
+  <li class="icon-card">
+    <span class="icon-badge">🤖</span>
+    <div class="icon-card-content">
+      <div class="icon-card-title">AI</div>
+      <div class="icon-card-body">「X月X日に、XXXという経緯があったようです」</div>
+    </div>
+  </li>
+</ul>
+
+---
+
+## いずれの段階も<br>完成形をイメージできる詳細度のアイデア。
+
+<div class="panel">
+
+<ol class="process-flow">
+  <li><div class="flow-step">1</div><div class="flow-label">ユースケース記述</div></li>
+  <li><div class="flow-step">2</div><div class="flow-label">PRDとSPEC</div></li>
+  <li><div class="flow-step">3</div><div class="flow-label">CLI試作</div></li>
+  <li><div class="flow-step">4</div><div class="flow-label">ブラッシュアップ</div></li>
+  <li><div class="flow-step">5</div><div class="flow-label">ハンドオフ</div></li>
+</ol>
+<div class="text-block center" style="font-size: 20px; color: var(--color-subheading); margin-top: 10px;">
+AI前提の仕事の流れ
+</div>
+
+</div>
+
+---
+
+## アイデアのレベルは、<br>完成形をイメージできる詳細度。
+<!-- パターン: B. カラムレイアウト系 / 用途: レベルや成熟度を段階的に示す時。 -->
+
+<div class="level-strip">
+  <div class="level-item level-1">
+    <div class="level-title">Lv.1</div>
+    <div class="level-desc">ユースケース記述</div>
+  </div>
+  <div class="level-item level-2">
+    <div class="level-title">Lv.2</div>
+    <div class="level-desc">PRDとSPEC</div>
+  </div>
+  <div class="level-item level-3">
+    <div class="level-title">Lv.3</div>
+    <div class="level-desc">CLI試作</div>
+  </div>
+  <div class="level-item level-4">
+    <div class="level-title">Lv.4</div>
+    <div class="level-desc">ハンドオフ付き</div>
+  </div>
+  <div class="level-item level-5">
+    <div class="level-title">Lv.5</div>
+    <div class="level-desc">UI付き</div>
+  </div>
+</div>
+
+**レベルに伴ってアイデアの価値も上がる**
+
+<div class="caption-sm">(※そのアイデアがヒットする蓋然性レベルではない)</div>
+
+---
+
+<!-- _class: section-end -->
+
+# まとめ
+## 完成形をイメージできる詳細度を目指そう。
+
+---
+
+<!-- _class: title-slide -->
+
+## ありがとうございました
+
+ご質問とご意見をお待ちしています
+
+Yuki Yoshinaga <img class="logo-inline" src="../assets/logo.png" alt="" />  
+@uxman
+
+---
+
+# Appendix
+
+---
+
+## FAQ
+
+### UIデザインはどこへ行ったか
+UIデザインは、UIだけを独立して作る時代ではなくなってきた。
+
+実際の出力形態やデータのあり方を見て、良いUIにデータを落とし込めるか想像しながら、機能・挙動自体をブラッシュアップする という、より包括的な活動に変わった。
+
+---
+
+## FAQ
+
+<div class="grid-2col-center">
+
+<div>
+  <h3 style="margin: 0 0 20px 0; font-size: 28px; font-weight: 700; color: #374151;">1. 色々やっているようだが<br>作業環境は？何使ってるの?</h3>
+  <div style="font-size: 26px; color: #1F2937; line-height: 1.6;">
+    こんな感じ→<br>
+    Figma, Cursor, Antigravityが多い。
+  </div>
+</div>
+
+<div class="explain-figure">
+  <img class="explain-img" src="../assets/deskMosaic.png" alt="作業環境" />
+</div>
+
+</div>
+
+
+---
+
+## FAQ
+
+### 2. AIにハンドオフさせるって、具体的には何をすればいいの？
+
+<ul class="icon-card-list">
+  <li class="icon-card">
+    <span class="icon-badge">📋</span>
+    <div class="icon-card-content">
+      <div class="icon-card-title">基礎的な設計の伝達</div>
+      <div class="icon-card-body">リバースエンジニアリングでPRDとSPECを更新。PRDやSPECを通じて、設計の意図や構造を明確に伝える</div>
+    </div>
+  </li>
+  <li class="icon-card">
+    <span class="icon-badge">📝</span>
+    <div class="icon-card-content">
+      <div class="icon-card-title">経緯のトレーサビリティ向上</div>
+      <div class="icon-card-body">AIに開発日記を付けさせる。開発日記とコミットメッセージで、なぜそうしたかを記録し備忘する</div>
+    </div>
+  </li>
+</ul>
+
+---
+
+## 経緯のトレーサビリティ向上の重要性
+
+### Point1. 人はそもそも忘れる生き物。
+
+<div class="panel">
+
+- 作り終えてずいぶん時間が経ってからエンジニアがアサインされ、記憶が薄れている
+- 指示しただけなので記憶に定着しておらず、意図を思い出せない
+- エージェントが勝手に進めた部分がある
+
+</div>
+
+---
+## 経緯のトレーサビリティ向上の重要性
+### Point2. コードにWHYは書かれていない
+
+結果としての実装物(コード)は残る。  
+でも、なぜそうしたかは残りにくい。
+
+---
+
+## 経緯のトレーサビリティ向上の重要性
+### 対策: 忘れてもいいようにする
+
+<div class="panel">
+
+「ここまでの変更の具体と意図を開発日記に記載しておいて」
+(※毎回書くと面倒なので、コミットごとに動くSkillsかRulesを作っておく)
+
+</div>

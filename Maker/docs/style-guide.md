@@ -276,6 +276,49 @@ table td:nth-child(3) {
 16. アイコン付きリスト - 視覚的区別
 17. チェックリスト - 完了状態の表示
 
+#### 定義 + ステップ例（右パネル）
+
+ステップリストは単体で使うだけでなく、**左で定義、右で短い手順例**を並べると理解が固定される。
+
+**ポイント**
+- 右カラムの手順は **caption相当のサイズ（20px前後）** に落とす
+- 右カラムは **`.panel` で囲む**（情報のまとまりを作る）
+
+```css
+.usecase-steps {
+  font-size: 20px;
+  color: var(--color-subheading);
+  margin: 0;
+  padding-left: 24px;
+  line-height: 1.45;
+}
+.usecase-steps li {
+  margin-bottom: 8px;
+}
+.usecase-steps li:last-child {
+  margin-bottom: 0;
+}
+```
+
+```html
+<div class="grid-2col-center">
+  <div>
+    <h2 style="margin: 0 0 24px 0; font-size: 28px; font-weight: 700; color: #374151;">ユースケース記述</h2>
+    <div style="font-size: 26px; color: #1F2937; line-height: 1.6;">
+      主体ごとの挙動を、シナリオベースで叙述した作文。<br>
+      物事が起きる順に、行動とシステムの反応を並べる。
+    </div>
+  </div>
+  <div class="panel">
+    <ol class="usecase-steps">
+      <li>ユーザーはホーム画面を開く</li>
+      <li>アプリはホーム画面を表示する</li>
+      <li>ユーザーは...</li>
+    </ol>
+  </div>
+</div>
+```
+
 #### アイコン付きリスト（カード型）の実装
 アイコン＋短い説明を「カード」として縦に並べるパターンです。**左に円形アイコン、右にタイトル＋本文を縦積み**にします。
 
@@ -429,17 +472,194 @@ table td:nth-child(3) {
 - パネル要素にはデフォルトで`margin: 0`が設定されています。親要素の`gap`プロパティで間隔を制御してください。
 - `border-left`が設定されている場合、左上と左下の`border-radius`は自動的に0になります。これは、左側にボーダーがある場合、角が丸いと見た目が悪くなるためです。
 
-### E. 背景・画像系（4種）
+### E. 背景・画像系（8種）
 23. 全画面背景 - 全画面に背景色・グラデーション・画像を適用（インパクト重視）
-24. 右側配置 - 画像を右側に配置
-25. 左側配置 - 画像を左側に配置
-26. 引用スライド - 引用文を強調
+24. 全画面背景（引用オーバーレイ） - 背景画像＋オーバーレイ＋引用でメッセージを強調
+25. 全画面背景（事例紹介） - 背景画像＋ロゴ＋説明文＋補足要素（ガラスパネル）
+26. 右側配置 - 画像を右側に配置
+27. 左側配置 - 画像を左側に配置
+28. 右側全面画像 - 右カラム全体を画像で埋める
+29. 大きめ画像（単独） - 画像のみをセーフエリアギリギリまで大きく表示（UIスクリーンショット等）
+30. 引用スライド - 引用文を強調
+
+#### 全画面背景（引用オーバーレイ）
+
+背景画像の上に暗いオーバーレイを載せ、引用文を強調するパターン。印象的なメッセージやキーワードを伝えたい時に最適。
+
+**特徴**:
+- 背景画像全面表示
+- 黒色オーバーレイ（rgba(0, 0, 0, 0.42)）で画像を暗くし、文字の可読性を確保
+- 引用文は`.quote-accent`で半透明の黒背景パネルに配置
+- 白文字＋テキストシャドウで可読性を最大化
+- `strong`タグで強調部分を太字に
+
+**使い方**:
+```html
+<!-- _class: fullscreen-background quote-overlay -->
+<style scoped>
+section {
+  background-image: url('背景画像.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 56px !important;
+}
+
+.quote-accent {
+  background: rgba(0, 0, 0, 0.38) !important;
+  padding: 28px 32px !important;
+  border-radius: 0 !important;
+  border-left: none !important;
+  margin: 0 !important;
+}
+
+blockquote {
+  color: white !important;
+  font-size: 32px !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+  opacity: 0.95;
+  font-weight: 400;
+  text-align: left;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-left: 4px solid var(--color-primary) !important;
+  padding: 0 0 0 24px !important;
+}
+
+blockquote p {
+  color: white !important;
+  font-size: 32px !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+  opacity: 0.95;
+  font-weight: 400;
+  text-align: left;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+blockquote strong {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: white !important;
+}
+</style>
+
+<div class="quote-accent">
+
+> ここに引用文が入ります。  
+> 複数行で記載できます。  
+> <strong>強調したい部分</strong>はstrongタグで囲みます。
+>
+> ー 引用元
+
+</div>
+```
+
+**ポイント**:
+- scoped styleで`.quote-accent`、`blockquote`のスタイルを明示的に指定
+- グローバルスタイルとの競合を避けるため`!important`を使用
+- オーバーレイはグローバルで自動適用（`.quote-overlay`クラス）
+
+#### 全画面背景（事例紹介）
+
+背景画像の上にロゴ、説明文、補足要素（ガラスパネル）を配置するパターン。製品やサービスの事例紹介に最適。
+
+**特徴**:
+- 背景画像全面表示
+- `.fullscreen-background`クラスで白文字スタイルが自動適用される
+- ロゴ画像にシャドウ適用（存在感を強調）
+- ガラスパネル内の画像はシャドウなし（補足要素として控えめに）
+- ガラスパネルは50%幅で左寄せ
+
+**使い方**:
+```html
+<!-- _class: fullscreen-background -->
+<style scoped>
+section {
+  background-image: url('背景画像.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 56px !important;
+}
+
+.panel-glass {
+  max-width: 50%;
+}
+</style>
+
+![ロゴ width:520px](logo.svg)
+
+<p>
+製品やサービスの説明文。<br>
+複数行可能。
+</p>
+
+<div class="panel panel-glass" style="padding: 24px;">
+  <img src="補足画像.png" alt="導入企業ロゴなど" style="width: 100%; display: block; filter: none;" />
+</div>
+```
+
+**ポイント**:
+- scoped styleは背景画像の指定と`.panel-glass`の幅制限（50%）を記述
+- 白文字スタイルはグローバルで自動適用（h1, h2, p, img）
+- テキストとガラスパネル間の余白は`p`の`margin-bottom: 48px`で自動確保
 
 #### 右側配置 / 左側配置（画像は必須）
 - **ルール**: 右側配置 / 左側配置は、必ず片側に**画像（スクリーンショット / 図 / 説明用イメージ）**を配置する  
   - 「画像がない」場合は、このパターンを使わず **パネル（`.panel`）/ カード / リスト**等で情報を組み直す
 - **推奨**: 画像は内容理解を助ける説明にする（単なる装飾目的にしない）
 - **推奨**: 画像はカラム幅にフィットさせ、角丸・枠線などで「パネル相当のまとまり」を作る（例: `.explain-img` のような共通クラスで統一）
+
+#### 右側全面画像
+```css
+.right-image-full {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+  min-height: calc(100% - 100px);
+}
+.right-image-full .image-pane {
+  position: absolute;
+  top: calc(-1 * var(--slide-padding));
+  right: calc(-1 * var(--slide-padding));
+  bottom: -100px;
+  left: calc(50% + 12px);
+  border-radius: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.right-image-full > div:first-child {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.right-image-full .image-pane img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+```
+```html
+<div class="right-image-full">
+  <div>
+    <h2>ここにタイトルが入ります</h2>
+    <ul>
+      <li>ここに説明文が入ります</li>
+      <li>ここに説明文が入ります</li>
+    </ul>
+  </div>
+  <div class="image-pane">
+    <img src="../sampleAssets/temporary-art.png" alt="右側全面画像サンプル" />
+  </div>
+</div>
+```
 
 #### 全画面背景の実装
 全画面背景はインパクトが必要なパターンです。section要素自体に背景を設定し、余白を最小限にします。
@@ -460,27 +680,64 @@ table td:nth-child(3) {
   max-width: 100%;
 }
 ```
+- **ページ番号（必要な場合）**: `section footer::after { color: #fff; }` をスコープ内で上書きして白にする
 - **padding**: 0（section要素の余白を削除）
 - **背景**: section要素に直接設定
 - **コンテンツ**: 中央配置で表示
 - **コンテンツ内のパディング**: 必要に応じてコンテンツ要素に設定
 
+#### 引用を背景画像上で読ませる（逆輸入）
+
+背景画像の上に引用文を置く場合、**コントラスト不足で可読性が落ちやすい**。そのため、引用ブロック（`.quote-accent`）に**半透明の下地**を付けて読むための“面”を作る。
+
+**ルール**
+- **引用ブロックは角丸を付けない**（アクセントラインがあるため、角丸があるとバランスが崩れやすい）
+- 引用文は**太字寄り**にし、必要に応じて `text-shadow` で補助する
+
+**実装例（スライド内で `<style scoped>`）**
+
+```css
+section {
+  color: white;
+}
+
+section .quote-accent {
+  /* 透明下地でコントラストを確保 */
+  background: rgba(0, 0, 0, 0.38);
+  padding: 28px 32px;
+  border-radius: 0;
+}
+
+section blockquote,
+section blockquote p {
+  color: white;
+  opacity: 0.95;
+  font-weight: 400;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+section blockquote strong {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+```
+
 ### F. 強調・特殊系（3種）
-27. 統計スライド - 数値を大きく表示
-28. 中央配置 - シンプルな中央配置
-29. Q&Aスライド - 質問と回答
+31. 統計スライド - 数値を大きく表示
+32. 中央配置 - シンプルな中央配置
+33. Q&Aスライド - 質問と回答
 
 ### G. 応用パターン（10種）
-30. QRコード - リンク共有用
-31. 問いかけ - 質問で思考を促す
-32. まとめ - 要点を整理
-33. 企業事例 - ケーススタディ
-34. 比較表 - 複数項目の比較
-35. プロセスフロー - プロセスの可視化
-36. メリット・デメリット - 両面の提示
-37. チェックポイント - 確認項目
-38. 参考資料 - 参考文献リスト
-39. 次回予告 - 続きの案内
+34. QRコード - リンク共有用
+35. 問いかけ - 質問で思考を促す
+36. まとめ - 要点を整理
+37. 企業事例 - ケーススタディ
+38. 比較表 - 複数項目の比較
+39. プロセスフロー - プロセスの可視化
+40. メリット・デメリット - 両面の提示
+41. チェックポイント - 確認項目
+42. 参考資料 - 参考文献リスト
+43. 次回予告 - 続きの案内
 
 ## スライド基本スタイル
 
@@ -596,6 +853,10 @@ h3 + * {
 - **見出し直後の要素**: マージンなし（見出しの下マージンで間隔を確保）
 - **スライド直下のブロック（`section > div`）**: 24pxの下マージン（要素間の適切な間隔）
 - **panel/card直下の`div`**: 24pxの下マージン（テキストブロック同士の間隔。ネストしたレイアウトに影響させないため直下に限定。`.accent-card-brand` も対象に含める）
+
+**注意**  
+見出し直後の要素は `h1 + * / h2 + * / h3 + *` で `margin-top: 0` に揃えているため、  
+この位置に `margin-top` を足しても効かない。**ネストしたレイアウトの間隔は `gap` / `padding` で制御する。**
 
 **例外（テキストだけのブロック）**  
 短文の説明・ラベル・注釈など、**単独のテキストだけを置く div / p** は余白が不要なため `.text-block` を使用する。  
@@ -996,19 +1257,82 @@ section {
 
 #### リストユーティリティ
 - `.timeline` - 番号付きのタイムライン（カウンター付き）
+- `.usecase-steps` - パネル内で小さめに見せるステップリスト（キャプション相当）
 - `.icon-card-list` / `.icon-card` - アイコン付きリスト（カード型）
+- `.image-card-grid` / `.image-card` - 3カラム画像付きカード
+
+#### 画像付きカード（3カラム）
+```css
+.image-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.image-card {
+  background: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+.image-card-thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px 12px 0 0;
+  display: block;
+  object-fit: contain;
+  background: #E5E7EB;
+}
+.image-card-content {
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.image-card-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-heading);
+}
+.image-card-tag {
+  font-size: 18px; /* caption 相当 */
+  color: #9CA3AF;
+  line-height: 1.6;
+  margin: 0;
+}
+.image-card-text {
+  font-size: 22px;
+  color: var(--color-subheading);
+  line-height: 1.5;
+}
+```
+```html
+<div class="image-card-grid">
+  <div class="image-card">
+    <img class="image-card-thumb" src="../sampleAssets/tomato.png" alt="サンプル画像" />
+    <div class="image-card-content">
+      <div class="image-card-title">タイトル</div>
+      <div class="image-card-text">ここに説明文が入ります</div>
+      <div class="image-card-tag">#タグ</div>
+    </div>
+  </div>
+  <!-- 3カラムで繰り返し -->
+</div>
+```
 
 #### スタックユーティリティ
 - `.stack-32` - 縦方向に32pxの間隔で配置
 
 #### テキストユーティリティ
 - `.text-block` - テキストだけのブロック（下マージンなし）
+- `.caption-sm` - 小さめの補足・注釈テキスト（18px、薄いグレー、行間広め）
 - `.mb-0` - 下マージンを強制的に0（グリッド内の余計な余白除去など）
 
 #### プロセスフロー
 - `.process-flow` - 水平方向のステップフロー
 - `.flow-step` - 丸型ステップ番号
 - `.flow-label` - ステップ名
+- **運用**: 高さのばらつきを抑えるため、各ステップは縦中央に揃えて配置する
 
 #### レベル表示（横並び）
 - `.level-strip` - 5カラムを横並びのラベル表示

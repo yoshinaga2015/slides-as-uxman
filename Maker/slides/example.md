@@ -613,6 +613,91 @@ style: |
     border-radius: 8px;
   }
 
+  /* 3カラム画像付きカード */
+  .image-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .image-card {
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-card-thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px 12px 0 0;
+    display: block;
+    object-fit: contain;
+    background: #E5E7EB;
+  }
+
+  .image-card-content {
+    padding: 16px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .image-card-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-heading);
+  }
+
+  .image-card-tag {
+    font-size: 18px; /* caption 相当 */
+    color: #9CA3AF;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .image-card-text {
+    font-size: 22px;
+    color: var(--color-subheading);
+    line-height: 1.5;
+  }
+
+  /* 右側全面画像 */
+  .right-image-full {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: center;
+    min-height: calc(100% - 100px);
+  }
+
+  .right-image-full .image-pane {
+    position: absolute;
+    top: calc(-1 * var(--slide-padding));
+    right: calc(-1 * var(--slide-padding));
+    bottom: -100px;
+    left: calc(50% + 12px);
+    border-radius: 0;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .right-image-full > div:first-child {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .right-image-full .image-pane img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
   .panel-center {
     text-align: center;
   }
@@ -813,6 +898,13 @@ style: |
     margin-top: 8px;
   }
 
+  .caption-sm {
+    font-size: 18px;
+    color: #9CA3AF;
+    line-height: 1.6;
+    margin: 4px 0 0;
+  }
+
   /* 問いかけスライド */
   .question-slide {
     text-align: left;
@@ -864,6 +956,23 @@ style: |
     font-weight: 700;
     font-size: 18px;
     flex-shrink: 0;
+  }
+
+  /* パネル内ステップリスト（キャプションサイズ） */
+  .usecase-steps {
+    font-size: 20px;
+    color: var(--color-subheading);
+    margin: 0;
+    padding-left: 24px;
+    line-height: 1.45;
+  }
+
+  .usecase-steps li {
+    margin-bottom: 8px;
+  }
+
+  .usecase-steps li:last-child {
+    margin-bottom: 0;
   }
 
   /* アイコン付きリスト（カード型） */
@@ -1013,15 +1122,20 @@ style: |
     margin: 0;
     padding: 16px 0;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 12px;
   }
 
   .process-flow li {
     flex: 1;
+    min-height: 140px;
     text-align: center;
     margin: 0;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .process-flow li::after {
@@ -1056,6 +1170,50 @@ style: |
     font-size: 22px;
     color: var(--color-heading);
     margin: 0;
+  }
+
+  /* 2段フロー比較（上下に2本並べる） */
+  .dual-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .dual-flow .panel {
+    padding: 20px 24px;
+  }
+
+  /* 2本入れるため、フローはdual-flow内だけコンパクト化 */
+  .dual-flow .process-flow {
+    padding: 8px 0;
+    gap: 10px;
+  }
+  .dual-flow .process-flow li {
+    min-height: 110px;
+  }
+  .dual-flow .flow-step {
+    width: 52px;
+    height: 52px;
+    font-size: 18px;
+    margin: 0 auto 10px;
+  }
+  .dual-flow .process-flow li::after {
+    font-size: 22px;
+    right: -14px;
+  }
+  .dual-flow .flow-label {
+    font-size: 18px;
+  }
+
+  /* 上段（従来）はニュートラルなグレーで表現 */
+  .flow-legacy .flow-step {
+    background: var(--color-subheading);
+  }
+  .flow-legacy .process-flow li::after {
+    color: var(--color-subheading);
+  }
+  .flow-legacy .flow-label {
+    color: var(--color-subheading);
   }
   /* オプション: 装飾付き見出し */
   .decorated-heading h2::after {
@@ -1143,9 +1301,104 @@ style: |
     display: none;
   }
 
-  .fullscreen-background > * {
+  .fullscreen-background > *:not(.panel):not(.panel-glass) {
     padding: var(--slide-padding);
     max-width: 100%;
+  }
+
+  /* fullscreen-background用の白文字スタイル */
+  .fullscreen-background h1 {
+    color: white;
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 48px 0;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    text-align: left;
+  }
+
+  .fullscreen-background h2 {
+    color: white;
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 28px 0;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    text-align: left;
+  }
+
+  .fullscreen-background p {
+    color: white;
+    font-size: 32px;
+    line-height: 1.6;
+    margin: 24px 0 48px 0;
+    opacity: 0.95;
+    font-weight: 300;
+    text-align: left;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  .fullscreen-background img {
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.25));
+  }
+
+  .fullscreen-background .panel-glass img {
+    filter: none !important;
+  }
+
+  .fullscreen-background .panel-glass {
+    max-width: 50% !important;
+  }
+
+  .fullscreen-background footer {
+    border-top-color: rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .fullscreen-background footer::after {
+    color: #FFFFFF;
+  }
+
+  /* fullscreen-background + 引用オーバーレイ（背景画像を暗くして引用を目立たせる） */
+  .fullscreen-background.quote-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.42);
+    z-index: 0;
+  }
+
+  .fullscreen-background.quote-overlay > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .fullscreen-background.quote-overlay blockquote,
+  .fullscreen-background.quote-overlay blockquote p {
+    color: white !important;
+    font-size: 32px !important;
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.95;
+    font-weight: 400;
+    text-align: left;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  .fullscreen-background.quote-overlay .quote-accent {
+    background: rgba(0, 0, 0, 0.38) !important;
+    padding: 28px 32px !important;
+    border-radius: 0;
+    border-left: none !important;
+    margin: 0 !important;
+  }
+
+  .fullscreen-background.quote-overlay blockquote strong {
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: white !important;
   }
 
   /* border-leftがある時は左上と左下のradiusを削除（レガシー互換） */
@@ -1240,7 +1493,7 @@ style: |
 <!-- パターン: A. タイトル・セクション系 / 用途: 冒頭でテーマと登壇情報を提示し、期待値を揃える時。 -->
 ## サブタイトル
 
-登壇者名 <img class="logo-inline" src="logo.png" alt="" />  
+Yuki Yoshinaga <img class="logo-inline" src="logo.png" alt="" />  
 202X年X月X日
 
 ---
@@ -1450,6 +1703,37 @@ style: |
 
 ---
 
+## 3カラム画像付き
+<!-- パターン: B. カラムレイアウト系 / 用途: 画像付きカードを3つ並べて紹介したい時。 -->
+
+<div class="image-card-grid">
+  <div class="image-card">
+    <img class="image-card-thumb" src="../sampleAssets/tomato.png" alt="トマト" />
+    <div class="image-card-content">
+      <div class="image-card-title">タイトルA</div>
+      <div class="image-card-text">ここに説明文が入ります</div>
+      <div class="image-card-tag">#タグ</div>
+    </div>
+  </div>
+  <div class="image-card">
+    <img class="image-card-thumb" src="../sampleAssets/cucumber.png" alt="きゅうり" />
+    <div class="image-card-content">
+      <div class="image-card-title">タイトルB</div>
+      <div class="image-card-text">ここに説明文が入ります</div>
+      <div class="image-card-tag">#タグ</div>
+    </div>
+  </div>
+  <div class="image-card">
+    <img class="image-card-thumb" src="../sampleAssets/eggplant.png" alt="なす" />
+    <div class="image-card-content">
+      <div class="image-card-title">タイトルC</div>
+      <div class="image-card-text">ここに説明文が入ります</div>
+      <div class="image-card-tag">#タグ</div>
+    </div>
+  </div>
+</div>
+
+---
 
 ## 4カラムレイアウト：タイトル
 <!-- パターン: B. カラムレイアウト系 / 用途: 4つの利点・項目を並列に示す時。 -->
@@ -1651,6 +1935,39 @@ style: |
 6. **項目**の説明文が入ります
 7. **項目**の説明文が入ります
 8. **項目**の説明文が入ります
+
+---
+
+## 定義 + ステップ例（右パネル）
+<!-- パターン: B. カラムレイアウト系 / 用途: 左で定義、右で手順例を見せて理解を固定したい時。 -->
+
+<div class="grid-2col-center">
+
+<div>
+
+<h2 style="margin: 0 0 24px 0; font-size: 28px; font-weight: 700; color: #374151;">ユースケース記述</h2>
+
+<div style="font-size: 26px; color: #1F2937; line-height: 1.6;">
+主体ごとの挙動を、シナリオベースで叙述した作文。<br>
+物事が起きる順に、行動とシステムの反応を並べる。
+</div>
+
+</div>
+
+<div class="panel">
+
+<ol class="usecase-steps">
+  <li>ユーザーはホーム画面を開く</li>
+  <li>アプリはホーム画面を表示する</li>
+  <li>アプリはニュース一覧を表示する</li>
+  <li>ユーザーはいずれかのニュースを開く</li>
+  <li>アプリは当該ニュースを表示する</li>
+  <li>ユーザーは...</li>
+</ol>
+
+</div>
+
+</div>
 
 ---
 
@@ -1910,11 +2227,114 @@ section p {
   text-align: left;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
+
+section footer {
+  display: flex;
+  border-top-color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+section footer::after {
+  color: #FFFFFF;
+}
 </style>
 
 # 背景全面：画像サンプル
 
 画像をスライド全面に配置した例です。テキストは白とシャドウで可読性を確保しています。
+
+---
+
+<!-- _class: fullscreen-background quote-overlay -->
+<!-- パターン: E. 背景・画像系 / 用途: 背景画像＋オーバーレイ＋引用で印象的なメッセージを伝えたい時。 -->
+<style scoped>
+section {
+  background-image: url('../sampleAssets/sam 2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 56px !important;
+}
+
+.quote-accent {
+  background: rgba(0, 0, 0, 0.38) !important;
+  padding: 28px 32px !important;
+  border-radius: 0 !important;
+  border-left: none !important;
+  margin: 0 !important;
+}
+
+blockquote {
+  color: white !important;
+  font-size: 32px !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+  opacity: 0.95;
+  font-weight: 400;
+  text-align: left;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-left: 4px solid var(--color-primary) !important;
+  padding: 0 0 0 24px !important;
+}
+
+blockquote p {
+  color: white !important;
+  font-size: 32px !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+  opacity: 0.95;
+  font-weight: 400;
+  text-align: left;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+blockquote strong {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: white !important;
+}
+</style>
+
+<div class="quote-accent">
+
+> ここに引用文が入ります。  
+> 複数行で記載できます。  
+> <strong>強調したい部分</strong>はstrongタグで囲みます。
+>
+> ー 引用元
+
+</div>
+
+---
+
+<!-- _class: fullscreen-background -->
+<!-- パターン: E. 背景・画像系 / 用途: 事例紹介など、背景画像＋ロゴ＋説明文＋補足要素を配置したい時。 -->
+<style scoped>
+section {
+  background-image: url('../sampleAssets/temporary-art.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 56px !important;
+}
+
+.panel-glass {
+  max-width: 50%;
+}
+</style>
+
+![width:520px](../sampleAssets/temporary-art.png)
+
+<p>
+製品やサービスの説明文がここに入ります。<br>
+背景画像の上でも読みやすい白文字とシャドウを使用しています。
+</p>
+
+<div class="panel panel-glass" style="padding: 24px;">
+  <img src="../sampleAssets/temporary-art.png" alt="補足要素（例：導入企業ロゴ）" style="width: 100%; display: block; filter: none;" />
+</div>
 
 ---
 
@@ -1971,6 +2391,36 @@ section p {
 
 ---
 
+
+## 右側全面画像
+<!-- パターン: E. 背景・画像系 / 用途: 右側を写真で全面的に見せたい時。 -->
+
+<div class="right-image-full">
+  <div>
+    <h2 style="margin: 0 0 24px 0; font-size: 28px; font-weight: 700; color: #374151;">ここにタイトルが入ります</h2>
+    <ul style="font-size: 26px; color: #1F2937; margin: 0; padding-left: 24px;">
+      <li>ここに説明文が入ります</li>
+      <li>ここに説明文が入ります</li>
+      <li>ここに説明文が入ります</li>
+    </ul>
+  </div>
+  <div class="image-pane">
+    <img src="../sampleAssets/temporary-art.png" alt="右側全面画像サンプル" />
+  </div>
+</div>
+
+---
+
+## 大きめ画像（単独）
+<!-- パターン: E. 背景・画像系 / 用途: 画像のみをセーフエリアギリギリまで大きく見せたい時。UIスクリーンショットやデモ画面などに最適。 -->
+
+<div class="center">
+
+![width:1150px](../sampleAssets/temporary-art.png)
+
+</div>
+
+---
 
 ## 引用スライド
 <!-- パターン: E. 背景・画像系 / 用途: 引用や印象的な一文を強調したい時。 -->
@@ -2191,6 +2641,52 @@ A. ここに回答文が入ります。
     <div class="flow-label">ステップ4</div>
   </li>
 </ol>
+
+<div class="text-block center" style="font-size: 22px; color: var(--color-subheading); margin-top: 16px;">
+ここに説明文が入ります
+</div>
+
+---
+
+<!-- パターン: G. 応用パターン / 用途: 従来と変化を上下のフローで比較したい時。 -->
+
+<div class="dual-flow">
+
+<div class="panel">
+
+<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 700; color: #374151;">従来</h3>
+
+<div class="flow-legacy">
+<ol class="process-flow">
+  <li><div class="flow-step">1</div><div class="flow-label">工程A</div></li>
+  <li><div class="flow-step">2</div><div class="flow-label">工程B</div></li>
+  <li><div class="flow-step">3</div><div class="flow-label">工程C</div></li>
+  <li><div class="flow-step">4</div><div class="flow-label">工程D</div></li>
+</ol>
+<div class="text-block center" style="font-size: 20px; color: var(--color-subheading); margin-top: 10px;">
+ここに説明文が入ります
+</div>
+</div>
+
+</div>
+
+<div class="panel">
+
+<h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 700; color: #374151;">変化</h3>
+
+<ol class="process-flow">
+  <li><div class="flow-step">1</div><div class="flow-label">工程A</div></li>
+  <li><div class="flow-step">2</div><div class="flow-label">工程B</div></li>
+  <li><div class="flow-step">3</div><div class="flow-label">工程C</div></li>
+  <li><div class="flow-step">4</div><div class="flow-label">工程D</div></li>
+</ol>
+<div class="text-block center" style="font-size: 20px; color: var(--color-subheading); margin-top: 10px;">
+ここに説明文が入ります
+</div>
+
+</div>
+
+</div>
 
 ---
 
