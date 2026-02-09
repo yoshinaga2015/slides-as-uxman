@@ -1178,6 +1178,50 @@ style: |
     color: var(--color-heading);
     margin: 0;
   }
+
+  /* 2段フロー比較（上下に2本並べる） */
+  .dual-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .dual-flow .panel {
+    padding: 20px 24px;
+  }
+
+  /* 2本入れるため、フローはdual-flow内だけコンパクト化 */
+  .dual-flow .process-flow {
+    padding: 8px 0;
+    gap: 10px;
+  }
+  .dual-flow .process-flow li {
+    min-height: 110px;
+  }
+  .dual-flow .flow-step {
+    width: 52px;
+    height: 52px;
+    font-size: 18px;
+    margin: 0 auto 10px;
+  }
+  .dual-flow .process-flow li::after {
+    font-size: 22px;
+    right: -14px;
+  }
+  .dual-flow .flow-label {
+    font-size: 18px;
+  }
+
+  /* 上段（従来）はニュートラルなグレーで表現 */
+  .flow-legacy .flow-step {
+    background: var(--color-subheading);
+  }
+  .flow-legacy .process-flow li::after {
+    color: var(--color-subheading);
+  }
+  .flow-legacy .flow-label {
+    color: var(--color-subheading);
+  }
   /* オプション: 装飾付き見出し */
   .decorated-heading h2::after {
     content: '';
@@ -1508,8 +1552,8 @@ LegalOn Technologiesにて、
 <div class="panel">
 
 ### 職歴
-Makuake > Branding Engineer > メディアドゥ > パーソルキャリアを経て、ASMRアプリ「ZOWA」で起業し、事業売却。二度目の起業を経て現職。
-コーポレート部門やCXO向けのソリューションに携わる。
+UXリサーチからキャリアStart。
+Makuake > Branding Engineer > メディアドゥ > パーソルキャリアを経て、エンタメアプリで起業、事業売却。二度目の起業を経て現職。コーポレート部門やCXO向けのソリューションに携わる。
 
 </div>
 
@@ -1517,7 +1561,7 @@ Makuake > Branding Engineer > メディアドゥ > パーソルキャリアを�
 
 ---
 
-## 作ったもの
+## 作ったAI製品
 
 <!-- パターン: B. カラムレイアウト系 / 用途: 画像付きカードを3つ並べて紹介したい時。 -->
 
@@ -1533,7 +1577,7 @@ Makuake > Branding Engineer > メディアドゥ > パーソルキャリアを�
   <div class="image-card">
     <img class="image-card-thumb" src="../assets/AIforResidenceResearch01.png" alt="作ったもの2（サンプル画像）" />
     <div class="image-card-content">
-      <div class="image-card-title">不動産リサーチのAI</div>
+      <div class="image-card-title">不動産価格リサーチAI</div>
       <div class="image-card-text">知り合いの不動産屋の業務平準化</div>
       <div class="image-card-tag">PCアプリ</div>
     </div>
@@ -1541,7 +1585,7 @@ Makuake > Branding Engineer > メディアドゥ > パーソルキャリアを�
   <div class="image-card">
     <img class="image-card-thumb" src="../assets/site&amp;discord%20(1).png" alt="作ったもの3（サンプル画像）" />
     <div class="image-card-content">
-      <div class="image-card-title">ニュース運営エージェント</div>
+      <div class="image-card-title">AIニュースを運営するAI</div>
       <div class="image-card-text">個人投資家のためのAIアンテナ</div>
       <div class="image-card-tag">WEBサイト, Webhook API</div>
     </div>
@@ -1682,51 +1726,6 @@ blockquote strong {
 
 <!-- パターン: D. パネルデザイン系 / 用途: 上下に2つのフローを並べて比較したい時。 -->
 
-<style scoped>
-.dual-flow {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.dual-flow .panel {
-  padding: 20px 24px;
-}
-
-/* 2本並べるため、フローを少しコンパクトにする */
-.dual-flow .process-flow {
-  padding: 8px 0;
-  gap: 10px;
-}
-.dual-flow .process-flow li {
-  min-height: 110px;
-}
-.dual-flow .flow-step {
-  width: 52px;
-  height: 52px;
-  font-size: 18px;
-  margin: 0 auto 10px;
-}
-.dual-flow .process-flow li::after {
-  font-size: 22px;
-  right: -14px;
-}
-.dual-flow .flow-label {
-  font-size: 18px;
-}
-
-/* 上段（従来）はニュートラルなグレーで表現 */
-.flow-legacy .flow-step {
-  background: var(--color-subheading) !important;
-}
-.flow-legacy .process-flow li::after {
-  color: var(--color-subheading) !important;
-}
-.flow-legacy .flow-label {
-  color: var(--color-subheading);
-}
-</style>
-
 <div class="dual-flow">
 
 <div class="panel">
@@ -1735,12 +1734,15 @@ blockquote strong {
 
 <div class="flow-legacy">
 <ol class="process-flow">
-  <li><div class="flow-step">1</div><div class="flow-label">リサーチ</div></li>
+  <li><div class="flow-step">1</div><div class="flow-label">議論</div></li>
   <li><div class="flow-step">2</div><div class="flow-label">要件</div></li>
-  <li><div class="flow-step">3</div><div class="flow-label">仕様設計</div></li>
-  <li><div class="flow-step">4</div><div class="flow-label">UI</div></li>
-  <li><div class="flow-step">5</div><div class="flow-label">ハンドオフ</div></li>
-  <li><div class="flow-step">6</div><div class="flow-label">実装</div></li>
+  <li><div class="flow-step">3</div><div class="flow-label">議論</div></li>
+  <li><div class="flow-step">4</div><div class="flow-label">仕様設計</div></li>
+  <li><div class="flow-step">5</div><div class="flow-label">議論</div></li>
+  <li><div class="flow-step">6</div><div class="flow-label">UI</div></li>
+  <li><div class="flow-step">7</div><div class="flow-label">議論</div></li>
+  <li><div class="flow-step">8</div><div class="flow-label">ハンドオフ</div></li>
+  <li><div class="flow-step">9</div><div class="flow-label">実装</div></li>
 </ol>
 <div class="text-block center" style="font-size: 20px; color: var(--color-subheading); margin-top: 10px;">
 役割ごとに工程を分け、ハンドオフで繋ぐ前提
@@ -1759,6 +1761,7 @@ blockquote strong {
   <li><div class="flow-step">3</div><div class="flow-label">CLI試作</div></li>
   <li><div class="flow-step">4</div><div class="flow-label">ブラッシュアップ</div></li>
   <li><div class="flow-step">5</div><div class="flow-label">ハンドオフ</div></li>
+  <li><div class="flow-step">6</div><div class="flow-label">実装</div></li>
 </ol>
 <div class="text-block center" style="font-size: 20px; color: var(--color-subheading); margin-top: 10px;">
 AI前提の仕事の流れ
@@ -1973,8 +1976,10 @@ AI前提の仕事の流れ
 
 <div class="usecase-title-row">
   <div class="flow-step">5</div>
-  <h2>"AIに聞いてもらう" というハンドオフ</h2>
+  <h2>"AIが答える" というハンドオフ</h2>
 </div>
+
+企業における開発の場合、大抵ハンドオフやレビューが必要。その材料提供も、AIの方が上手。
 
 <ul class="icon-card-list">
   <li class="icon-card">
@@ -1988,7 +1993,7 @@ AI前提の仕事の流れ
     <span class="icon-badge">🤔</span>
     <div class="icon-card-content">
       <div class="icon-card-title">吉永</div>
-      <div class="icon-card-body">（わからない・忘れた）</div>
+      <div class="icon-card-body">💦（わからない・忘れた）</div>
     </div>
   </li>
   <li class="icon-card">
@@ -2021,7 +2026,7 @@ AI前提の仕事の流れ
 
 ---
 
-## アイデアのレベルは、<br>完成形をイメージできる詳細度。
+## アイデアのレベル<br>= 完成形をイメージできる度合い
 <!-- パターン: B. カラムレイアウト系 / 用途: レベルや成熟度を段階的に示す時。 -->
 
 <div class="level-strip">
@@ -2056,7 +2061,7 @@ AI前提の仕事の流れ
 <!-- _class: section-end -->
 
 # まとめ
-## 完成形をイメージできる詳細度を目指そう。
+## 以前よりアイデアを大事にしよう。<br>完成形をイメージできる詳細度を目指そう。
 
 ---
 

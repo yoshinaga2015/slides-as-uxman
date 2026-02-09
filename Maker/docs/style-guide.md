@@ -1332,7 +1332,46 @@ section {
 - `.process-flow` - 水平方向のステップフロー
 - `.flow-step` - 丸型ステップ番号
 - `.flow-label` - ステップ名
+- `.dual-flow` - 2段フロー比較（上下に2本のフローを並べるコンテナ）
+- `.flow-legacy` - 片側（例: 従来側）をニュートラルなグレー表現に寄せるオプション
 - **運用**: 高さのばらつきを抑えるため、各ステップは縦中央に揃えて配置する
+- **補足**: `.dual-flow` 内ではフローが自動的にコンパクト化（stepサイズ・高さ・矢印サイズ・gap）される
+
+**使用例（2段フロー比較）**:
+
+```html
+<div class="dual-flow">
+  <div class="panel">
+    <h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 700; color: #374151;">従来</h3>
+
+    <div class="flow-legacy">
+      <ol class="process-flow">
+        <li><div class="flow-step">1</div><div class="flow-label">工程A</div></li>
+        <li><div class="flow-step">2</div><div class="flow-label">工程B</div></li>
+        <li><div class="flow-step">3</div><div class="flow-label">工程C</div></li>
+        <li><div class="flow-step">4</div><div class="flow-label">工程D</div></li>
+      </ol>
+      <div class="text-block center" style="font-size: 20px; color: var(--color-subheading); margin-top: 10px;">
+        ここに説明文が入ります
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3 style="margin: 0 0 12px 0; font-size: 24px; font-weight: 700; color: #374151;">変化</h3>
+
+    <ol class="process-flow">
+      <li><div class="flow-step">1</div><div class="flow-label">工程A</div></li>
+      <li><div class="flow-step">2</div><div class="flow-label">工程B</div></li>
+      <li><div class="flow-step">3</div><div class="flow-label">工程C</div></li>
+      <li><div class="flow-step">4</div><div class="flow-label">工程D</div></li>
+    </ol>
+    <div class="text-block center" style="font-size: 20px; color: var(--color-subheading); margin-top: 10px;">
+      ここに説明文が入ります
+    </div>
+  </div>
+</div>
+```
 
 #### レベル表示（横並び）
 - `.level-strip` - 5カラムを横並びのラベル表示
