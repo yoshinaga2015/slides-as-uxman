@@ -1,2 +1,8 @@
 .DS_Store
-.cursor/
+
+# Cursor: ignore by default, commit only shared guidance files
+.cursor/**
+!.cursor/AGENTS.md
+!.cursor/README.md
+!.cursor/*/
+!.cursor/*/SKILL.md
