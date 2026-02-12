@@ -1,5 +1,39 @@
 # 開発ノート / Dev Log
 
+## スライド生成（Marp）手順メモ
+
+### 最短手順（このリポジトリではこれを使う）
+
+リポジトリルートで実行。
+
+```bash
+# HTML
+npx -y @marp-team/marp-cli@latest --no-stdin --allow-local-files \
+  "Slides/20260212/Slides/deck20260212.md" \
+  -o "Slides/20260212/Slides/deck20260212.html"
+
+# PDF（初回はChromiumのDL/起動で時間がかかりがち）
+npx -y @marp-team/marp-cli@latest --no-stdin --allow-local-files --pdf \
+  "Slides/20260212/Slides/deck20260212.md" \
+  -o "Slides/20260212/Slides/deck20260212.pdf"
+```
+
+### つまずきポイント
+
+- `npx marp ...` が **stdin待ちで止まる**ことがある → `--no-stdin` を付ける（上のコマンドは付与済み）
+- PDF生成は **Chromium起動（初回はDL）** が走るため、HTMLより遅いのは正常
+
+### もう少し速くしたい場合（任意）
+
+- **グローバルに入れる**（`npx` の解決/取得を省ける）
+
+```bash
+npm i -g @marp-team/marp-cli
+marp --version
+```
+
+- 以後は `marp --no-stdin ...` を使う（コマンド形は上と同じ）
+
 ## 2026-02-04
 
 ### 3662326 Update example slides and assets
@@ -126,4 +160,27 @@
 - **意図**
   - スライド上で一読して理解できる密度に落とし、主張が流れで伝わるようにするため。
   - 配布物（HTML/PDF）も本文と同期し、差分や混乱が残らないようにするため。
+
+## 2026-02-12
+
+### deck20260212 のHTML/PDF更新手順を明文化（--no-stdin 追加）
+
+- **今日やったこと（変更の具体）**
+  - `deck20260212.md` から `deck20260212.html` / `deck20260212.pdf` を再生成して更新した
+  - Marp CLI が stdin 待ちで停止するケースがあったため、生成コマンドに `--no-stdin` を入れた
+  - 次回からの更新を速く・迷わず行えるよう、本ファイル先頭に「スライド生成（Marp）手順メモ」を追記した
+
+- **意図**
+  - 生成物（HTML/PDF）を毎回確実に本文と同期し、配布時の齟齬を防ぐため。
+  - “コマンドが止まる/忘れる” をなくし、更新コストと再現性のブレを減らすため。
+
+### deck20260212 の配布物（HTML/PDF）を再生成して同期
+
+- **今日やったこと（変更の具体）**
+  - `Slides/20260212/Slides/deck20260212.html` / `deck20260212.pdf` を最新の `deck20260212.md` に合わせて再生成し直した
+  - `Slides/20260212/assets/sampleUIs.png` を最新状態に差し替えた（スライド内のUI例が古いままになっていたため）
+
+- **意図**
+  - 登壇/配布で参照される成果物（HTML/PDF）と本文の不一致をなくし、閲覧者側の混乱を防ぐため。
+  - スライド中の例示画像が意図した最新版になっていることを保証するため。
 
